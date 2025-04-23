@@ -1,10 +1,16 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import { useRoutes } from 'react-router-dom';
+import routes from './routes/routes';
+import Navbar from './components/Navbar/Navbar';
 
+// TODO: se renseigner sur 'ThemeProvider' et 'AuthProvider'
 function App() {
+  // Use hook to manage routes
+  const routing = useRoutes(routes);
+
   return (
-    <p>Je suis tout nue</p>
+    routing
   );
 }
 
