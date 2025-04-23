@@ -1,14 +1,7 @@
 @import 'variables';
 
-@font-face{
-    font-family: 'Lato';
-    src: url('../fonts/Lato-Regular.woff2') format('woff2');
-    font-weight: normal;
-    font-style: normal;
-}
-
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: $font-body;
     font-size: 16px;
     line-height: 1.5;
     color: $secondary;

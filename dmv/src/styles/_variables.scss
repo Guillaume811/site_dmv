@@ -1,22 +1,11 @@
+@import 'fonts';
+
+// Fonts
+$font-title: 'Monserrat-Black', sans-serif;
+$font-subtitile: 'Monserrat-Bold', sans-serif;
+$font-body: 'Lato', sans-serif;
+
 // Colors
 $primary: #ffef0c;
 $secondary: #000000;
 $tertiary: #ffffff;
-
-// Fonts
-@font-face {
-    font-family: 'Monserrat-Black';
-    src: url(../fonts/Monserrat-Black.woff2) format('woff2');
-    font-weight: 900;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Monserrat-Bold';
-    src: url(../fonts/Monserrat-Bold.woff2) format('woff2');
-    font-weight: 700;
-    font-style: normal;
-}
-
-$font-title: 'Monserrat-Black', sans-serif;
-$font-subtitile: 'Monserrat-Bold', sans-serif;
