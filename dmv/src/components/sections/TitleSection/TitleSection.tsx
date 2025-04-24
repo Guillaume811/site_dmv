@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./TitleSection.module.scss";
 
 // Typage
 type TitleSectionProps = {
@@ -11,7 +12,7 @@ type TitleSectionProps = {
 */
 const TitleSection: React.FC<TitleSectionProps> = ({ title, children}) => {
     return(
-        <section>
+        <section className={styles.section}>
             <h2>{title}</h2>
             {children}
         </section>

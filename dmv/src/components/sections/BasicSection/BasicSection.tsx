@@ -1,4 +1,5 @@
 import React from "react";
+import styles from "./BasicSection.module.scss";
 
 // Typage
 type BasicSectionProps = {
@@ -8,7 +9,7 @@ type BasicSectionProps = {
 //Component
 const BasicSection: React.FC<BasicSectionProps> = ({ children }) => {
     return (
-        <section>
+        <section className={styles.section}>
             {children}
         </section>
     );
