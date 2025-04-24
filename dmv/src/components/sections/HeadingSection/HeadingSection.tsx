@@ -1,5 +1,6 @@
 import React from "react";
 import Title from "../../typographies/Title/Title";
+import styles from "./HeadingSection.module.scss";
 
 // Typage
 type HeadingSectionProps = {
@@ -11,7 +12,7 @@ type HeadingSectionProps = {
 */
 const HeadingSection: React.FC<HeadingSectionProps> = ({ title }) => {
     return (
-        <section>
+        <section className={styles.section}>
             <Title text={title}/>
         </section>
     );

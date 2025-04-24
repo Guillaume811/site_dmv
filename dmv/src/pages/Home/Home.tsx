@@ -11,6 +11,7 @@ import TitleSection from '../../components/sections/TitleSection/TitleSection';
 const Home: React.FC = () => {
     return (
         <div>
+            {/*Section d'introduction*/}
             <BasicSection>
                 <p>
                     Scroll
@@ -18,6 +19,7 @@ const Home: React.FC = () => {
                 <img src={Fleche} alt="Flèche vers le bas qui rebondis" />
             </BasicSection>
 
+            {/*Section d'introduction 2*/}
             <BasicSection>
                 <Title text="DMV - Production" />
                 <p>
@@ -27,9 +29,37 @@ const Home: React.FC = () => {
                 <Button text='Nos prestations' />
             </BasicSection>
 
+            {/*Section Nos projets*/}
             <TitleSection title='Nos projets'>
                 <p>
-                    Ici il y aura un caroussel ou 2 colonnes de 3 ou 3 colonnes de 2 projets.
+                    Ici il y aura un caroussel ou 2 colonnes de 3 ou 3 colonnes de 2 projets. Cela présentera les 6 derniers projets de la société.
+                </p>
+            </TitleSection>
+              
+            {/*Section découvrir nos projets*/}   
+            <BasicSection>
+                <p>
+                    Ici il y aura un parallaxe avec une image de fond et un Bouton au milieu.
+                </p>
+                <Button text='Découvir nos Projets' />
+            </BasicSection> 
+                
+            {/*Section Nos prestations*/}
+            <TitleSection title='Nos Prestations'>
+                <p>
+                    Ici il y aura des cart qui présenterons brièvement les prestation de la société.
+                    Il y aura un bouton pour chaque prestation qui redirigera vers la page de la prestation.
+                    Ou la card elle même sera un bouton qui redirigera vers la page de la prestation.
+                    Les cards seront présenté avec un titre, un texte et un pictogramme et/ou un bouton.
+                </p>
+            </TitleSection>
+
+            {/*Section Contact*/}
+            <TitleSection title='Contact'>
+                <p>
+                    Ici il y aura un formulaire de contact avec les champs suivants : Nom, Prénom, Email, Message.
+                    Il y aura un bouton pour envoyer le message.
+                    Il y aura aussi un bouton pour appeler la société.
                 </p>
             </TitleSection>
         </div>
