@@ -7,6 +7,7 @@ const Galerie: React.FC = () => {
         <div>
             {/*Section d'en-tête*/}
             <HeadingSection title='Galerie' />
+            
             {/*Section de présentation des prestations*/}
             <BasicSection>
                 <p>
