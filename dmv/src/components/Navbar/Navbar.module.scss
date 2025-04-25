@@ -1,12 +1,24 @@
 @import '../../styles/variables';
 
 .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 15;
+    height: 5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 1rem 0.5rem;
+    background: rgba(255, 255, 255, 0.6); /* Fond semi-transparent */
+  backdrop-filter: blur(10px); /* Flou arrière */
+  -webkit-backdrop-filter: blur(10px); /* Safari support */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    
 
     &__logo {
+        z-index: 15;
         display: flex;
         align-items: center;
 
@@ -24,6 +36,23 @@
         padding: 0;
         margin: 0;
         gap: 1rem;
+
+        @media (max-width: 768px) {
+            flex-direction: column;
+            position: fixed;
+            top: 0;
+            left: -100%;
+            width: 70%;
+            height: 100vh;
+            background: white;
+            padding: 8rem 2rem;
+            transition: right 0.3s ease;
+            z-index: 10;
+      
+            &.open {
+              left: 0;
+            }
+          }
 
         &__item {
             display: flex;
@@ -63,3 +92,16 @@
         }
     }
 }
+
+.burger {
+    display: none;
+    font-size: 2rem;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 15;
+  
+    @media (max-width: 768px) {
+      display: block;
+    }
+  }

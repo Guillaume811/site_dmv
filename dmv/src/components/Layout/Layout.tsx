@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
+import styles from "./Layout.module.scss";
 
 // Typage
 
@@ -11,7 +12,7 @@ const Layout = () => {
             <header>
                 <Navbar />
             </header>
-            <main>
+            <main className={styles.mainContent}>
                 <Outlet />
             </main>
             <footer>
