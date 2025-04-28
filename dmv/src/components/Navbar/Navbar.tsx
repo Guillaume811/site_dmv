@@ -2,12 +2,7 @@ import { NavLink, Link } from "react-router-dom";
 import logo from "../../assets/pictures/logo.png";
 import styles from "./Navbar.module.scss";
 import { useEffect, useRef, useState } from "react";
-
-const navLinks = [
-    { label: "Prestations", to: "/prestation" },
-    { label: "Projets", to: "/projet" },
-    { label: "Galerie", to: "/galerie" },
-  ];
+import { getNavigationLink, getNavigationLinksExcluding } from "../../data/navigationLinks";
 
 /* Navbar Composant
 * --------------------
@@ -25,6 +20,10 @@ const navLinks = [
 * - 
 */
 const Navbar: React.FC = () => {
+    // Récupère le lien de home
+    const homeLink = getNavigationLink("home");
+    // Récupère tous les autre lien sauf home
+    const navLinks = getNavigationLinksExcluding(["home"]);
     // Gère si le menu est ouvert ou fermer
     const [isOpen, setIsOpen] = useState(false);
     // Créer une référence pour l'élément ul 
@@ -63,7 +62,7 @@ const Navbar: React.FC = () => {
 
     return (
         <nav className={styles.navbar}>
-            <Link to="/" className={styles.navbar__logo}>
+            <Link to={homeLink?.to || "/"} className={styles.navbar__logo}>
                 <img 
                     src={logo} 
                     alt="Logo DMV - Production"    
@@ -85,8 +84,8 @@ const Navbar: React.FC = () => {
             <ul 
                 ref={menuRef} // Ajoute la ref au menu
                 className={`${styles.navbar__list} ${isOpen ? styles.open : ""}`}>
-                    {navLinks.map(({ label, to }) => (
-                        <li key={to} className={styles.navbar__list__item}>
+                    {navLinks.map(({ id, label, to }) => (
+                        <li key={id} className={styles.navbar__list__item}>
                             <NavLink
                                 to={to}
                                 className={({ isActive }) =>
