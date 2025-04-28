@@ -1,0 +1,33 @@
+.parallaxSection {
+    position: relative;
+    width: 100%;
+    height: 40vh; /* adapte la hauteur selon ton besoin */
+    overflow: hidden;
+    
+
+    &__background {
+        position: absolute;
+        top: -30%;
+        left: 0;
+        width: 100%;
+        height: 130%; /* un peu plus grand pour pouvoir scroller */
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+        will-change: transform; /* pour optimisation */
+        z-index: 1;
+    }
+
+    &__content {
+        position: relative;
+        z-index: 2;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        text-align: center;
+        box-sizing: border-box;
+    }
+  }

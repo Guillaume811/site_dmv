@@ -1,13 +1,14 @@
 import React from 'react';
 import BasicSection from '../../components/sections/BasicSection/BasicSection';
-import Title from '../../components/typographies/Title/Title';
 import Fleche from '../../assets/pictures/fleche-vers-le-bas-jaune.png';
+import Montage from '../../assets/pictures/background/parallax-accueil.jpg';
 import Button from '../../components/Button/Button';
 import TitleSection from '../../components/sections/TitleSection/TitleSection';
 import stylesBasicSection from "../../components/sections/BasicSection/BasicSection.module.scss";
 import stylesTitlesSection from "../../components/sections/TitleSection/TitleSection.module.scss";
 import ScrollArrow from '../../components/ScrollArrow/ScrollArrow';
 import { getNavigationLink } from "../../data/navigationLinks";
+import ParallaxSection from '../../components/sections/ParallaxSection/ParallaxSection';
 
 // Typage
 
@@ -50,10 +51,10 @@ const Home: React.FC = () => {
                 </p>
             </TitleSection>
               
-            {/*Section découvrir nos projets*/}   
-            <BasicSection className={stylesBasicSection.section}>
+            {/*Section découvrir nos projets*/}    
+            <ParallaxSection backgroundImage={Montage}>
                 <Button text='Découvir nos Projets' to={projetLink?.to}/>
-            </BasicSection> 
+            </ParallaxSection>
                 
             {/*Section Nos prestations*/}
             <TitleSection title='Nos Prestations' 
