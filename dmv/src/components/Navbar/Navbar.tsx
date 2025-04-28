@@ -24,6 +24,7 @@ const Navbar: React.FC = () => {
     const homeLink = getNavigationLink("home");
     // Récupère tous les autre lien sauf home
     const navLinks = getNavigationLinksExcluding(["home"]);
+    
     // Gère si le menu est ouvert ou fermer
     const [isOpen, setIsOpen] = useState(false);
     // Créer une référence pour l'élément ul 

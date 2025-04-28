@@ -6,11 +6,16 @@ import Button from '../../components/Button/Button';
 import TitleSection from '../../components/sections/TitleSection/TitleSection';
 import styles from "../../components/sections/BasicSection/BasicSection.module.scss";
 import ScrollArrow from '../../components/ScrollArrow/ScrollArrow';
+import { getNavigationLink } from "../../data/navigationLinks";
 
 // Typage
 
 // Composant
 const Home: React.FC = () => {
+    // Récupère les lien des pages prestation est projet
+    const prestationLink = getNavigationLink("prestation");
+    const projetLink = getNavigationLink("projet");
+
     return (
         <div>
             {/*Section d'introduction*/}
@@ -28,7 +33,7 @@ const Home: React.FC = () => {
                     Cum haec taliaque sollicitas eius aures everberarent expositas semper eius modi rumoribus et patentes,
                     varia animo tum miscente consilia, tandem id ut optimum factu elegit.
                 </p>
-                <Button text='Nos prestations' />
+                <Button text='Nos prestations' to={prestationLink?.to} />
             </BasicSection>
 
             {/*Section Nos projets*/}
@@ -43,7 +48,7 @@ const Home: React.FC = () => {
                 <p>
                     Ici il y aura un parallaxe avec une image de fond et un Bouton au milieu.
                 </p>
-                <Button text='Découvir nos Projets' />
+                <Button text='Découvir nos Projets' to={projetLink?.to}/>
             </BasicSection> 
                 
             {/*Section Nos prestations*/}
