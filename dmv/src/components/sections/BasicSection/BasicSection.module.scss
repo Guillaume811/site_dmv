@@ -3,3 +3,18 @@
     padding: 1rem;
     border: 1px solid black;
 }
+
+.sectionIntro {
+    position: relative;
+    width: 100%;
+    min-height: 60vh;
+    background-image: url("../../../assets/pictures/background/intro.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 1rem 1rem;
+    box-sizing: border-box;
+}

@@ -1,15 +1,15 @@
 import React from "react";
-import styles from "./BasicSection.module.scss";
 
 // Typage
 type BasicSectionProps = {
+    className?: string;
     children: React.ReactNode;
 }
 
 //Component
-const BasicSection: React.FC<BasicSectionProps> = ({ children }) => {
+const BasicSection: React.FC<BasicSectionProps> = ({ className, children }) => {
     return (
-        <section className={styles.section}>
+        <section className={`${className ?? ""}`}>
             {children}
         </section>
     );

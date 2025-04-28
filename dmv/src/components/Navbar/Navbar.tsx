@@ -24,7 +24,7 @@ const navLinks = [
 * Responsive:
 * - 
 */
-const Navbar = () => {
+const Navbar: React.FC = () => {
     // Gère si le menu est ouvert ou fermer
     const [isOpen, setIsOpen] = useState(false);
     // Créer une référence pour l'élément ul 

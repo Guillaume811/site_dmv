@@ -4,6 +4,8 @@ import Title from '../../components/typographies/Title/Title';
 import Fleche from '../../assets/pictures/fleche-vers-le-bas-jaune.png';
 import Button from '../../components/Button/Button';
 import TitleSection from '../../components/sections/TitleSection/TitleSection';
+import styles from "../../components/sections/BasicSection/BasicSection.module.scss";
+import ScrollArrow from '../../components/ScrollArrow/ScrollArrow';
 
 // Typage
 
@@ -12,15 +14,15 @@ const Home: React.FC = () => {
     return (
         <div>
             {/*Section d'introduction*/}
-            <BasicSection>
-                <p>
-                    Scroll
-                </p>
-                <img src={Fleche} alt="Flèche vers le bas qui rebondis" />
+            <BasicSection className={styles.sectionIntro}>
+                <ScrollArrow 
+                    text='Scroll' 
+                    imageSrc={Fleche} 
+                    altText='Fleche vers le bas' />
             </BasicSection>
 
             {/*Section d'introduction 2*/}
-            <BasicSection>
+            <BasicSection className={styles.section}>
                 <Title text="DMV - Production" />
                 <p>
                     Cum haec taliaque sollicitas eius aures everberarent expositas semper eius modi rumoribus et patentes,
@@ -37,7 +39,7 @@ const Home: React.FC = () => {
             </TitleSection>
               
             {/*Section découvrir nos projets*/}   
-            <BasicSection>
+            <BasicSection className={styles.section}>
                 <p>
                     Ici il y aura un parallaxe avec une image de fond et un Bouton au milieu.
                 </p>

@@ -12,8 +12,8 @@
     align-items: center;
     padding: 1rem 0.5rem;
     background: rgba(255, 255, 255, 0.6); /* Fond semi-transparent */
-  backdrop-filter: blur(10px); /* Flou arrière */
-  -webkit-backdrop-filter: blur(10px); /* Safari support */
+    backdrop-filter: blur(10px); /* Flou arrière */
+    -webkit-backdrop-filter: blur(10px); /* Safari support */
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     
 
