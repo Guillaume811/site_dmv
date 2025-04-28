@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
     return (
         <div>
             {/*Section d'en-tête*/}
-            <HeadingSection title='Contact' />
+            <HeadingSection title='Contact' backgroundImage='BackgroundHeading' />
             {/*Section de présentation des prestations*/}
             <BasicSection>
                 <p>

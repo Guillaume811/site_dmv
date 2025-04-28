@@ -9,6 +9,8 @@ type ParallaxSectionProps = {
     children: React.ReactNode;
   };
 
+// Component
+// TODO: voir si c'est compatible IOS
 const ParallaxSection: React.FC<ParallaxSectionProps> = ({backgroundImage, children}) => {
 
     const ref = useRef<HTMLDivElement>(null);

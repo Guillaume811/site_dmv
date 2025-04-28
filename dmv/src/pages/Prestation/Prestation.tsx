@@ -2,12 +2,13 @@ import React from 'react';
 import HeadingSection from '../../components/sections/HeadingSection/HeadingSection';
 import Button from '../../components/Button/Button';
 import BasicSection from '../../components/sections/BasicSection/BasicSection';
+import BackgroundHeading from '../../assets/pictures/background/heading.jpg';
 
 const Prestation: React.FC = () => {
     return (
         <div>
             {/*Section d'en-tête*/}
-            <HeadingSection title='Nos Prestations' />
+            <HeadingSection title='Nos Prestations' backgroundImage={BackgroundHeading} />
 
             {/*Section de présentation des prestations*/}
             <BasicSection>
