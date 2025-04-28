@@ -3,6 +3,8 @@ import styles from "./TitleSection.module.scss";
 
 // Typage
 type TitleSectionProps = {
+    classNameSection?: string;
+    classNameTitle?: string;
     title: string;
     children: React.ReactNode;
 };
@@ -10,10 +12,12 @@ type TitleSectionProps = {
 /* Component
 * TitleSection is a section that contains a title (h2) and children elements.
 */
-const TitleSection: React.FC<TitleSectionProps> = ({ title, children}) => {
+const TitleSection: React.FC<TitleSectionProps> = ({ classNameSection, classNameTitle, title, children}) => {
     return(
-        <section className={styles.section}>
-            <h2>{title}</h2>
+        <section className={classNameSection ?? ""}>
+            <h2 className={classNameTitle ?? ""}>
+                {title}
+            </h2>
             {children}
         </section>
 

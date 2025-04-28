@@ -4,7 +4,8 @@ import Title from '../../components/typographies/Title/Title';
 import Fleche from '../../assets/pictures/fleche-vers-le-bas-jaune.png';
 import Button from '../../components/Button/Button';
 import TitleSection from '../../components/sections/TitleSection/TitleSection';
-import styles from "../../components/sections/BasicSection/BasicSection.module.scss";
+import stylesBasicSection from "../../components/sections/BasicSection/BasicSection.module.scss";
+import stylesTitlesSection from "../../components/sections/TitleSection/TitleSection.module.scss";
 import ScrollArrow from '../../components/ScrollArrow/ScrollArrow';
 import { getNavigationLink } from "../../data/navigationLinks";
 
@@ -19,7 +20,7 @@ const Home: React.FC = () => {
     return (
         <div>
             {/*Section d'introduction*/}
-            <BasicSection className={styles.sectionIntro}>
+            <BasicSection className={stylesBasicSection.sectionIntro}>
                 <ScrollArrow 
                     text='Scroll' 
                     imageSrc={Fleche} 
@@ -27,32 +28,38 @@ const Home: React.FC = () => {
             </BasicSection>
 
             {/*Section d'introduction 2*/}
-            <BasicSection className={styles.section}>
-                <Title text="DMV - Production" />
+            <TitleSection 
+                title='DMV - Production' 
+                classNameSection={stylesTitlesSection.sectionPresentation}
+                classNameTitle={stylesTitlesSection.sectionPresentation__title}
+            >
                 <p>
                     Cum haec taliaque sollicitas eius aures everberarent expositas semper eius modi rumoribus et patentes,
                     varia animo tum miscente consilia, tandem id ut optimum factu elegit.
                 </p>
                 <Button text='Nos prestations' to={prestationLink?.to} />
-            </BasicSection>
+            </TitleSection>
 
             {/*Section Nos projets*/}
-            <TitleSection title='Nos projets'>
+            <TitleSection title='Nos projets' 
+                classNameSection={stylesTitlesSection.sectionPresentation}
+                classNameTitle={stylesTitlesSection.sectionPresentation__title}
+            >
                 <p>
                     Ici il y aura un caroussel ou 2 colonnes de 3 ou 3 colonnes de 2 projets. Cela présentera les 6 derniers projets de la société.
                 </p>
             </TitleSection>
               
             {/*Section découvrir nos projets*/}   
-            <BasicSection className={styles.section}>
-                <p>
-                    Ici il y aura un parallaxe avec une image de fond et un Bouton au milieu.
-                </p>
+            <BasicSection className={stylesBasicSection.section}>
                 <Button text='Découvir nos Projets' to={projetLink?.to}/>
             </BasicSection> 
                 
             {/*Section Nos prestations*/}
-            <TitleSection title='Nos Prestations'>
+            <TitleSection title='Nos Prestations' 
+                classNameSection={stylesTitlesSection.sectionPresentation}
+                classNameTitle={stylesTitlesSection.sectionPresentation__title}
+            >
                 <p>
                     Ici il y aura des cart qui présenterons brièvement les prestation de la société.
                     Il y aura un bouton pour chaque prestation qui redirigera vers la page de la prestation.
@@ -62,7 +69,10 @@ const Home: React.FC = () => {
             </TitleSection>
 
             {/*Section Contact*/}
-            <TitleSection title='Contact'>
+            <TitleSection title='Contact' 
+                classNameSection={stylesTitlesSection.sectionPresentation}
+                classNameTitle={stylesTitlesSection.sectionPresentation__title}
+            >
                 <p>
                     Ici il y aura un formulaire de contact avec les champs suivants : Nom, Prénom, Email, Message.
                     Il y aura un bouton pour envoyer le message.
