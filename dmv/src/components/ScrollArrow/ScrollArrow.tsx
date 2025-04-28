@@ -17,7 +17,8 @@ const ScrollArrow: React.FC<ScrollArrowProps> = ({text, imageSrc, altText}) => {
                 className={styles.content__span}
                 animate={{ opacity: [1, 0, 1] }}
                 transition={{
-                    duration: 1.5,
+                    duration: 2,
+                    ease: "easeInOut",
                     repeat: Infinity,
                     repeatType: "loop",
                 }}
