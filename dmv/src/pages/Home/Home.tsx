@@ -9,6 +9,7 @@ import stylesTitlesSection from "../../components/sections/TitleSection/TitleSec
 import ScrollArrow from '../../components/ScrollArrow/ScrollArrow';
 import { getNavigationLink } from "../../data/navigationLinks";
 import ParallaxSection from '../../components/sections/ParallaxSection/ParallaxSection';
+import CardProject from '../../components/CardProject/CardProject';
 
 // Typage
 
@@ -17,6 +18,8 @@ const Home: React.FC = () => {
     // Récupère les lien des pages prestation est projet
     const prestationLink = getNavigationLink("prestation");
     const projetLink = getNavigationLink("projet");
+
+    // Récupère la data des projets
 
     return (
         <div>
@@ -46,9 +49,14 @@ const Home: React.FC = () => {
                 classNameSection={stylesTitlesSection.sectionPresentation}
                 classNameTitle={stylesTitlesSection.sectionPresentation__title}
             >
-                <p>
-                    Ici il y aura un caroussel ou 2 colonnes de 3 ou 3 colonnes de 2 projets. Cela présentera les 6 derniers projets de la société.
-                </p>
+                <CardProject project={{
+                    id: 1,
+                    title: 'Titre du projet 1',
+                    subtitle: 'Sous-titre du projet 1',
+                    keywords: ['mot-clé 1', 'mot-clé 2'],
+                    picture: 'https://via.placeholder.com/150',
+                    url: '/projet/1'
+                }} />
             </TitleSection>
               
             {/*Section découvrir nos projets*/}    
