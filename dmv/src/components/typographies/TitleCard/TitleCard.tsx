@@ -1,13 +1,26 @@
 import React from 'react';
+import styles from './TitleCard.module.css';
 
 // Typage
 type TitleCardProps = {
-    text: string;
+    className?: string;
+    title: string;
+    subtitle: string;
 };
 
 // Composant
-const TitleCard: React.FC<TitleCardProps> = ({ text }) => {
-    return <h3>{text}</h3>;
+const TitleCard: React.FC<TitleCardProps> = ({ className, title, subtitle }) => {
+    return (
+        <div className={`${className ?? ""}`}>
+            <h3 className={styles.title}>
+                {title}
+            </h3>
+            <h4 className={styles.subtitle}>
+                {subtitle}
+            </h4>
+        </div>
+        
+    ) ;
 };
 
 export default TitleCard;
