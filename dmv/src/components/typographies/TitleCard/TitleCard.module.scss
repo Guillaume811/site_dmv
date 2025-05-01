@@ -1,0 +1,13 @@
+@import '../../../styles/variables.scss';
+
+.title {
+    font-family: $font-subtitile, sans-serif;
+    font-size: 1.25rem;
+    color: $tertiary;
+    margin-bottom: 0.5rem;
+}
+
+.subtitle {
+    font-size: 0.95rem;
+    color: $tertiary;
+}
