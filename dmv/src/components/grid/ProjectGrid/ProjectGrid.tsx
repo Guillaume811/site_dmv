@@ -1,30 +1,24 @@
 import React from 'react';
 import CardProject from '../../cards/CardProject/CardProject';
 import styles from './ProjectGrid.module.scss';
+import { ProjectType } from '../../../projects/project.types';
 
 //Typage
+type ProjectGridProps = {
+    projects: ProjectType[];
+}
 
 // ProjectGrid Component
-const ProjectGrid: React.FC = () => {
+const ProjectGrid: React.FC<ProjectGridProps> = ({ projects }) => {
+
+    if (!projects.length) {
+        return <p className={styles.empty}>Aucun projet à afficher.</p>;
+      }
     return (
         <div className={styles.grid}>
-            <CardProject project={{
-                    id: 1,
-                    title: 'Titre du projet 1',
-                    subtitle: 'Sous-titre du projet 1',
-                    keywords: ['mot-clé 1', 'mot-clé 2'],
-                    picture: '/pictures/projet-a/header.jpg',
-                    url: '/'
-                }} />
-
-                <CardProject project={{
-                    id: 2,
-                    title: 'Titre du projet 2',
-                    subtitle: 'Sous-titre du projet 2',
-                    keywords: ['mot-clé 1', 'mot-clé 2'],
-                    picture: '/pictures/projet-b/header.jpg',
-                    url: '/'
-                }} />
+            {projects.map((project) => (
+                <CardProject key={project.id} project={project} />
+            ))}
         </div>
     );
 };
