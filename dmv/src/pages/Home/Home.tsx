@@ -9,7 +9,7 @@ import stylesTitlesSection from "../../components/sections/TitleSection/TitleSec
 import ScrollArrow from '../../components/ScrollArrow/ScrollArrow';
 import { getNavigationLink } from "../../data/navigationLinks";
 import ParallaxSection from '../../components/sections/ParallaxSection/ParallaxSection';
-import CardProject from '../../components/CardProject/CardProject';
+import ProjectGrid from '../../components/grid/ProjectGrid/ProjectGrid';
 
 // Typage
 
@@ -49,14 +49,8 @@ const Home: React.FC = () => {
                 classNameSection={stylesTitlesSection.sectionPresentation}
                 classNameTitle={stylesTitlesSection.sectionPresentation__title}
             >
-                <CardProject project={{
-                    id: 1,
-                    title: 'Titre du projet 1',
-                    subtitle: 'Sous-titre du projet 1',
-                    keywords: ['mot-clé 1', 'mot-clé 2'],
-                    picture: 'https://via.placeholder.com/150',
-                    url: '/projet/1'
-                }} />
+                <ProjectGrid />
+
             </TitleSection>
               
             {/*Section découvrir nos projets*/}    
