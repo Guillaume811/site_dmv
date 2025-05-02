@@ -1,0 +1,114 @@
+[
+    {
+        "id": 1,
+        "title": "Project A",
+        "subtitle": "This is a subtitle of Project A.",
+        "description": "This is a long description of Project A. It provides detailed information about the project, its objectives, and its outcomes.",
+        "keywords": ["Drone", "Photos", "Video"],
+        "pictureHeaderUrl": "/pictures/projet-a/header.jpg",
+        "pictureHeaderAlt": "Project A Header Image",
+        "pictureGallery": [
+            {
+                "id": 1,
+                "pictureUrl": "/pictures/projectA/image1.jpg",
+                "pictureAlt": "Image 1 description"
+            },
+            {
+                "id": 2,
+                "pictureUrl": "/pictures/projectA/image2.jpg",
+                "pictureAlt": "Image 2 description"
+            },
+            {
+                "id": 3,
+                "pictureUrl": "/pictures/projectA/image3.jpg",
+                "pictureAlt": "Image 3 description"
+            },
+            {
+                "id": 4,
+                "pictureUrl": "/pictures/projectA/image4.jpg",
+                "pictureAlt": "Image 4 description"
+            },
+            {
+                "id": 5,
+                "picpictureUrlture": "/pictures/projectA/image5.jpg",
+                "pictureAlt": "Image 5 description"
+            },
+            {
+                "id": 6,
+                "pictureUrl": "/pictures/projectA/image6.jpg",
+                "pictureAlt": "Image 6 description"
+            },
+            {
+                "id": 7,
+                "pictureUrl": "/pictures/projectA/image7.jpg",
+                "pictureAlt": "Image 7 description"
+            },
+            {
+                "id": 8,
+                "pictureUrl": "/pictures/projectA/image8.jpg",
+                "pictureAlt": "Image 8 description"
+            },
+            {
+                "id": 9,
+                "pictureUrl": "/pictures/projectA/image9.jpg",
+                "pictureAlt": "Image 9 description"
+            }
+        ]
+    },
+    {
+        "id": 2,
+        "title": "Project B",
+        "subtitle": "This is a short subtitle of Project B.",
+        "description": "This is a long description of Project B. It provides detailed information about the project, its objectives, and its outcomes.",
+        "keywords": ["Drone", "Photos", "Video"],
+        "pictureHeaderUrl": "/pictures/projet-b/header.jpg",
+        "pictureHeaderAlt": "Project B Header Image",
+        "pictureGallery": [
+            {
+                "id": 1,
+                "pictureUrl": "/pictures/projectB/image1.jpg",
+                "pictureAlt": "Image 1 description"
+            },
+            {
+                "id": 2,
+                "pictureUrl": "/pictures/projectB/image2.jpg",
+                "pictureAlt": "Image 2 description"
+            },
+            {
+                "id": 3,
+                "pictureUrl": "/pictures/projectB/image3.jpg",
+                "pictureAlt": "Image 3 description"
+            },
+            {
+                "id": 4,
+                "pictureUrl": "/pictures/projectB/image4.jpg",
+                "pictureAlt": "Image 4 description"
+            },
+            {
+                "id": 5,
+                "pictureUrl": "/pictures/projectB/image5.jpg",
+                "pictureAlt": "Image 5 description"
+            },
+            {
+                "id": 6,
+                "pictureUrl": "/pictures/projectB/image6.jpg",
+                "pictureAlt": "Image 6 description"
+            },
+            {
+                "id": 7,
+                "pictureUrl": "/pictures/projectB/image7.jpg",
+                "pictureAlt": "Image 7 description"
+            },
+            {
+                "id": 8,
+                "pictureUrl": "/pictures/projectB/image8.jpg",
+                "pictureAlt": "Image 8 description"
+            },
+            {
+                "id": 9,
+                "pictureUrl": "/pictures/projectB/image9.jpg",
+                "pictureAlt": "Image 9 description"
+            }
+        ]
+    }
+]
