@@ -1,5 +1,5 @@
 import React from 'react';
-import styles from './TitleCard.module.css';
+import styles from './TitleCard.module.scss';
 
 // Typage
 type TitleCardProps = {
