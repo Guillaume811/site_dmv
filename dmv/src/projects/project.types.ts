@@ -3,6 +3,6 @@ export type ProjectType = {
     title: string;
     subtitle: string;
     keywords: string[];
-    picture: string;
+    pictureHeaderUrl: string;
     url: string;
 };
