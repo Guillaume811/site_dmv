@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './CardProject.module.css'; // Assuming you have a CSS module for styles
+import styles from './CardProject.module.scss';
 import { Link } from 'react-router-dom';
-import TitleCard from '../typographies/TitleCard/TitleCard';
+import TitleCard from '../../typographies/TitleCard/TitleCard';
 
 //Typage
 type CardProjectProps = {
@@ -33,7 +33,7 @@ const CardProject: React.FC<CardProjectProps> = ({ project }) => {
                 </div>
 
                 <TitleCard 
-                    className={styles.text}
+                    className={styles.card__container__text}
                     title={project.title}
                     subtitle={project.subtitle}
                 />
