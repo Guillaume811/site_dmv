@@ -5,7 +5,7 @@
         "subtitle": "This is a subtitle of Project A.",
         "description": "This is a long description of Project A. It provides detailed information about the project, its objectives, and its outcomes.",
         "keywords": ["Drone", "Photos", "Video"],
-        "pictureHeaderUrl": "/pictures/projet-a/header.jpg",
+        "pictureHeaderUrl": "/pictures/project-a/header.jpg",
         "pictureHeaderAlt": "Project A Header Image",
         "pictureGallery": [
             {
@@ -61,7 +61,7 @@
         "subtitle": "This is a subtitle of Project B.",
         "description": "This is a long description of Project B. It provides detailed information about the project, its objectives, and its outcomes.",
         "keywords": ["Drone", "Photos", "Video"],
-        "pictureHeaderUrl": "/pictures/projet-b/header.jpg",
+        "pictureHeaderUrl": "/pictures/project-b/header.jpg",
         "pictureHeaderAlt": "Project B Header Image",
         "pictureGallery": [
             {
@@ -117,7 +117,7 @@
         "subtitle": "This is a subtitle of Project C.",
         "description": "This is a long description of Project C. It provides detailed information about the project, its objectives, and its outcomes.",
         "keywords": ["Drone", "Photos", "Video"],
-        "pictureHeaderUrl": "/pictures/projet-c/header.jpg",
+        "pictureHeaderUrl": "/pictures/project-c/header.jpg",
         "pictureHeaderAlt": "Project C Header Image",
         "pictureGallery": [
             {
@@ -173,7 +173,7 @@
         "subtitle": "This is a subtitle of Project D.",
         "description": "This is a long description of Project D. It provides detailed information about the project, its objectives, and its outcomes.",
         "keywords": ["Drone", "Photos", "Video"],
-        "pictureHeaderUrl": "/pictures/projet-d/header.jpg",
+        "pictureHeaderUrl": "/pictures/project-d/header.jpg",
         "pictureHeaderAlt": "Project D Header Image",
         "pictureGallery": [
             {
@@ -229,7 +229,7 @@
         "subtitle": "This is a subtitle of Project E.",
         "description": "This is a long description of Project E. It provides detailed information about the project, its objectives, and its outcomes.",
         "keywords": ["Drone", "Photos", "Video"],
-        "pictureHeaderUrl": "/pictures/projet-e/header.jpg",
+        "pictureHeaderUrl": "/pictures/project-e/header.jpg",
         "pictureHeaderAlt": "Project E Header Image",
         "pictureGallery": [
             {
@@ -285,7 +285,7 @@
         "subtitle": "This is a subtitle of Project F.",
         "description": "This is a long description of Project F. It provides detailed information about the project, its objectives, and its outcomes.",
         "keywords": ["Drone", "Photos", "Video"],
-        "pictureHeaderUrl": "/pictures/projet-f/header.jpg",
+        "pictureHeaderUrl": "/pictures/project-f/header.jpg",
         "pictureHeaderAlt": "Project F Header Image",
         "pictureGallery": [
             {
@@ -341,7 +341,7 @@
         "subtitle": "This is a subtitle of Project G.",
         "description": "This is a long description of Project G. It provides detailed information about the project, its objectives, and its outcomes.",
         "keywords": ["Drone", "Photos", "Video"],
-        "pictureHeaderUrl": "/pictures/projet-g/header.jpg",
+        "pictureHeaderUrl": "/pictures/project-g/header.jpg",
         "pictureHeaderAlt": "Project G Header Image",
         "pictureGallery": [
             {
