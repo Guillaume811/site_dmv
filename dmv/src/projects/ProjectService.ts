@@ -36,4 +36,9 @@ export class ProjectService {
       const all = await this.fetchData();
       return all.slice(0, 6); // On garde uniquement les 6 premiers
     }
+
+     // Optionnel : permet de vider manuellement le cache (utile en développement)
+  static clearCache() {
+    this.cache = null;
+  }
 }
