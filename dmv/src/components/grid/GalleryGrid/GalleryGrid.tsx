@@ -1,5 +1,4 @@
 import React from 'react';
-import './GalleryGrid.css';
 import { GalleryPicture } from '../../../projects/project.types';
 import styles from './GalleryGrid.module.scss';
 import Picture from '../../Picture/Picture';
