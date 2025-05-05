@@ -5,6 +5,7 @@ import { ProjectService } from '../../projects/ProjectService';
 import HeadingSection from '../../components/sections/HeadingSection/HeadingSection';
 import stylesTitlesSection from "../../components/sections/TitleSection/TitleSection.module.scss";
 import TitleSection from '../../components/sections/TitleSection/TitleSection';
+import GalleryGrid from '../../components/grid/GalleryGrid/GalleryGrid';
 
 const SingleProject: React.FC = () => {
 
@@ -36,6 +37,11 @@ const SingleProject: React.FC = () => {
                 <p>
                     {project.description}
                 </p>
+
+                {project.picturesGallery && (
+                    <GalleryGrid pictures={project.picturesGallery} />
+                )}
+                
 
             </TitleSection>
         </div>
