@@ -38,8 +38,10 @@ const SingleProject: React.FC = () => {
                     {project.description}
                 </p>
 
-                {project.picturesGallery && (
+                {project.picturesGallery?.length ? (
                     <GalleryGrid pictures={project.picturesGallery} />
+                ) : (
+                    <p>Aucune image disponible pour ce projet.</p>
                 )}
                 
 
