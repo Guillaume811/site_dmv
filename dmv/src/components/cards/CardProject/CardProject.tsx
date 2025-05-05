@@ -12,7 +12,7 @@ type CardProjectProps = {
 // CardProject Component
 const CardProject: React.FC<CardProjectProps> = ({ project }) => {
     return (
-        <Link to={project.url} className={styles.card}>
+        <Link to={`/projet/${project.slug}`} className={styles.card}>
             <div 
                 className={styles.card__container}
                 style={{ backgroundImage: `url(${project.pictureHeaderUrl})` }}
