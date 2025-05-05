@@ -1,0 +1,13 @@
+.picture {
+    width: 100%;
+    aspect-ratio: 1 / 1; // Force un carré peu importe la largeur
+    overflow: hidden;
+  
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;     // Remplit le carré sans déformer
+      object-position: center;
+      display: block;
+    }
+  }
