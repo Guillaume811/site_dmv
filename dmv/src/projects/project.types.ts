@@ -1,8 +1,9 @@
 export type ProjectType = {
     id: number;
+    slug: string;
     title: string;
     subtitle: string;
+    description: string;
     keywords: string[];
     pictureHeaderUrl: string;
-    url: string;
 };

@@ -38,7 +38,15 @@ export class ProjectService {
     }
 
      // Optionnel : permet de vider manuellement le cache (utile en développement)
-  static clearCache() {
+    static clearCache() {
     this.cache = null;
-  }
+    }
+
+    // Recherche un projet unique dans le fichier json à partir de son slug
+    static async getProjectBySlug(slug: string): Promise<ProjectType | undefined> {
+      // Charge tous les projets depuis le fichier JSON (avec mise en cache si déjà récupérés)
+      const all = await this.fetchData();
+      // Retourne le projet dont le slug correspond à celui passé en paramètre
+      return all.find((p) => p.slug === slug);
+    }
 }
