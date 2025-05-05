@@ -98,7 +98,7 @@
             },
             {
                 "id": 7,
-                "pictureUrl": "/pictures/project-a/image-sept.jpg",
+                "pictureUrl": "/pictures/project-b/image-sept.jpg",
                 "pictureAlt": "Image 7 description"
             },
             {
@@ -122,53 +122,7 @@
         "keywords": ["Drone", "Photos", "Video"],
         "pictureHeaderUrl": "/pictures/project-c/header.jpg",
         "pictureHeaderAlt": "Project C Header Image",
-        "picturesGallery": [
-            {
-                "id": 1,
-                "pictureUrl": "/pictures/project-c/image-un.jpg",
-                "pictureAlt": "Image 1 description"
-            },
-            {
-                "id": 2,
-                "pictureUrl": "/pictures/project-c/image-deux.jpg",
-                "pictureAlt": "Image 2 description"
-            },
-            {
-                "id": 3,
-                "pictureUrl": "/pictures/project-c/image-trois.jpg",
-                "pictureAlt": "Image 3 description"
-            },
-            {
-                "id": 4,
-                "pictureUrl": "/pictures/project-c/image-quatre.jpg",
-                "pictureAlt": "Image 4 description"
-            },
-            {
-                "id": 5,
-                "pictureUrl": "/pictures/project-c/image-cinq.jpg",
-                "pictureAlt": "Image 5 description"
-            },
-            {
-                "id": 6,
-                "pictureUrl": "/pictures/project-c/image-six.jpg",
-                "pictureAlt": "Image 6 description"
-            },
-            {
-                "id": 7,
-                "pictureUrl": "/pictures/project-c/image-sept.jpg",
-                "pictureAlt": "Image 7 description"
-            },
-            {
-                "id": 8,
-                "pictureUrl": "/pictures/project-c/image-huit.jpg",
-                "pictureAlt": "Image 8 description"
-            },
-            {
-                "id": 9,
-                "pictureUrl": "/pictures/project-c/image-neuf.jpg",
-                "pictureAlt": "Image 9 description"
-            }
-        ]
+        "picturesGallery": []
     },
     {
         "id": 4,
@@ -236,53 +190,7 @@
         "keywords": ["Drone", "Photos", "Video"],
         "pictureHeaderUrl": "/pictures/project-e/header.jpg",
         "pictureHeaderAlt": "Project E Header Image",
-        "picturesGallery": [
-            {
-                "id": 1,
-                "pictureUrl": "/pictures/project-e/image-un.jpg",
-                "pictureAlt": "Image 1 description"
-            },
-            {
-                "id": 2,
-                "pictureUrl": "/pictures/project-e/image-deux.jpg",
-                "pictureAlt": "Image 2 description"
-            },
-            {
-                "id": 3,
-                "pictureUrl": "/pictures/project-e/image-trois.jpg",
-                "pictureAlt": "Image 3 description"
-            },
-            {
-                "id": 4,
-                "pictureUrl": "/pictures/project-e/image-quatre.jpg",
-                "pictureAlt": "Image 4 description"
-            },
-            {
-                "id": 5,
-                "pictureUrl": "/pictures/project-e/image-cinq.jpg",
-                "pictureAlt": "Image 5 description"
-            },
-            {
-                "id": 6,
-                "pictureUrl": "/pictures/project-e/image-six.jpg",
-                "pictureAlt": "Image 6 description"
-            },
-            {
-                "id": 7,
-                "pictureUrl": "/pictures/project-e/image-sept.jpg",
-                "pictureAlt": "Image 7 description"
-            },
-            {
-                "id": 8,
-                "pictureUrl": "/pictures/project-e/image-huit.jpg",
-                "pictureAlt": "Image 8 description"
-            },
-            {
-                "id": 9,
-                "pictureUrl": "/pictures/project-e/image-neuf.jpg",
-                "pictureAlt": "Image 9 description"
-            }
-        ]
+        "picturesGallery": []
     },
     {
         "id": 6,
@@ -293,53 +201,7 @@
         "keywords": ["Drone", "Photos", "Video"],
         "pictureHeaderUrl": "/pictures/project-f/header.jpg",
         "pictureHeaderAlt": "Project F Header Image",
-        "picturesGallery": [
-            {
-                "id": 1,
-                "pictureUrl": "/pictures/project-f/image-un.jpg",
-                "pictureAlt": "Image 1 description"
-            },
-            {
-                "id": 2,
-                "pictureUrl": "/pictures/project-f/image-deux.jpg",
-                "pictureAlt": "Image 2 description"
-            },
-            {
-                "id": 3,
-                "pictureUrl": "/pictures/project-f/image-trois.jpg",
-                "pictureAlt": "Image 3 description"
-            },
-            {
-                "id": 4,
-                "pictureUrl": "/pictures/project-f/image-quatre.jpg",
-                "pictureAlt": "Image 4 description"
-            },
-            {
-                "id": 5,
-                "pictureUrl": "/pictures/project-f/image-cinq.jpg",
-                "pictureAlt": "Image 5 description"
-            },
-            {
-                "id": 6,
-                "pictureUrl": "/pictures/project-f/image-six.jpg",
-                "pictureAlt": "Image 6 description"
-            },
-            {
-                "id": 7,
-                "pictureUrl": "/pictures/project-f/image-sept.jpg",
-                "pictureAlt": "Image 7 description"
-            },
-            {
-                "id": 8,
-                "pictureUrl": "/pictures/project-f/image-huit.jpg",
-                "pictureAlt": "Image 8 description"
-            },
-            {
-                "id": 9,
-                "pictureUrl": "/pictures/project-f/image-neuf.jpg",
-                "pictureAlt": "Image 9 description"
-            }
-        ]
+        "picturesGallery": []
     },
     {
         "id": 7,
@@ -350,52 +212,6 @@
         "keywords": ["Drone", "Photos", "Video"],
         "pictureHeaderUrl": "/pictures/project-g/header.jpg",
         "pictureHeaderAlt": "Project G Header Image",
-        "picturesGallery": [
-            {
-                "id": 1,
-                "pictureUrl": "/pictures/project-g/image-un.jpg",
-                "pictureAlt": "Image 1 description"
-            },
-            {
-                "id": 2,
-                "pictureUrl": "/pictures/project-g/image-deux.jpg",
-                "pictureAlt": "Image 2 description"
-            },
-            {
-                "id": 3,
-                "pictureUrl": "/pictures/project-g/image-trois.jpg",
-                "pictureAlt": "Image 3 description"
-            },
-            {
-                "id": 4,
-                "pictureUrl": "/pictures/project-g/image-quatre.jpg",
-                "pictureAlt": "Image 4 description"
-            },
-            {
-                "id": 5,
-                "pictureUrl": "/pictures/project-g/image-cinq.jpg",
-                "pictureAlt": "Image 5 description"
-            },
-            {
-                "id": 6,
-                "pictureUrl": "/pictures/project-g/image-six.jpg",
-                "pictureAlt": "Image 6 description"
-            },
-            {
-                "id": 7,
-                "pictureUrl": "/pictures/project-g/image-sept.jpg",
-                "pictureAlt": "Image 7 description"
-            },
-            {
-                "id": 8,
-                "pictureUrl": "/pictures/project-g/image-huit.jpg",
-                "pictureAlt": "Image 8 description"
-            },
-            {
-                "id": 9,
-                "pictureUrl": "/pictures/project-g/image-neuf.jpg",
-                "pictureAlt": "Image 9 description"
-            }
-        ]
+        "picturesGallery": []
     }
 ]
