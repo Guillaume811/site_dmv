@@ -8,7 +8,7 @@ export type ProjectType = {
     pictureHeaderUrl: string;
 };
 
-export type GalleryImage = {
+export type GalleryPicture = {
     id: number;
     pictureUrl: string;
     pictureAlt: string;
