@@ -1,6 +1,7 @@
 [
     {
         "id": 1,
+        "slug": "project-a",
         "title": "Project A",
         "subtitle": "This is a subtitle of Project A.",
         "description": "This is a long description of Project A. It provides detailed information about the project, its objectives, and its outcomes.",
@@ -57,6 +58,7 @@
     },
     {
         "id": 2,
+        "slug": "project-b",
         "title": "Project B",
         "subtitle": "This is a subtitle of Project B.",
         "description": "This is a long description of Project B. It provides detailed information about the project, its objectives, and its outcomes.",
@@ -113,6 +115,7 @@
     },
     {
         "id": 3,
+        "slug": "project-c",
         "title": "Project C",
         "subtitle": "This is a subtitle of Project C.",
         "description": "This is a long description of Project C. It provides detailed information about the project, its objectives, and its outcomes.",
@@ -169,6 +172,7 @@
     },
     {
         "id": 4,
+        "slug": "project-d",
         "title": "Project D",
         "subtitle": "This is a subtitle of Project D.",
         "description": "This is a long description of Project D. It provides detailed information about the project, its objectives, and its outcomes.",
@@ -225,6 +229,7 @@
     },
     {
         "id": 5,
+        "slug": "project-e",
         "title": "Project E",
         "subtitle": "This is a subtitle of Project E.",
         "description": "This is a long description of Project E. It provides detailed information about the project, its objectives, and its outcomes.",
@@ -281,6 +286,7 @@
     },
     {
         "id": 6,
+        "slug": "project-f",
         "title": "Project F",
         "subtitle": "This is a subtitle of Project F.",
         "description": "This is a long description of Project F. It provides detailed information about the project, its objectives, and its outcomes.",
@@ -337,6 +343,7 @@
     },
     {
         "id": 7,
+        "slug": "project-g",
         "title": "Project G",
         "subtitle": "This is a subtitle of Project G.",
         "description": "This is a long description of Project G. It provides detailed information about the project, its objectives, and its outcomes.",
