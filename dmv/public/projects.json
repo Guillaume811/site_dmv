@@ -8,7 +8,7 @@
         "keywords": ["Drone", "Photos", "Video"],
         "pictureHeaderUrl": "/pictures/project-a/header.jpg",
         "pictureHeaderAlt": "Project A Header Image",
-        "pictureGallery": [
+        "picturesGallery": [
             {
                 "id": 1,
                 "pictureUrl": "/pictures/project-a/image-un.jpg",
@@ -65,7 +65,7 @@
         "keywords": ["Drone", "Photos", "Video"],
         "pictureHeaderUrl": "/pictures/project-b/header.jpg",
         "pictureHeaderAlt": "Project B Header Image",
-        "pictureGallery": [
+        "picturesGallery": [
             {
                 "id": 1,
                 "pictureUrl": "/pictures/project-b/image-un.jpg",
@@ -122,7 +122,7 @@
         "keywords": ["Drone", "Photos", "Video"],
         "pictureHeaderUrl": "/pictures/project-c/header.jpg",
         "pictureHeaderAlt": "Project C Header Image",
-        "pictureGallery": [
+        "picturesGallery": [
             {
                 "id": 1,
                 "pictureUrl": "/pictures/project-c/image-un.jpg",
@@ -179,7 +179,7 @@
         "keywords": ["Drone", "Photos", "Video"],
         "pictureHeaderUrl": "/pictures/project-d/header.jpg",
         "pictureHeaderAlt": "Project D Header Image",
-        "pictureGallery": [
+        "picturesGallery": [
             {
                 "id": 1,
                 "pictureUrl": "/pictures/project-d/image-un.jpg",
@@ -236,7 +236,7 @@
         "keywords": ["Drone", "Photos", "Video"],
         "pictureHeaderUrl": "/pictures/project-e/header.jpg",
         "pictureHeaderAlt": "Project E Header Image",
-        "pictureGallery": [
+        "picturesGallery": [
             {
                 "id": 1,
                 "pictureUrl": "/pictures/project-e/image-un.jpg",
@@ -293,7 +293,7 @@
         "keywords": ["Drone", "Photos", "Video"],
         "pictureHeaderUrl": "/pictures/project-f/header.jpg",
         "pictureHeaderAlt": "Project F Header Image",
-        "pictureGallery": [
+        "picturesGallery": [
             {
                 "id": 1,
                 "pictureUrl": "/pictures/project-f/image-un.jpg",
@@ -350,7 +350,7 @@
         "keywords": ["Drone", "Photos", "Video"],
         "pictureHeaderUrl": "/pictures/project-g/header.jpg",
         "pictureHeaderAlt": "Project G Header Image",
-        "pictureGallery": [
+        "picturesGallery": [
             {
                 "id": 1,
                 "pictureUrl": "/pictures/project-g/image-un.jpg",
