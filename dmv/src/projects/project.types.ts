@@ -6,6 +6,7 @@ export type ProjectType = {
     description: string;
     keywords: string[];
     pictureHeaderUrl: string;
+    picturesGallery?: GalleryPicture[];
 };
 
 export type GalleryPicture = {
