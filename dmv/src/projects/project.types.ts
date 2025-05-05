@@ -7,3 +7,9 @@ export type ProjectType = {
     keywords: string[];
     pictureHeaderUrl: string;
 };
+
+export type GalleryImage = {
+    id: number;
+    pictureUrl: string;
+    pictureAlt: string;
+}
