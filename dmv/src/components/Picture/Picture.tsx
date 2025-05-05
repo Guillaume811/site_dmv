@@ -1,15 +1,17 @@
 import React from 'react';
-import { GalleryImage } from '../../projects/project.types';
+import { GalleryPicture } from '../../projects/project.types';
 import styles from './Picture.module.scss';
 
 // Type
 type PictureProps = {
-    image: GalleryImage
+    picture: GalleryPicture;
 }
-const Picture: React.FC<PictureProps> = ({ image }) => {
+
+// Picture Component
+const Picture: React.FC<PictureProps> = ({ picture }) => {
     return (
         <div className={styles.picture}>
-            <img src={image.pictureUrl} alt={image.pictureAlt} loading='lazy'/>
+            <img src={picture.pictureUrl} alt={picture.pictureAlt} loading='lazy'/>
         </div>
     );
 };
