@@ -1,3 +1,5 @@
+import { GalleryType } from "./gallery.types";
+
 export type ProjectType = {
     id: number;
     slug: string;
@@ -6,11 +8,5 @@ export type ProjectType = {
     description: string;
     keywords: string[];
     pictureHeaderUrl: string;
-    picturesGallery?: GalleryPicture[];
+    picturesGallery?: GalleryType[];
 };
-
-export type GalleryPicture = {
-    id: number;
-    pictureUrl: string;
-    pictureAlt: string;
-}
