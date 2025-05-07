@@ -1,0 +1,48 @@
+[
+    {
+        "id": 1,
+        "pictureUrl": "/pictures/gallery/image-un.jpg",
+        "pictureAlt": "Image 1 description"
+    },
+    {
+        "id": 2,
+        "pictureUrl": "/pictures/gallery/image-deux.jpg",
+        "pictureAlt": "Image 2 description"
+    },
+    {
+        "id": 3,
+        "pictureUrl": "/pictures/gallery/image-trois.jpg",
+        "pictureAlt": "Image 3 description"
+    },
+    {
+        "id": 4,
+        "pictureUrl": "/pictures/gallery/image-quatre.jpg",
+        "pictureAlt": "Image 4 description"
+    },
+    {
+        "id": 5,
+        "pictureUrl": "/pictures/gallery/image-cinq.jpg",
+        "pictureAlt": "Image 5 description"
+    },
+    {
+        "id": 6,
+        "pictureUrl": "/pictures/gallery/image-six.jpg",
+        "pictureAlt": "Image 6 description"
+    },
+    {
+        "id": 7,
+        "pictureUrl": "/pictures/gallery/image-sept.jpg",
+        "pictureAlt": "Image 7 description"
+    },
+    {
+        "id": 8,
+        "pictureUrl": "/pictures/gallery/image-huit.jpg",
+        "pictureAlt": "Image 8 description"
+    },
+    {
+        "id": 9,
+        "pictureUrl": "/pictures/gallery/image-neuf.jpg",
+        "pictureAlt": "Image 9 description"
+    }
+
+]
