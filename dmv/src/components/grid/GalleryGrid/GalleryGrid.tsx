@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { GalleryPicture } from '../../../projects/project.types';
+import { GalleryPicture } from '../../../types/project.types';
 import styles from './GalleryGrid.module.scss';
 import Picture from '../../Picture/Picture';
 import Lightbox from '../../Lightbox/Lightbox';

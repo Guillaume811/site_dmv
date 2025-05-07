@@ -11,8 +11,8 @@ import { getNavigationLink } from "../../data/navigationLinks";
 import ParallaxSection from '../../components/sections/ParallaxSection/ParallaxSection';
 import ProjectGrid from '../../components/grid/ProjectGrid/ProjectGrid';
 import { useEffect, useState } from 'react';
-import { ProjectType } from '../../projects/project.types';
-import { ProjectService } from '../../projects/ProjectService';
+import { ProjectType } from '../../types/project.types';
+import { ProjectService } from '../../services/ProjectService';
 
 // Typage
 
@@ -26,7 +26,7 @@ const Home: React.FC = () => {
     const [projects, setProjects] = useState<ProjectType[]>([]);
     // Au montage du composant, on récupère les projets à afficher
     useEffect(() => {
-        ProjectService.getFeaturedProjects()
+        ProjectService.getFirst(6)
             .then(setProjects)
             .catch(console.error);
     }, []);

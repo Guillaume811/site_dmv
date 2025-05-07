@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { ProjectType } from '../../projects/project.types';
-import { ProjectService } from '../../projects/ProjectService';
+import { ProjectType } from '../../types/project.types';
+import { ProjectService } from '../../services/ProjectService';
 import HeadingSection from '../../components/sections/HeadingSection/HeadingSection';
 import stylesTitlesSection from "../../components/sections/TitleSection/TitleSection.module.scss";
 import TitleSection from '../../components/sections/TitleSection/TitleSection';
@@ -15,7 +15,7 @@ const SingleProject: React.FC = () => {
   useEffect(() => {
     if (!slug) return;
 
-    ProjectService.getProjectBySlug(slug)
+    ProjectService.getBySlug(slug)
       .then((data) => setProject(data || null))
       .catch(console.error);
   }, [slug]);

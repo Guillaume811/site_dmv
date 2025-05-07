@@ -1,5 +1,5 @@
 import React from 'react';
-import { GalleryPicture } from '../../projects/project.types';
+import { GalleryPicture } from '../../types/project.types';
 import styles from './Picture.module.scss';
 
 // Type

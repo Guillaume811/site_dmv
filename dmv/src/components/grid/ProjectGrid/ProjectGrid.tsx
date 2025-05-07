@@ -1,7 +1,7 @@
 import React from 'react';
 import CardProject from '../../cards/CardProject/CardProject';
 import styles from './ProjectGrid.module.scss';
-import { ProjectType } from '../../../projects/project.types';
+import { ProjectType } from '../../../types/project.types';
 
 //Typage
 type ProjectGridProps = {

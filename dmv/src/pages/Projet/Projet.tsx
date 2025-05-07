@@ -3,8 +3,8 @@ import HeadingSection from '../../components/sections/HeadingSection/HeadingSect
 import BasicSection from '../../components/sections/BasicSection/BasicSection';
 import BackgroundHeading from '../../assets/pictures/background/heading.jpg';
 import stylesBasicSection from "../../components/sections/BasicSection/BasicSection.module.scss";
-import { ProjectType } from '../../projects/project.types';
-import { ProjectService } from '../../projects/ProjectService';
+import { ProjectType } from '../../types/project.types';
+import { ProjectService } from '../../services/ProjectService';
 import ProjectGrid from '../../components/grid/ProjectGrid/ProjectGrid';
 
 const Projet: React.FC = () => {
@@ -12,7 +12,7 @@ const Projet: React.FC = () => {
         const [projects, setProjects] = useState<ProjectType[]>([]);
         // Au montage du composant, on récupère les projets à afficher
         useEffect(() => {
-            ProjectService.getAllProjects()
+            ProjectService.getAll()
                 .then(setProjects)
                 .catch(console.error);
         }, []);
