@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import { GalleryPicture } from '../../../types/project.types';
 import styles from './GalleryGrid.module.scss';
 import Picture from '../../Picture/Picture';
 import Lightbox from '../../Lightbox/Lightbox';
+import { GalleryType } from '../../../types/gallery.types';
 
 // Type
 type GalleryGridProps = {
-  pictures : GalleryPicture[];  // Define any props you need for the GalleryGrid component
+  pictures : GalleryType[];  // Define any props you need for the GalleryGrid component
 };
 
 // GalleryGrid Component

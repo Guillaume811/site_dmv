@@ -1,10 +1,10 @@
 import React, { useEffect } from 'react';
-import { GalleryPicture } from '../../types/project.types';
+import { GalleryType } from '../../types/gallery.types';
 import styles from './Lightbox.module.scss';
 
 // Type
 type LightboxProps = {
-    pictures: GalleryPicture[];
+    pictures: GalleryType[];
     index: number;
     onClose: () => void;
     onNext: () => void;

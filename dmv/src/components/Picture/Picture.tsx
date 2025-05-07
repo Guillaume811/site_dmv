@@ -1,10 +1,10 @@
 import React from 'react';
-import { GalleryPicture } from '../../types/project.types';
+import { GalleryType } from '../../types/gallery.types';
 import styles from './Picture.module.scss';
 
 // Type
 type PictureProps = {
-    picture: GalleryPicture;
+    picture: GalleryType;
 }
 
 // Picture Component
