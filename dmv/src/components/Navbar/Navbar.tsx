@@ -3,6 +3,9 @@ import logo from "../../assets/pictures/logo.png";
 import styles from "./Navbar.module.scss";
 import { useEffect, useRef, useState } from "react";
 import { getNavigationLink, getNavigationLinksExcluding } from "../../data/navigationLinks";
+import Button from "../Button/Button";
+import { useModal } from "../Modal/ModalContext";
+import ContactForm from "../ContactForm/ContatcForm";
 
 /* Navbar Composant
 * --------------------
@@ -33,6 +36,8 @@ const Navbar: React.FC = () => {
     const menuRef = useRef<HTMLUListElement>(null);
     // Créer une référence pour le bouton burger
     const burgerRef = useRef<HTMLButtonElement>(null);
+    // Hook pour ouvrir le modal
+    const { open } = useModal();
 
      // Ferme le menu si on clique à l’extérieur
     useEffect(() => {
@@ -103,9 +108,7 @@ const Navbar: React.FC = () => {
 
                     {/* TODO: Changer le <li></li> par le compnent Button + Ajouter le onclik pour le responsive */}
                     <li className={styles.navbar__list__item}>
-                        <NavLink to="/contact" className={styles.navbar__list__item__link}>
-                            Contact
-                        </NavLink>
+                        <Button text="Contact" onClick={() => open(<ContactForm />)} />
                     </li>
             </ul>
         </nav>
