@@ -21,14 +21,17 @@ const ContactForm: React.FC = () => {
     return (
         <form className={styles.form} onSubmit={handleSubmit}>
             <div className={styles.form__row}>
-                <input type="text" id="name" placeholder="Nom" required />
-                <input type="text" id="fistName" placeholder="Prénom" required />
+                <input type="text" id="name" placeholder="Nom*" required />
+                <input type="text" id="fistName" placeholder="Prénom*" required />
             </div>
             <div className={styles.form__row}>
-                <input type="email" id="email" placeholder="Email" required />
+                <input type="email" id="email" placeholder="Email*" required />
                 <input type="text" placeholder="Société" />
             </div>
-            <textarea placeholder="Message" rows={5} required />
+            <div className={styles.form__row}>
+                <textarea placeholder="Message*" rows={5} required />
+            </div>
+            
             <div className={styles.form__checkbox}>
                 <input
                     type="checkbox"

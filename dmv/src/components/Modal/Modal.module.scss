@@ -1,17 +1,18 @@
+@import '../../styles/variables.scss';
+
 .overlay{
     position: fixed;
     inset: 0;
     background: rgba(0, 0, 0, 0.3);
-    backdrop-filter: blur(5px); // ✅ flou d’arrière-plan
+    backdrop-filter: blur(5px); // flou d’arrière-plan
     display: flex;
     justify-content: center;
     align-items: center;
     z-index: 9999;
 
     &__modal {
-        background: white;
+        background: $secondary;
         padding: 2rem;
-        border-radius: 12px;
         width: 100%;
         max-width: 600px;
         animation: slideDown 0.4s ease forwards;
@@ -19,6 +20,7 @@
 
         &__close {
             position: absolute;
+            color: $tertiary;
             top: 0.8rem;
             right: 1rem;
             font-size: 1.5rem;
