@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './components/Modal/ModalContext';
+import './types/global';
 
 const container = document.getElementById('root');
 
