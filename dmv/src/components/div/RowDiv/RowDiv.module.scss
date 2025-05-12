@@ -1,0 +1,31 @@
+@import '../../../styles/variables.scss';
+
+.rowDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+    padding: 1rem 4rem;
+    box-sizing: border-box;
+    background-color: $secondary;
+    color: $tertiary;
+
+    &__left, &__right {
+        flex: 1;
+    }
+
+    &__right img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+    }
+
+    @media (max-width: 768px) {
+
+    flex-direction: column;
+
+    .left, .right {
+      width: 100%;
+    }
+  }
+}
