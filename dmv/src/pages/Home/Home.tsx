@@ -2,6 +2,7 @@ import React from 'react';
 import BasicSection from '../../components/sections/BasicSection/BasicSection';
 import Fleche from '../../assets/pictures/fleche-vers-le-bas-jaune.png';
 import Montage from '../../assets/pictures/background/parallax-accueil.jpg';
+import Drone from '../../assets/pictures/prez-drone.jpg';
 import Button from '../../components/Button/Button';
 import TitleSection from '../../components/sections/TitleSection/TitleSection';
 import stylesBasicSection from "../../components/sections/BasicSection/BasicSection.module.scss";
@@ -13,6 +14,8 @@ import ProjectGrid from '../../components/grid/ProjectGrid/ProjectGrid';
 import { useEffect, useState } from 'react';
 import { ProjectType } from '../../types/project.types';
 import { ProjectService } from '../../services/ProjectService';
+import ContactForm from '../../components/ContactForm/ContatcForm';
+import RowDiv from '../../components/div/RowDiv/RowDiv';
 
 // Typage
 
@@ -86,11 +89,12 @@ const Home: React.FC = () => {
                 classNameSection={stylesTitlesSection.sectionPresentation}
                 classNameTitle={stylesTitlesSection.sectionPresentation__title}
             >
-                <p>
-                    Ici il y aura un formulaire de contact avec les champs suivants : Nom, Prénom, Email, Message.
-                    Il y aura un bouton pour envoyer le message.
-                    Il y aura aussi un bouton pour appeler la société.
-                </p>
+                
+                <RowDiv
+                    leftContent={<ContactForm />}
+                    rightContent={<img src={Drone} alt="Drone" />}
+                />
+                
             </TitleSection>
         </div>
         
