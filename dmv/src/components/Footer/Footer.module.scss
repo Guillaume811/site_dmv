@@ -1,0 +1,93 @@
+@import '../../styles/variables';
+
+.footer {
+    font-size: 0.9rem;
+    border-top: 0.3rem solid $primary;
+
+    &__top {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        background-color: $secondary;
+        color: $tertiary;
+        gap: 2rem;
+
+        &__left {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            &__logo {
+                max-width: 150px;
+            }
+
+            &__contact {
+                display: flex;
+                gap: 1rem;
+
+                &__icon {
+                    width: 24px;
+                    height: 24px;
+                    cursor: pointer;
+                    transition: opacity 0.3s ease;
+
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+
+        &__center {
+            display: flex;
+            gap: 2rem;
+
+            &__list {
+                list-style: none;
+                padding: 0;
+
+                &__items {
+                    margin-bottom: 0.5rem;
+
+                    &__link {
+                        text-decoration: none;
+                        color: $tertiary;
+                    }
+                }
+            }
+        }
+
+        &__right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+
+            &__social {
+                display: flex;
+                gap: 1rem;
+
+                &__icon {
+                    width: 24px;
+                    height: 24px;
+                    transition: opacity 0.3s;
+
+                    &:hover {
+                        opacity: 0.8;
+                    }
+                }
+            }
+        }
+    }
+
+    &__bottom {
+        text-align: center;
+        background-color: $primary;
+        color: $secondary;
+        font-size: 0.8rem;
+
+        &__text {
+            margin: 0;
+        }
+    }
+}
