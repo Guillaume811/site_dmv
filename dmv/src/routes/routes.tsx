@@ -7,8 +7,9 @@ import Prestation from '../pages/Prestation/Prestation';
 import Projet from '../pages/Projet/Projet';
 import SingleProject from '../pages/SingleProject/SingleProject';
 import Galerie from '../pages/Galerie/Galerie';
-import Contact from '../pages/Contact/Contact';
+import LegalNotice from '../pages/LegalNotice/LegalNotice';
 import NotFound from '../pages/NotFound/NotFound';
+
 
 // Le typage de route est la pour s'assurer que chaque route contient bien un élément React valide
 // '&' permet de forcer le typage de 'element', il assure que 'element' soit uniquement de type 'ReactElement'
@@ -27,7 +28,7 @@ const routes: AppRoute[] = [
             {path: 'projet', element: <Projet />},
             {path: 'projet/:slug', element: <SingleProject /> }, // Dynamique Page
             {path: 'galerie', element: <Galerie />},
-            {path: 'contact', element: <Contact />},
+            {path: 'legal', element: <LegalNotice />},
             {path: '*', element: <NotFound />}
         ]
     },
