@@ -3,31 +3,32 @@
 .footer {
     font-size: 0.9rem;
     border-top: 0.3rem solid $primary;
+    background-color: $secondary;
+    padding: 0 5rem;
 
     &__top {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        background-color: $secondary;
+        align-items: center;
+        text-align: center;
         color: $tertiary;
         gap: 2rem;
+        padding: 5rem 0;
 
         &__left {
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
 
-            &__logo {
-                max-width: 150px;
-            }
-
-            &__contact {
+            &__social {
                 display: flex;
                 gap: 1rem;
 
                 &__icon {
-                    width: 24px;
-                    height: 24px;
+                    width: 40px;
+                    height: 40px;
                     cursor: pointer;
                     transition: opacity 0.3s ease;
 
@@ -39,37 +40,47 @@
         }
 
         &__center {
+            flex: 1;
             display: flex;
+            flex-direction: column;
+            align-items: center;
             gap: 2rem;
 
             &__list {
+                display: flex;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
                 list-style: none;
+                font-size: 1.2rem;
                 padding: 0;
+                margin: 0;
 
                 &__items {
-                    margin-bottom: 0.5rem;
+                
 
                     &__link {
                         text-decoration: none;
                         color: $tertiary;
                     }
                 }
-            }
+            }            
         }
 
         &__right {
+            flex: 1;
             display: flex;
             flex-direction: column;
             align-items: center;
             gap: 1rem;
 
-            &__social {
+            &__contact {
                 display: flex;
                 gap: 1rem;
 
                 &__icon {
-                    width: 24px;
-                    height: 24px;
+                    width: 40px;
+                    height: 40px;
                     transition: opacity 0.3s;
 
                     &:hover {
@@ -81,6 +92,8 @@
     }
 
     &__bottom {
+        display: flex;
+        justify-content: space-between;
         text-align: center;
         background-color: $primary;
         color: $secondary;
@@ -89,5 +102,24 @@
         &__text {
             margin: 0;
         }
+
+        &__list {
+                display: flex;
+                gap: 1rem;
+                flex-wrap: wrap;
+                justify-content: center;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                &__items {
+                
+
+                    &__link {
+                        text-decoration: none;
+                        color: $secondary;
+                    }
+                }
+            }
     }
 }

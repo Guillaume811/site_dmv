@@ -23,65 +23,61 @@ const Footer: React.FC = () => {
     return (
         <footer className={styles.footer}>
             <div className={styles.footer__top}>
-                <div className={styles.footer__top__left}>
-                    <img src={logo} alt="Logo" className={styles.footer__top__left__logo} />
-                    <div className={styles.footer__top__left__contact}>
+                <div className={styles.footer__top__left}>                    
+                    <div className={styles.footer__top__left__social}>
+                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                            <img src={instagramIcon} alt="Instagram" className={styles.footer__top__left__social__icon} />
+                        </a>
+                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                            <img src={linkedinIcon} alt="LinkedIn" className={styles.footer__top__left__social__icon} />
+                        </a>
+                    </div>                    
+                </div>
+                <div className={styles.footer__top__center}>
+                    <ul className={styles.footer__top__center__list}>
+                    {navLinks.map(({ id, label, to }) => (
+                        <li key={id} className={styles.footer__top__center__list__items}>
+                            <NavLink
+                                to={to}
+                                className={styles.footer__top__center__list__items__link}
+                            >
+                                {label}
+                            </NavLink>
+                        </li>
+                    ))}
+                    </ul> 
+                </div>
+                <div className={styles.footer__top__right}>
+                    <div className={styles.footer__top__right__contact}>
                         <img
                             src={mailIcon}
                             alt="Contacter par email"
-                            className={styles.footer__top__left__contact__icon}
+                            className={styles.footer__top__right__contact__icon}
                             onClick={() => open(<ContactForm />)}
                             role="button"
                         />
                         <a href="">
-                            <img src={phoneIcon} alt="Appeler DMV - Production" className={styles.footer__top__left__contact__icon} />
+                            <img src={phoneIcon} alt="Appeler DMV - Production" className={styles.footer__top__right__contact__icon} />
                         </a>
-                    </div>
-                </div>
-                <div className={styles.footer__top__center}>
-                    <ul className={styles.footer__top__center__list}>
-                        <h4>Navigations</h4>
-                        {navLinks.map(({ id, label, to }) => (
-                            <li key={id} className={styles.footer__top__center__list__items}>
-                                <NavLink
-                                    to={to}
-                                    className={styles.footer__top__center__list__items__link}
-                                >
-                                    {label}
-                                </NavLink>
-                            </li>
-                        ))}
-                    </ul>
-                    <ul className={styles.footer__top__center__list}>
-                        <h4>Légal</h4>
-                        <li className={styles.footer__top__center__list__items}>
-                            <NavLink to='/legal' className={styles.footer__top__center__list__items__link}>
-                                Mentions Légales
-                            </NavLink>
-                        </li>
-                        <li className={styles.footer__top__center__list__items}>
-                            <NavLink to='/legal' className={styles.footer__top__center__list__items__link}>
-                                Confidentialité
-                            </NavLink>
-                        </li>
-                    </ul>
-                </div>
-                <div className={styles.footer__top__right}>
-                        <h4>Réseaux</h4>
-                        <div className={styles.footer__top__right__social}>
-                            <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
-                                <img src={instagramIcon} alt="Instagram" className={styles.footer__top__right__social__icon} />
-                            </a>
-                            <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
-                                <img src={linkedinIcon} alt="LinkedIn" className={styles.footer__top__right__social__icon} />
-                            </a>
-                        </div>
+                    </div> 
                 </div> 
             </div>
             <div className={styles.footer__bottom}>
                 <p className={styles.footer__bottom__text}>
                     &copy; {currentYear} DMV - Production. Made in Djénius
                 </p>
+                <ul className={styles.footer__bottom__list}>
+                    <li className={styles.footer__bottom__list__items}>
+                        <NavLink to='/legal' className={styles.footer__bottom__list__items__link}>
+                            Mentions Légales
+                        </NavLink>
+                    </li>
+                    <li className={styles.footer__bottom__list__items}>
+                        <NavLink to='/legal' className={styles.footer__bottom__list__items__link}>
+                            Confidentialité
+                        </NavLink>
+                    </li>
+                </ul>
             </div>
         </footer>
     );
