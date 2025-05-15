@@ -1,86 +1,122 @@
 @import '../../styles/variables';
 
 .footer {
-    font-size: 0.9rem;
+    display: flex;
+    flex-direction: row;
     border-top: 0.3rem solid $primary;
     background-color: $secondary;
-    padding: 0 5rem;
-
-    &__top {
+    color: $tertiary;
+    padding: 2rem 2rem;
+    gap: 3rem;
+    
+    &__left {
+        flex: 1;
         display: flex;
-        flex-wrap: wrap;
-        justify-content: space-between;
+        flex-direction: column;
+        justify-content: center;
         align-items: center;
         text-align: center;
-        color: $tertiary;
-        gap: 2rem;
-        padding: 5rem 0;
+        border-right: 0.2rem solid $primary;
 
-        &__left {
-            flex: 1;
+        &__logo {
+            max-width: 250px;
+            margin-bottom: 1rem;
+        }
+
+        &__text {
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+    }
+
+    &__right {
+        flex: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+
+        &__top {
             display: flex;
-            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 2rem;
+
+            &__list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 1rem;
+                list-style: none;
+                padding: 0;
+                margin: 0;
+
+                &__items {
+
+                    &__link {
+                        text-decoration: none;
+                        color: $tertiary;
+                        font-size: 1rem;
+
+                        &:hover {
+                        color: $primary;
+                        }
+                    }
+                }
+            }
+
+            &__contact {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 0.5rem;
+
+                &__title {
+                    font-size: 1rem;
+                    font-weight: bold;
+                    margin: 0 0 0.5rem 0;
+                }
+
+                &__button {
+                    display: flex;
+                    gap: 1rem;
+
+                    &__icon {
+                         width: 24px;
+                        height: 24px;
+                        cursor: pointer;
+                        transition: opacity 0.3s ease;
+
+                        &:hover {
+                        opacity: 0.8;
+                        }
+                    }
+                }
+            }
+        }
+
+        &__bottom {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
             align-items: center;
+            margin-top: 2rem;
+            border-top: 0.2rem solid $primary;
+            padding-top: 1rem;
+
+            &__title {
+                font-size: 1rem;
+                font-weight: bold;
+                margin: 0;
+            }
 
             &__social {
                 display: flex;
                 gap: 1rem;
 
                 &__icon {
-                    width: 40px;
-                    height: 40px;
-                    cursor: pointer;
-                    transition: opacity 0.3s ease;
-
-                    &:hover {
-                        opacity: 0.8;
-                    }
-                }
-            }
-        }
-
-        &__center {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 2rem;
-
-            &__list {
-                display: flex;
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-                list-style: none;
-                font-size: 1.2rem;
-                padding: 0;
-                margin: 0;
-
-                &__items {
-                
-
-                    &__link {
-                        text-decoration: none;
-                        color: $tertiary;
-                    }
-                }
-            }            
-        }
-
-        &__right {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1rem;
-
-            &__contact {
-                display: flex;
-                gap: 1rem;
-
-                &__icon {
-                    width: 40px;
-                    height: 40px;
+                    width: 24px;
+                    height: 24px;
                     transition: opacity 0.3s;
 
                     &:hover {
@@ -89,37 +125,5 @@
                 }
             }
         }
-    }
-
-    &__bottom {
-        display: flex;
-        justify-content: space-between;
-        text-align: center;
-        background-color: $primary;
-        color: $secondary;
-        font-size: 0.8rem;
-
-        &__text {
-            margin: 0;
-        }
-
-        &__list {
-                display: flex;
-                gap: 1rem;
-                flex-wrap: wrap;
-                justify-content: center;
-                list-style: none;
-                padding: 0;
-                margin: 0;
-
-                &__items {
-                
-
-                    &__link {
-                        text-decoration: none;
-                        color: $secondary;
-                    }
-                }
-            }
     }
 }
