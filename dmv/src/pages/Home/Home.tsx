@@ -14,8 +14,11 @@ import ProjectGrid from '../../components/grid/ProjectGrid/ProjectGrid';
 import { useEffect, useState } from 'react';
 import { ProjectType } from '../../types/project.types';
 import { ProjectService } from '../../services/ProjectService';
+import { PrestationType } from '../../types/prestation.types';
+import { PrestationService } from '../../services/PrestationService';
 import ContactForm from '../../components/ContactForm/ContatcForm';
 import RowDiv from '../../components/div/RowDiv/RowDiv';
+import PrestationGrid from '../../components/grid/PrestationGrid/PrestationGrid';
 
 // Typage
 
@@ -31,6 +34,15 @@ const Home: React.FC = () => {
     useEffect(() => {
         ProjectService.getFirst(6)
             .then(setProjects)
+            .catch(console.error);
+    }, []);
+
+    // État local pour stocker les prestations à afficher
+    const [prestations, setPrestations] = useState<PrestationType[]>([]);
+    // Au montage du composant, on récupère les projets à afficher
+    useEffect(() => {
+        PrestationService.getAll()
+            .then(setPrestations)
             .catch(console.error);
     }, []);
 
@@ -76,12 +88,8 @@ const Home: React.FC = () => {
                 classNameSection={stylesTitlesSection.sectionPresentation}
                 classNameTitle={stylesTitlesSection.sectionPresentation__title}
             >
-                <p>
-                    Ici il y aura des cart qui présenterons brièvement les prestation de la société.
-                    Il y aura un bouton pour chaque prestation qui redirigera vers la page de la prestation.
-                    Ou la card elle même sera un bouton qui redirigera vers la page de la prestation.
-                    Les cards seront présenté avec un titre, un texte et un pictogramme et/ou un bouton.
-                </p>
+                <PrestationGrid prestations={prestations} />
+
             </TitleSection>
 
             {/*Section Contact*/}
