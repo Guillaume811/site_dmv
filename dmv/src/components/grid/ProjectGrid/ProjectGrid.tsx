@@ -13,7 +13,8 @@ const ProjectGrid: React.FC<ProjectGridProps> = ({ projects }) => {
 
     if (!projects.length) {
         return <p className={styles.empty}>Aucun projet à afficher.</p>;
-      }
+    }
+    
     return (
         <div className={styles.grid}>
             {projects.map((project) => (
