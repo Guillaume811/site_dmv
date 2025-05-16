@@ -1,0 +1,55 @@
+@import '../../../styles/variables';
+
+.card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 50vh;
+    padding: 1rem;
+    background-color: $secondary;
+    text-decoration: none;
+    border: 0.1rem solid rgba(255, 255, 255, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+        transform: scale(1.03);
+        box-shadow: 0 0 20px rgba(255, 239, 12, 0.4); // ombre jaune
+    }
+
+    &__top {
+        display: flex;
+        justify-content: space-between;
+        height: 25%; // 1/4 de la hauteur
+
+        &__picto {
+            width: auto;
+            height: 50%;
+            margin-right: 1rem;
+        }
+
+        &__number {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            font-size: 2rem;
+            opacity: 0.4;
+            color: $tertiary;
+        }
+
+    }
+
+    &__bottom {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 75%;
+        
+
+        &__text {
+            margin-bottom: 2rem;
+            text-align: left;
+            
+        }
+    }
+
+}

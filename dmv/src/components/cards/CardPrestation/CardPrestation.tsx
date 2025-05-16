@@ -18,14 +18,17 @@ const CardPrestation: React.FC<CardPrestationProps> = ({ prestation }) => {
                 <img 
                     src={prestation.picto} 
                     alt={prestation.pictoAlt}
-                    className={styles.card__picto}
+                    className={styles.card__top__picto}
                 />
-                <p className={styles.card__number}>
-                    {prestation.number}
-                </p>
+                <img 
+                    src={prestation.number} 
+                    alt={prestation.numberAlt}
+                    className={styles.card__top__number}
+                />
             </div>
-            <TitleCard
-                className={styles.card__text}
+            <div className={styles.card__bottom}>
+                <TitleCard
+                className={styles.card__bottom__text}
                 title={prestation.title}
                 subtitle={prestation.shortDescription}
             />
@@ -33,7 +36,7 @@ const CardPrestation: React.FC<CardPrestationProps> = ({ prestation }) => {
                 to={prestation.slug}
                 text='Découvrir'
             />
-        
+            </div>
         </Link>
     );
 };
