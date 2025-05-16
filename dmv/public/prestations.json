@@ -2,9 +2,10 @@
     {
         "id": 1,
         "slug": "/",
-        "picto": "/pictures/presta/presta-1/picto",
+        "picto": "/pictures/presta/presta-1/picto.png",
         "pictoAlt": "Je suis le Alt du picto",
-        "number": "01",
+        "number": "/pictures/presta/presta-1/number-1.png",
+        "numberAlt": "01",
         "title": "Prestation 1",
         "shortDescription": "Je suis la description courte qui ira sur la card.",
         "description": "Je sui la description qui ira dans la présentation de la prestation."
@@ -12,9 +13,10 @@
     {
         "id": 2,
         "slug": "/",
-        "picto": "/pictures/presta/presta-2/picto",
+        "picto": "/pictures/presta/presta-2/picto.png",
         "pictoAlt": "Je suis le Alt du picto",
-        "number": "02",
+        "number": "/pictures/presta/presta-2/number-2.png",
+        "numberAlt": "02",
         "title": "Prestation 2",
         "shortDescription": "Je suis la description courte qui ira sur la card.",
         "description": "Je sui la description qui ira dans la présentation de la prestation."
@@ -22,9 +24,10 @@
     {
         "id": 3,
         "slug": "/",
-        "picto": "/pictures/presta/presta-3/picto",
+        "picto": "/pictures/presta/presta-3/picto.png",
         "pictoAlt": "Je suis le Alt du picto",
-        "number": "03",
+        "number": "/pictures/presta/presta-3/number-3.png",
+        "numberAlt": "03",
         "title": "Prestation 3",
         "shortDescription": "Je suis la description courte qui ira sur la card.",
         "description": "Je sui la description qui ira dans la présentation de la prestation."
@@ -32,9 +35,10 @@
     {
         "id": 4,
         "slug": "/",
-        "picto": "/pictures/presta/presta-4/picto",
+        "picto": "/pictures/presta/presta-4/picto.png",
         "pictoAlt": "Je suis le Alt du picto",
-        "number": "04",
+        "number": "/pictures/presta/presta-4/number-4.png",
+        "numberAlt": "04",
         "title": "Prestation 4",
         "shortDescription": "Je suis la description courte qui ira sur la card.",
         "description": "Je sui la description qui ira dans la présentation de la prestation."
