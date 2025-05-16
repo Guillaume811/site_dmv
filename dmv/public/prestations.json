@@ -1,7 +1,9 @@
 [
     {
         "id": 1,
+        "slug": "/",
         "picto": "/pictures/presta/presta-1/picto",
+        "pictoAlt": "Je suis le Alt du picto",
         "number": "01",
         "title": "Prestation 1",
         "shortDescription": "Je suis la description courte qui ira sur la card.",
@@ -9,7 +11,9 @@
     },
     {
         "id": 2,
+        "slug": "/",
         "picto": "/pictures/presta/presta-2/picto",
+        "pictoAlt": "Je suis le Alt du picto",
         "number": "02",
         "title": "Prestation 2",
         "shortDescription": "Je suis la description courte qui ira sur la card.",
@@ -17,7 +21,9 @@
     },
     {
         "id": 3,
+        "slug": "/",
         "picto": "/pictures/presta/presta-3/picto",
+        "pictoAlt": "Je suis le Alt du picto",
         "number": "03",
         "title": "Prestation 3",
         "shortDescription": "Je suis la description courte qui ira sur la card.",
@@ -25,7 +31,9 @@
     },
     {
         "id": 4,
+        "slug": "/",
         "picto": "/pictures/presta/presta-4/picto",
+        "pictoAlt": "Je suis le Alt du picto",
         "number": "04",
         "title": "Prestation 4",
         "shortDescription": "Je suis la description courte qui ira sur la card.",
