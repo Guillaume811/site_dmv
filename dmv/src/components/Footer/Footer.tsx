@@ -32,18 +32,32 @@ const Footer: React.FC = () => {
 
             <div className={styles.footer__right}>
                 <div className={styles.footer__right__top}>
-                    <ul className={styles.footer__right__top__list}>
+                    <div className={styles.footer__right__top__nav}>
+                        <ul className={styles.footer__right__top__nav__list}>
                         {navLinks.map(({ id, label, to }) => (
-                            <li key={id} className={styles.footer__right__top__list__items}>
+                            <li key={id} className={styles.footer__right__top__nav__list__items}>
                                 <NavLink
                                     to={to}
-                                    className={styles.footer__right__top__list__items__link}
+                                    className={styles.footer__right__top__nav__list__items__link}
                                 >
                                     {label}
                                 </NavLink>
                             </li>
                         ))}
                     </ul>
+                    <ul className={styles.footer__right__top__nav__list}>
+                        <li className={styles.footer__right__top__nav__list__items}>
+                            <NavLink to='/legal' className={styles.footer__right__top__nav__list__items__link}>
+                                Mentions Légales
+                            </NavLink>
+                        </li>
+                        <li className={styles.footer__right__top__nav__list__items}>
+                            <NavLink to='/legal' className={styles.footer__right__top__nav__list__items__link}>
+                                Confidentialité
+                            </NavLink>
+                        </li>
+                    </ul>
+                    </div>
                     <div className={styles.footer__right__top__contact}>
                         <h4 className={styles.footer__right__top__contact__title}>
                             Contactez-nous :
@@ -64,9 +78,9 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
                 <div className={styles.footer__right__bottom}>
-                    <h4 className={styles.footer__right__bottom__title}>
+                    {/*<h4 className={styles.footer__right__bottom__title}>
                         Suivez-nous :
-                    </h4>
+                    </h4>*/}
                     <div className={styles.footer__right__bottom__social}>
                         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                             <img src={instagramIcon} alt="Instagram" className={styles.footer__right__bottom__social__icon} />
