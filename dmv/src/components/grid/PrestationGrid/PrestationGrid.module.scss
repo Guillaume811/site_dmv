@@ -1,0 +1,6 @@
+.grid {
+  display: flex;
+  flex-wrap: wrap; // autorise les retours à la ligne si besoin
+  justify-content: space-between; // ou space-evenly / center
+  gap: 2rem; // espacements entre les cards
+}
