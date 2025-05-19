@@ -8,6 +8,7 @@ type ButtonProps = {
     to?: string;
     onClick?: () => void;
     type?: 'button' | 'submit';
+    className?: string;
 };
 
 /* Button component
@@ -22,7 +23,7 @@ type ButtonProps = {
 * - If `type` and/or `onClick` is provided, the button will call the specified function when clicked.
 
 */
-const Button: React.FC<ButtonProps> = ({ text, to, onClick, type }) => {
+const Button: React.FC<ButtonProps> = ({ text, to, onClick, type, className }) => {
 
     if (to) {
         return (
@@ -33,7 +34,7 @@ const Button: React.FC<ButtonProps> = ({ text, to, onClick, type }) => {
     }
 
     return (
-        <button type={type} onClick={onClick} className={styles.button}>
+        <button type={type} onClick={onClick} className={`${styles.button} ${className}`}>
             {text}
         </button>
     ) 
