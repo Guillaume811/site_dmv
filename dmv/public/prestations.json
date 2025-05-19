@@ -8,7 +8,7 @@
         "numberAlt": "01",
         "title": "Prestation 1",
         "shortDescription": "Je suis la description courte qui ira sur la card.",
-        "description": "Je sui la description qui ira dans la présentation de la prestation."
+        "description": "Je suis la description qui ira dans la présentation de la prestation."
     },
     {
         "id": 2,
@@ -19,7 +19,7 @@
         "numberAlt": "02",
         "title": "Prestation 2",
         "shortDescription": "Je suis la description courte qui ira sur la card.",
-        "description": "Je sui la description qui ira dans la présentation de la prestation."
+        "description": "Je suis la description qui ira dans la présentation de la prestation."
     },
     {
         "id": 3,
@@ -30,7 +30,7 @@
         "numberAlt": "03",
         "title": "Prestation 3",
         "shortDescription": "Je suis la description courte qui ira sur la card.",
-        "description": "Je sui la description qui ira dans la présentation de la prestation."
+        "description": "Je suis la description qui ira dans la présentation de la prestation."
     },
     {
         "id": 4,
@@ -41,6 +41,6 @@
         "numberAlt": "04",
         "title": "Prestation 4",
         "shortDescription": "Je suis la description courte qui ira sur la card.",
-        "description": "Je sui la description qui ira dans la présentation de la prestation."
+        "description": "Je suis la description qui ira dans la présentation de la prestation."
     }
 ]
