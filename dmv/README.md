@@ -1,3 +1,14 @@
+# Site DMV - Production
+
+-> Ce projet est un site vitre pour la société DMV - Production.
+
+## Instalation
+
+git clone https://github.com/Guillaume811/site_dmv.git
+cd site_DMV
+npm install
+npm start
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -44,3 +55,57 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+## Structure du projet
+
+Dossier/Fichier -----------> Description
+
+src/ ----------------------> Code source principal
+src/assets ---------------->  Fonts et Pictures
+src/components ------------> Composants réutilisable
+src/data ------------------> NavLinks
+src/page ------------------> Pages du site
+src/routes ----------------> Routes du site
+src/services --------------> Instance de service + fonctions
+src/styles ----------------> fonts, globals, mixins, variables et main
+src/types -----------------> types global, gallery, prestations et projects
+
+public/pictures -----------> Image pour la gallery, les projects et les prestations
+public/gallery.json -------> Données dynamiques pour la pages gallery
+public/prestation.json ----> Données dynamiques pour la pages prestations (tabs)
+public/projects.json ------> Données dynamiques pour la/les pages projects (Card + Single Page)
+
+## Fonctionnalités
+
+-> Parallax effect
+-> Annimations
+-> Grid dynamique
+-> Chargement JSON
+-> Card dynamique
+-> Tabs dynamique
+-> Page dynamique
+-> Modal
+-> Contact Form
+
+## Stack technique
+
+-> React
+-> TypeScript
+-> Sass (Scss)
+-> React Router
+-> Motion
+
+## Contribution
+
+-> Guillaume HUGUET
+
+## License
+
+Ce projet est sous licence MIT.
+
+**Important**
+
+Les contenus (textes, images, données) présents dans ce projet appartiennent au client.  
+Ils sont inclus ici uniquement à des fins de démonstration.  
+Merci de ne pas réutiliser ni diffuser ces données.
