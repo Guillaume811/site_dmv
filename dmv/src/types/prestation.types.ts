@@ -7,5 +7,5 @@ export type PrestationType = {
     numberAlt: string;
     title: string;
     shortDescription: string;
-    descritpion: string;
+    description: string;
 }
