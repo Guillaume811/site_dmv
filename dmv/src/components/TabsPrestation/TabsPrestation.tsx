@@ -5,9 +5,6 @@ import { PrestationService } from '../../services/PrestationService';
 import Button from "../Button/Button";
 
 // Type
-type TabsPrestationProps = {
-    prestation: PrestationType;
-}
 
 // Tabs Component
 const TabsPrestation: React.FC = () => {
