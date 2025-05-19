@@ -3,6 +3,9 @@ import HeadingSection from '../../components/sections/HeadingSection/HeadingSect
 import Button from '../../components/Button/Button';
 import BasicSection from '../../components/sections/BasicSection/BasicSection';
 import BackgroundHeading from '../../assets/pictures/background/heading.jpg';
+import TabsPrestation from '../../components/TabsPrestation/TabsPrestation';
+import stylesBasicSection from "../../components/sections/BasicSection/BasicSection.module.scss";
+
 
 const Prestation: React.FC = () => {
     return (
@@ -11,11 +14,8 @@ const Prestation: React.FC = () => {
             <HeadingSection title='Nos Prestations' backgroundImage={BackgroundHeading} />
 
             {/*Section de présentation des prestations*/}
-            <BasicSection>
-                <p>
-                    Ici il y aura les différentes prestations. Elle serons présenté sous forme d'onglets avec la description, les tarifs, ect... Et il y aura un bouton de contact à la fin.
-                </p>
-                <Button text='Obtenir un devis' />
+            <BasicSection className={stylesBasicSection.sectionPage}>
+                <TabsPrestation />
             </BasicSection>
             
         </div>
