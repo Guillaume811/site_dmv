@@ -4,6 +4,9 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    width: calc(20% - 1rem); // 4 cards par ligne (gap compensé)
+    flex-grow: 0;
+    flex-shrink: 0;
     height: 50vh;
     padding: 1rem;
     background-color: $secondary;
@@ -14,6 +17,14 @@
     &:hover {
         transform: scale(1.03);
         box-shadow: 0 0 20px rgba(255, 239, 12, 0.4); // ombre jaune
+    }
+
+    @media screen and (max-width: 1024px) {
+        width: calc(40% - 2rem); // 2 cards par ligne
+    }
+
+    @media screen and (max-width: 768px) {
+        width: 80%; // 1 card par ligne
     }
 
     &__top {
