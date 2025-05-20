@@ -1,8 +1,8 @@
 // Typage
 export type NavigationLink = {
-    id: string; // Unique identifier for the link
-    label: string; // Text that display on navigation links
-    to: string; // Navigation URL
+    id: string;
+    label: string;
+    to: string;
 };
 
 // Array of navigation links
