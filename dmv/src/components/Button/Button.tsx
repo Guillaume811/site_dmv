@@ -11,16 +11,20 @@ type ButtonProps = {
     className?: string;
 };
 
-/* Button component
-* Type:
-* - text: string - The text to display on the button
-* - to: string - The link to navigate to when the button is clicked (optional) 
-* - onClick: function - The function to call when the button is clicked (optional)
-* - type: string - The type of the button (optional, default is 'button')
+/* Component Button
+* Receives "text", "to", "onClick", "type", and "className" as props from "ButtonProps".
+
+* View TSX :
+* If "to" exists :
+* -> Returns a "Link" that goes to the given path and shows the "text"
+* -> It uses the "styles.button" class
+* If "to" doesn't exist :
+* -> Returns a regular <button> with the given "type",
+* -> "onClick" function,
+* -> Extra class from "className",
+* -> It also shows the "text".
+
 * 
-* Usage:
-* - If `to` is provided, the button will be a link that navigates to the specified URL when clicked.
-* - If `type` and/or `onClick` is provided, the button will call the specified function when clicked.
 
 */
 const Button: React.FC<ButtonProps> = ({ text, to, onClick, type, className }) => {

@@ -5,12 +5,25 @@ import { PrestationType } from '../../../types/prestation.types';
 import TitleCard from '../../typographies/TitleCard/TitleCard';
 import Button from '../../Button/Button';
 
-// Typage
+// Typage from PrestationType
 type CardPrestationProps = {
     prestation: PrestationType;
 }
+ 
+/* Component CardPrestation
+* Receives a "prestation" prop from "CardPrestationProps".
 
-// CardPrestation Component
+* View TSX :
+* Returns a "Link" that navigates to "prestation.slug" and wraps the entire card layout.
+* Inside the top section :
+  -> Displays an image using "prestation.picto" with alt text from "prestation.pictoAlt".
+  -> Displays another image using "prestation.number" with alt text from "prestation.numberAlt".
+* Inside the bottom section :
+  -> Displays a "TitleCard" using "prestation.title" and "prestation.shortDescription".
+  - Displays a "Button" that also links to "prestation.slug" with the text "Découvrir".
+
+* 
+*/
 const CardPrestation: React.FC<CardPrestationProps> = ({ prestation }) => {
     return (
         <Link to={prestation.slug} className={styles.card}>
