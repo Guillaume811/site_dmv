@@ -1,12 +1,26 @@
 import React, { useEffect, useState } from "react";
+import Button from "../Button/Button";
 import styles from "./TabsPrestation.module.scss";
 import { PrestationType } from '../../types/prestation.types';
 import { PrestationService } from '../../services/PrestationService';
-import Button from "../Button/Button";
 
-// Type
+/* Component TabsPrestation
+* Render logic :
+* Uses "useState" to store the list of prestations in "prestations".
+* Uses another "useState" to track which tab is active using "activeTab", initialized to 1.
+* Uses "useEffect" to load all prestations from "PrestationService.getAll()" when the component mounts.
+* Once loaded, saves the data in "prestations" and sets the first item's id as the active tab if available.
 
-// Tabs Component
+* View TSX :
+* Returns a <div> with class "styles.tabs" that contains two main parts:
+  -> A navigation bar where each "prestation.title" is shown as a <Button>. Clicking the button sets that tab as active.
+  -> A content area that only displays the panel matching the current "activeTab". Each panel shows:
+    -> A pictogram image from "prestation.picto" with alt text.
+    -> A title using "prestation.title".
+    -> A description text using "prestation.description".
+
+* Responsive :
+*/
 const TabsPrestation: React.FC = () => {
 
     const [prestations, setPrestations] = useState<PrestationType[]>([]);

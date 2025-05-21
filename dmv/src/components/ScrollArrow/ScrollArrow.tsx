@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from './ScrollArrow.module.scss';
 import { motion } from 'framer-motion';
+import styles from './ScrollArrow.module.scss';
+
 
 // Typage
 type ScrollArrowProps = {
@@ -9,7 +10,15 @@ type ScrollArrowProps = {
     altText: string;
 }
 
-// Component
+/* Component ScrollArrow
+* Receives "text", "imageSrc", and "altText" as props from "ScrollArrowProps".
+
+* View TSX :
+* Returns a <div> styled with "styles.content".
+* Inside the div:
+  -> Displays a <motion.span> that shows "text" with an animation that fades in and out in a loop.
+  -> Displays a <motion.img> using "imageSrc" and "altText" with a vertical bouncing animation that loops forever. 
+*/
 const ScrollArrow: React.FC<ScrollArrowProps> = ({text, imageSrc, altText}) => {
     return (
         <div className={styles.content}>
@@ -30,7 +39,7 @@ const ScrollArrow: React.FC<ScrollArrowProps> = ({text, imageSrc, altText}) => {
                 src={imageSrc} 
                 alt={altText} 
                 className={styles.content__picture}
-                animate={{ y: [0, 8, 0] // Bouncing effect
+                animate={{ y: [0, 8, 0]
                 }}
                 transition={{
                     duration: 2,

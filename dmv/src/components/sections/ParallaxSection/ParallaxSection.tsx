@@ -9,32 +9,42 @@ type ParallaxSectionProps = {
     children: React.ReactNode;
   };
 
-// Component
 // TODO: voir si c'est compatible IOS
+/* Conponent ParallaxSection
+* Receives "backgroundImage" and "children" as props from "ParallaxSectionProps".
+
+* Render logic :
+* Uses "useRef" to create a reference to the section element.
+* Uses "useScroll" to track scroll position relative to the element referenced by "ref".
+* Uses "useTransform" to convert scroll progress into a vertical movement (from "-20%" to "50%").
+
+* View TSX :
+* Returns a <section> styled with "styles.parallaxSection" and attaches the "ref".
+* Inside:
+  -> Renders a <motion.div> with a background image from "backgroundImage" and a vertical parallax animation using "y".
+  -> Displays a content <div> in front of the background that shows the "children".
+*/
 const ParallaxSection: React.FC<ParallaxSectionProps> = ({backgroundImage, children}) => {
 
     const ref = useRef<HTMLDivElement>(null);
-     // On observe le scroll de cet élément
     const { scrollYProgress } = useScroll({
         target: ref,
-        offset: ["start end", "end start"], // quand le top arrive en haut et que l'élément disparait
+        offset: ["start end", "end start"],
     });
-
-    // On transforme le scroll en un déplacement vertical
     const y = useTransform(scrollYProgress, [0, 1], ["-20%", "50%"]);
 
     return (
          <section className={styles.parallaxSection} ref={ref}>
-            {/* Image animée */}
+            {/* anime picture */}
             <motion.div
                 className={styles.parallaxSection__background}
                 style={{
                     backgroundImage: `url(${backgroundImage})`,
-                    y: y, // 👈 Animation sur l'axe Y
+                    y: y,
                 }}
             />
       
-            {/* Contenu devant */}
+            {/* front content */}
             <div className={styles.parallaxSection__content}>
                 {children}
             </div>

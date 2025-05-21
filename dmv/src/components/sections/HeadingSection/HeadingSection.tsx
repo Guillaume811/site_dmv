@@ -8,8 +8,14 @@ type HeadingSectionProps = {
     title: string;
 }
 
-/* Component
-* HeadingSection is a section that contains a title (h1).
+/* Component HeadingSection
+* Receives "backgroundImage" and "title" as props from "HeadingSectionProps".
+
+* View TSX :
+* Returns a <section> styled with "styles.headingSection".
+* Inside:
+  -> Display a <div> with "styles.headingSection__background" that uses "backgroundImage" as its background.
+  -> Display another <div> with "styles.headingSection__content" that contains a "Title" component displaying the "title".
 */
 const HeadingSection: React.FC<HeadingSectionProps> = ({ backgroundImage, title }) => {
     return (

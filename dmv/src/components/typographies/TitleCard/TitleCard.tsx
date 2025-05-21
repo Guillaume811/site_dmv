@@ -8,7 +8,14 @@ type TitleCardProps = {
     subtitle: string;
 };
 
-// Composant
+/* Component TitleCard
+* Receives "className", "title", and "subtitle" as props from "TitleCardProps".
+
+* Returns a <div> with the given "className" if provided, or an empty string.
+* Inside the div:
+  -> Displays a <h3> with the "title" styled using "styles.title".
+  -> Displays a <h4> with the "subtitle" styled using "styles.subtitle".
+*/
 const TitleCard: React.FC<TitleCardProps> = ({ className, title, subtitle }) => {
     return (
         <div className={`${className ?? ""}`}>
