@@ -1,23 +1,45 @@
 import React from 'react';
+import { NavLink } from 'react-router-dom';
+import { navLinks } from '../../data/navigationLinks';
+import { useModal } from "../Modal/ModalContext";
+import ContactForm from '../ContactForm/ContatcForm';
 import styles from "./Footer.module.scss";
-// Pictures and icons
 import logoWhite from "../../assets/pictures/logo-white.png";
 import mailIcon from "../../assets/pictures/icons/mail.png";
 import phoneIcon from "../../assets/pictures/icons/phone.png";
 import linkedinIcon from "../../assets/pictures/icons/linkedin.png";
 import instagramIcon from "../../assets/pictures/icons/instagram.png";
-import { useModal } from "../Modal/ModalContext";
-import ContactForm from '../ContactForm/ContatcForm';
-import { NavLink } from 'react-router-dom';
-import { navLinks } from '../../data/navigationLinks';
+
+
 
 // Types
 
-// Footer component
+/* Component Footer
+* Render logic :
+* Uses "new Date().getFullYear()" to get the current year and store it in "currentYear".
+* Uses the custom hook "useModal" to get the "open" function, which allows opening a modal.
+
+* View TSX :
+* Returns a <footer> element styled with "styles.footer".
+* Inside the left section:
+  -> Displays the white logo image using "logoWhite".
+  -> Shows a text with the current year and a short credit line.
+* Inside the right section:
+  -> The top part includes:
+    -> A navigation list built from "navLinks", where each item is rendered with a <NavLink>.
+    -> Another list with links to "Mentions Légales" and "Confidentialité", both using <NavLink>.
+    -> A contact block with a title and two icons:
+      -> One for email using "mailIcon" that opens the modal with "ContactForm" on click.
+      -> One for phone using "phoneIcon", wrapped in an anchor tag.
+  -> The bottom part includes social media links:
+    -> An Instagram icon that links.
+    -> A LinkedIn icon that links.
+    -> Both icons open in a new tab.
+
+* Responsive :
+*/
 const Footer: React.FC = () => {
-    // Get the current year
     const currentYear = new Date().getFullYear();
-    // Hook to open the modal
     const { open } = useModal();
 
     return (

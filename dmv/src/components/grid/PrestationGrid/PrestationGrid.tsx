@@ -1,14 +1,25 @@
 import React from 'react';
+import CardPrestation from '../../cards/CardPrestation/CardPrestation';
 import styles from './PrestationGrid.module.scss';
 import { PrestationType } from '../../../types/prestation.types';
-import CardPrestation from '../../cards/CardPrestation/CardPrestation';
 
 //Typage
 type PrestationGridProps = {
     prestations: PrestationType[];
 }
 
-// PrestationGrid Component
+/* Component PrestationGrid
+* Receives a "prestations" prop from "PrestationGridProps".
+
+* View TSX :
+* If "prestations" is empty, returns a <p> with a message saying there are no projects to show.
+* If there are items, returns a <div> styled with "styles.grid".
+* Inside the grid
+    -> loops through "prestations"
+    -> renders a "CardPrestation" for each one using its "id" as the key.
+
+* Responsive :
+*/
 const PrestationGrid: React.FC<PrestationGridProps> = ({ prestations }) => {
     
     if (!prestations.length) {

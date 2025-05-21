@@ -3,12 +3,21 @@ import CardProject from '../../cards/CardProject/CardProject';
 import styles from './ProjectGrid.module.scss';
 import { ProjectType } from '../../../types/project.types';
 
-//Typage
+//Typage from ProjectType
 type ProjectGridProps = {
     projects: ProjectType[];
 }
 
-// ProjectGrid Component
+/* Component ProjectGrid
+* Receives a "projects" prop from "ProjectGridProps".
+
+* View TSX :
+* If "projects" is empty, returns a <p> with a message saying there are no projects to show.
+* If there are items, returns a <div> styled with "styles.grid".
+* Inside the grid, loops through "projects" and renders a "CardProject" for each one using its "id" as the key.
+
+* Responsive :
+*/
 const ProjectGrid: React.FC<ProjectGridProps> = ({ projects }) => {
 
     if (!projects.length) {

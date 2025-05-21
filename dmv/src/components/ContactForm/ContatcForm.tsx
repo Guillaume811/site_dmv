@@ -1,13 +1,36 @@
 import React, { useState } from 'react';
-import styles from "./ContactForm.module.scss";
-import Button from '../Button/Button';
 import emailjs from "@emailjs/browser";
+import Button from '../Button/Button';
+import styles from "./ContactForm.module.scss";
 
+
+
+/* Component ContactForm
+* Render logic :
+* Uses "useState" to manage "consent", a boolean that tracks if the user checked the RGPD consent box.
+* Uses another "useState" called "formData" to store form field values: "firstname", "lastname", "email", "company", and "message".
+* Defines "handleChange" to update "formData" whenever the user types in an input or textarea.
+* Defines "handleSubmit" to handle the form when submitted:
+  -> Prevents the default behavior.
+  -> If "consent" is not checked, shows an alert and stops the process.
+  -> If consent is given:
+    -> Generates a reCAPTCHA token using "window.grecaptcha".
+    -> Prepares the form data as "templateParams".
+    -> Sends the form with EmailJS using the provided environment keys.
+    -> On success, resets the form and consent checkbox, and shows a confirmation alert.
+    -> On error, logs the issue and shows an alert message.
+
+* View TSX :
+* Returns a <form> element using "handleSubmit" on submit.
+* Inside the form:
+  -> Displays two rows of input fields for "lastname" & "firstname", then "email" & "company".
+  -> Shows a textarea for the message.
+  -> Includes a checkbox for RGPD consent, with a label.
+  -> Ends with a "Button" that submits the form.
+*/
 const ContactForm: React.FC = () => {
-    // État pour gérer le champ RGPD (case à cocher)
     const [consent, setConsent] = useState(false);
 
-    // États pour stocker les valeurs du formulaire
     const [formData, setFormData] = useState({
         firstname: "",
         lastname: "",
@@ -16,7 +39,6 @@ const ContactForm: React.FC = () => {
         message: "",
     });
 
-    // Fonction appelée à chaque changement de champ pour mettre à jour le state
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { id, value } = e.target;
         setFormData((prev) => ({ ...prev, [id]: value }));
@@ -29,16 +51,12 @@ const ContactForm: React.FC = () => {
             alert("Veuillez accepter les conditions RGPD.");
             return;
         }
-  
-        // Logique d'envoi du formulaire
 
         try {
-            // Génère un token reCAPTCHA v3
             const token = await window.grecaptcha.execute(process.env.REACT_APP_RECAPTCHA_SITE_KEY!, {
                 action: "submit"
             });
 
-            // Préparation des données à envoyer à EmailJS
             const templateParams = {
                 firstname: formData.firstname,
                 lastname: formData.lastname,
@@ -51,7 +69,6 @@ const ContactForm: React.FC = () => {
             console.log("Token reCAPTCHA :", token);
             console.log("templateParams :", templateParams);
             
-            // Envoi du formulaire via EmailJS
             await emailjs.send(
                 process.env.REACT_APP_EMAILJS_SERVICE_ID!,
                 process.env.REACT_APP_EMAILJS_TEMPLATE_ID!,
@@ -59,7 +76,6 @@ const ContactForm: React.FC = () => {
                 process.env.REACT_APP_EMAILJS_PUBLIC_KEY!
             );
 
-            // Si envoi réussi
             alert("Votre message a bien été envoyé !");
             setFormData({ firstname: "", lastname: "", email: "", company: "", message: "" });
             setConsent(false);
