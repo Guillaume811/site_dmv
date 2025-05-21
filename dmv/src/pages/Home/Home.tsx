@@ -1,28 +1,57 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import BasicSection from '../../components/sections/BasicSection/BasicSection';
+import Button from '../../components/Button/Button';
+import TitleSection from '../../components/sections/TitleSection/TitleSection';
+import ScrollArrow from '../../components/ScrollArrow/ScrollArrow';
+import ParallaxSection from '../../components/sections/ParallaxSection/ParallaxSection';
+import ProjectGrid from '../../components/grid/ProjectGrid/ProjectGrid';
+import ContactForm from '../../components/ContactForm/ContatcForm';
+import RowDiv from '../../components/div/RowDiv/RowDiv';
+import PrestationGrid from '../../components/grid/PrestationGrid/PrestationGrid';
+import stylesBasicSection from "../../components/sections/BasicSection/BasicSection.module.scss";
+import stylesTitlesSection from "../../components/sections/TitleSection/TitleSection.module.scss";
 import Fleche from '../../assets/pictures/fleche-vers-le-bas-jaune.png';
 import Montage from '../../assets/pictures/background/parallax-accueil.jpg';
 import Drone from '../../assets/pictures/prez-drone.jpg';
-import Button from '../../components/Button/Button';
-import TitleSection from '../../components/sections/TitleSection/TitleSection';
-import stylesBasicSection from "../../components/sections/BasicSection/BasicSection.module.scss";
-import stylesTitlesSection from "../../components/sections/TitleSection/TitleSection.module.scss";
-import ScrollArrow from '../../components/ScrollArrow/ScrollArrow';
 import { getNavigationLink } from "../../data/navigationLinks";
-import ParallaxSection from '../../components/sections/ParallaxSection/ParallaxSection';
-import ProjectGrid from '../../components/grid/ProjectGrid/ProjectGrid';
-import { useEffect, useState } from 'react';
 import { ProjectType } from '../../types/project.types';
 import { ProjectService } from '../../services/ProjectService';
 import { PrestationType } from '../../types/prestation.types';
 import { PrestationService } from '../../services/PrestationService';
-import ContactForm from '../../components/ContactForm/ContatcForm';
-import RowDiv from '../../components/div/RowDiv/RowDiv';
-import PrestationGrid from '../../components/grid/PrestationGrid/PrestationGrid';
 
-// Typage
+/* Component Page Home
+* Render logic :
+* Uses "getNavigationLink" :
+* -> to get the navigation links for the "prestation" and "projet" pages
+* -> saves them as "prestationLink" and "projetLink".
+* Uses "useState" to create "projects", a list of project items :
+* -> Uses "useEffect" to load 6 project items from "ProjectService.getFirst(6)" when the component shows.
+* -> If it works, saves them in "projects"; if it fails, shows an error in the console.
+* Uses "useState" to create "prestations", a list of prestation items :
+* -> Uses another "useEffect" to load all prestations from "PrestationService.getAll()" when the component shows.
+* -> If it works, saves them in "prestations"; if it fails, shows an error in the console.
 
-// Composant
+* View TSX :
+* "Section intro" :
+* -> Shows a "BasicSection" with a "ScrollArrow" containing a text and an image.
+* -> Displays a first "TitleSection" with the title "DMV - Production", 
+* -> A paragraph of intro text,
+* -> A "Button" that links to the prestations page.
+* "Section Nos projets" :
+* -> Displays a second "TitleSection" titled "Nos projets"
+* -> With a "ProjectGrid" using the data from "projects".
+* "Section Parallax" :
+* -> Shows a "ParallaxSection" with a background image from "Montage"
+* -> A "Button" linking to the projets page.
+* "Section Prestation" :
+* -> Displays a third "TitleSection" titled "Nos Prestations"
+* -> With a "PrestationGrid" using the data from "prestations".
+* "Section Contact" :
+* -> Displays a last "TitleSection" titled "Contact" 
+* -> With a "RowDiv" that shows a "ContactForm" on the left and a drone image on the right.
+
+* 
+*/
 const Home: React.FC = () => {
     // Récupère les lien des pages prestation est projet
     const prestationLink = getNavigationLink("prestation");

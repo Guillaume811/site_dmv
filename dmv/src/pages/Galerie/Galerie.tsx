@@ -1,15 +1,10 @@
 import React, { useEffect, useState } from 'react';
-// import Component
 import HeadingSection from '../../components/sections/HeadingSection/HeadingSection';
 import BasicSection from '../../components/sections/BasicSection/BasicSection';
 import GalleryGrid from '../../components/grid/GalleryGrid/GalleryGrid';
-// import Scss
 import stylesBasicSection from "../../components/sections/BasicSection/BasicSection.module.scss";
-// import picture
 import BackgroundHeading from '../../assets/pictures/background/heading.jpg';
-// import Type
 import { GalleryType } from '../../types/gallery.types';
-// import Service
 import { GalleryService } from '../../services/GalleryService';
 
 /* Component Page Galerie
@@ -20,7 +15,7 @@ import { GalleryService } from '../../services/GalleryService';
 
 * View TSX :
 * Displays a "HeadingSection" with the title "Galerie" and a background image from "BackgroundHeading".
-* Inside "BasicSection", shows a short message saying there will be a gallery intro text.
+* Inside "BasicSection", shows a short message of presentation.
 * If "gallery" has items, shows a "GalleryGrid" using "pictures={gallery}".
 * If "gallery" is empty, shows a message saying there are no pictures for the project.
 
