@@ -1,98 +1,78 @@
-/*import { ProjectType } from "../types/project.types";
-
-// Création d'une classe de service qui centralise les accès aux données
-export class ProjectService {
-    // Stocke les projets une fois chargés, pour éviter de refaire des appels
-    private static cache: ProjectType[] | null = null;
-  
-    // Fonction privée pour charger les projets depuis le fichier JSON
-    private static async fetchData(): Promise<ProjectType[]> {
-      // Si on a déjà les projets en cache, on les renvoie directement
-      if (this.cache) return this.cache;
-  
-      // Sinon, on récupère le fichier JSON situé dans /public
-      const res = await fetch("/projects.json");
-  
-      // Si la requête échoue, on lève une erreur
-      if (!res.ok) throw new Error("Erreur lors du chargement des projets");
-  
-      // On parse le fichier JSON en tableau d'objets typés Project
-      const data: ProjectType[] = await res.json();
-  
-      // On met le résultat en cache
-      this.cache = data;
-  
-      // On renvoie les projets
-      return data;
-    }
-  
-    // Fonction publique pour obtenir tous les projets
-    static async getAllProjects(): Promise<ProjectType[]> {
-      return this.fetchData();
-    }
-  
-    // Fonction publique pour obtenir uniquement les 6 premiers projets
-    static async getFeaturedProjects(): Promise<ProjectType[]> {
-      const all = await this.fetchData();
-      return all.slice(0, 6); // On garde uniquement les 6 premiers
-    }
-
-     // Optionnel : permet de vider manuellement le cache (utile en développement)
-    static clearCache() {
-    this.cache = null;
-    }
-
-    // Recherche un projet unique dans le fichier json à partir de son slug
-    static async getProjectBySlug(slug: string): Promise<ProjectType | undefined> {
-      // Charge tous les projets depuis le fichier JSON (avec mise en cache si déjà récupérés)
-      const all = await this.fetchData();
-      // Retourne le projet dont le slug correspond à celui passé en paramètre
-      return all.find((p) => p.slug === slug);
-    }
-}*/
-
-// Classe générique pour centraliser le chargement de données typées
+/* GetDataService
+* A generic class named "GetDataService" that works with any type "T".
+* It helps load and manage typed data from a JSON file in one place.
+* Functions :
+* -> getAll()
+* -> getBySlug(slug: string)
+* -> getFirst(n: number)
+* -> clearCache()
+*/
 export class GetDataService<T> {
 
-   // Cache en mémoire locale (évite de refetch à chaque appel)
-   private cache: T[] | null = null;
+    /* cache
+    * Creates a private property named "cache" that starts as null.
+    * It will store a list of items in memory so the data doesn't have to be fetched again every time.
+    */
+    private cache: T[] | null = null;
 
-   // Le chemin du fichier JSON dans /public (ex: "/projects.json")
-   constructor(private readonly path: string) {}
+    /* constructor
+    * Takes a "path" as a parameter, which is the location of the JSON file (like "/projects.json").
+    * Saves this "path" as a private and read-only property so it can be used later in the class.
+    */
+    constructor(private readonly path: string) {}
  
-   // Charge tous les éléments depuis le fichier JSON, avec mise en cache
-   async getAll(): Promise<T[]> {
-     // Si les données sont déjà en cache, on les renvoie directement
-     if (this.cache) return this.cache;
-     // Sinon on fait une requête HTTP vers le fichier JSON
-     const res = await fetch(this.path);
-     // Si la réponse est mauvaise (404, etc.), on lève une erreur explicite
-     if (!res.ok) {
-       throw new Error(`Erreur lors du chargement de ${this.path}`);
-     }
-     // On récupère les données typées (tableau d'objets T)
-     const data: T[] = await res.json();
-     // On les stocke en cache
-     this.cache = data;
-     // On les retourne pour l'utilisation
-     return data;
+    /* Function getAll
+    * Checks if "this.cache" already has data.
+    * If yes, returns the cached data right away.
+    * If not, makes an HTTP request to fetch data from the path stored in "this.path".
+    * If the response is not OK (like a 404), throws an error saying the file couldn't be loaded.
+    * If the response is OK, turns it into a typed list of items "T[]".
+    * Saves the result into "this.cache" so next time it doesn't fetch again.
+    * Returns the list of items.
+    */
+    // Charge tous les éléments depuis le fichier JSON, avec mise en cache
+    async getAll(): Promise<T[]> {
+
+        if (this.cache) return this.cache;
+
+        const res = await fetch(this.path);
+
+        if (!res.ok) {
+            throw new Error(`Erreur lors du chargement de ${this.path}`);
+        }
+
+        const data: T[] = await res.json();
+
+        this.cache = data;
+
+        return data;
    }
  
-   // Recherche un élément unique par son slug (suppose que T a une propriété 'slug')
-   async getBySlug(slug: string): Promise<T | undefined> {
-     const all = await this.getAll();
-     // TypeScript ne sait pas que T a une propriété 'slug', donc on cast en any[]
-     return (all as any[]).find((item) => item.slug === slug);
-   }
+    /* Function getBySlug
+    * Calls "this.getAll()" to get the full list of items.
+    * Since TypeScript doesn’t know if "T" has a "slug", casts the list to "any[]".
+    * Searches the list to find the first item where "item.slug" is equal to the given "slug".
+    * Returns the found item or "undefined" if none match.
+    */
+    async getBySlug(slug: string): Promise<T | undefined> {
+        const all = await this.getAll();
+        return (all as any[]).find((item) => item.slug === slug);
+    }
  
-   // Récupère uniquement les N premiers éléments (utile pour les "featured", etc.)
-   async getFirst(n: number): Promise<T[]> {
-     const data = await this.getAll();
-     return data.slice(0, n);
-   }
+    /* Function getFirst
+    * Calls "this.getAll()" to get the full list of items.
+    * Uses "slice(0, n)" to return only the first "n" items from the list.
+    */
+    async getFirst(n: number): Promise<T[]> {
+        const data = await this.getAll();
+        return data.slice(0, n);
+    }
  
-   // Permet de forcer le vidage du cache (utile en développement)
-   clearCache() {
-     this.cache = null;
-   }
+    /* Function clearCache
+    * Sets "this.cache" to null to remove any saved data.
+    * This allows the data to be reloaded fresh next time, which is useful during development.
+    */
+    clearCache() {
+        this.cache = null;
+    }
 }

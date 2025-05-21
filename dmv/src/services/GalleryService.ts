@@ -1,5 +1,8 @@
 import { GalleryType } from "../types/gallery.types";
 import { GetDataService } from "./GetDataService";
 
-// Création de l'instance unique typée pour les projets
+/* GalleryService
+* Creates a single instance of "GetDataService" with the type "GalleryType".
+* Uses the JSON file located at "/gallery.json" as the source of gallery data.
+*/
 export const GalleryService = new GetDataService<GalleryType>("/gallery.json");
