@@ -1,45 +1,53 @@
 import { createContext, useContext, useState, ReactNode } from "react";
-import Modal from "./Modal"; // Ton composant modal réutilisable
+import Modal from "./Modal";
 
 // Typage du context
 type ModalContextType = {
-    open: (content: ReactNode) => void; // Affiche une modal avec du contenu JSX
-    close: () => void;                  // Ferme la modal
+    open: (content: ReactNode) => void; 
+    close: () => void;                  
 };
 
-// Création du contexte avec une valeur initiale "null" (sera définie plus tard)
+/* ModalContext
+* Creates a context named "ModalContext" using "createContext".
+* The initial value is set to "null" and will be updated later with a real value.
+* The context is typed with "ModalContextType".
+*/
 const ModalContext = createContext<ModalContextType | null>(null);
 
-// Hook personnalisé pour utiliser le contexte dans n’importe quel composant
+/* useModal
+* A custom hook that uses "useContext" to access the "ModalContext".
+* If the context is not available (null), it throws an error saying "useModal" must be used inside "ModalProvider".
+* If the context exists, returns it. This includes functions like "open" and "close".
+*/
 export const useModal = () => {
-    const context = useContext(ModalContext); // Accès à la valeur du contexte
+    const context = useContext(ModalContext);
     if (!context) throw new Error("useModal doit être utilisé dans ModalProvider");
-    return context; // On renvoie { open, close }
+    return context;
 };
 
-// Typage du provider
+// Typage of provider
 type ModalProviderProps = {
     children: ReactNode;
 };
 
-// Fournisseur du contexte : englobe toute l’application
+/* ModalProvider
+* Receives "children" as a prop from "ModalProviderProps".
+* Uses "useState" to store the current modal content in "content", which starts as null.
+* Defines "open" to set the modal content and show the modal.
+* Defines "close" to clear the content and hide the modal.
+
+* Returns a "ModalContext.Provider" that shares the "open" and "close" functions with all children.
+* Renders the "children" inside the provider.
+* If "content" is not null, displays the "Modal" component with the given content and a close function. 
+*/
 export const ModalProvider: React.FC<ModalProviderProps> = ({ children }) => {
-    // État local pour stocker le contenu actuel de la modal
     const [content, setContent] = useState<ReactNode | null>(null);
-  
-    // Ouvre la modal avec du contenu (ex : <ContactForm />)
     const open = (node: ReactNode) => setContent(node);
-  
-    // Ferme la modal (efface le contenu)
     const close = () => setContent(null);
 
     return (
-        // Fournit les fonctions open/close à toute l'application
         <ModalContext.Provider value={{ open, close }}>
-          {/* Ton app entière */}
           {children} 
-    
-          {/* Si la modal a du contenu, on l’affiche */}
           {content && <Modal onClose={close}>{content}</Modal>}
         </ModalContext.Provider>
     );

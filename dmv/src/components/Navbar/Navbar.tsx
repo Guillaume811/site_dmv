@@ -1,70 +1,64 @@
 import { NavLink, Link } from "react-router-dom";
-import logo from "../../assets/pictures/logo.png";
-import styles from "./Navbar.module.scss";
 import { useEffect, useRef, useState } from "react";
-import { getNavigationLink, getNavigationLinksExcluding } from "../../data/navigationLinks";
-import Button from "../Button/Button";
 import { useModal } from "../Modal/ModalContext";
+import Button from "../Button/Button";
 import ContactForm from "../ContactForm/ContatcForm";
+import styles from "./Navbar.module.scss";
+import logo from "../../assets/pictures/logo.png";
+import { getNavigationLink, getNavigationLinksExcluding } from "../../data/navigationLinks";
 
-/* Navbar Composant
-* --------------------
-* Display Navbar at the top of the site, including :
-* - A clickable logo that redirects to the homepage
-* - A dynamic list of navigation links generated from the `navLinks` array
-*   - Each link uses `NavLink`
-*   - Active links display an animated underline
-* - A custom `Button` component at the end (for Contact), rendered outside the loop
-* 
-* Styling:
-* - Hover and active states are managed via `::after`
-* 
-* Responsive:
-* - 
+/* Component Navbar
+* Render logic :
+* Uses "getNavigationLink" to get the "homeLink".
+* Uses "getNavigationLinksExcluding" to get all navigation links except "home", stored in "navLinks".
+
+* View TSX :
+* Returns a <nav> element styled with "styles.navbar".
+* Displays a logo as a <Link> pointing to "homeLink?.to".
+* Renders a <ul> menu list:
+  - Each "navLinks" item is shown as a <NavLink> that closes the menu when clicked.
+  - Ends with a "Contact" <Button> that opens a modal with the "ContactForm".
+
+* Responsive :
+    * Render logic :
+    * Uses "useState" to manage "isOpen", which controls if the menu is open or closed.
+    * Uses "useRef" to create two references:
+        -> "menuRef" for the <ul> menu element.
+        -> "burgerRef" for the burger button.
+    * Uses "useModal" to get the "open" function for opening the contact form in a modal.
+    * Uses "useEffect" to add an event listener that:
+        -> Closes the menu if a user clicks outside of the menu and burger button while the menu is open.
+        -> Cleans up the event listener when the component unmounts or "isOpen" changes.
+    
+    * View TSX :
+    * Shows a burger button (☰ or ✖) that toggles the menu open/closed, with accessibility support via "aria-label".
 */
 const Navbar: React.FC = () => {
-    // Récupère le lien de home
     const homeLink = getNavigationLink("home");
-    // Récupère tous les autre lien sauf home
     const navLinks = getNavigationLinksExcluding(["home"]);
     
-    // Gère si le menu est ouvert ou fermer
     const [isOpen, setIsOpen] = useState(false);
-    // Créer une référence pour l'élément ul 
-    // Permet de savoir où se trouve le menu dans le DOM
-    // et de le manipuler si besoin (ex: pour le fermer au clic en dehors du menu)
     const menuRef = useRef<HTMLUListElement>(null);
-    // Créer une référence pour le bouton burger
     const burgerRef = useRef<HTMLButtonElement>(null);
-    // Hook pour ouvrir le modal
     const { open } = useModal();
 
-     // Ferme le menu si on clique à l’extérieur
     useEffect(() => {
-        // Déclaration de la fonction qui gère le clic en dehors du menu, elle reçois un objet event de type MouseEvent.
         const handleClickOutside = (event: MouseEvent) => {
-        // Vérifie si :    
+
         if (
-            // le menu est ouvert
             isOpen &&
-            // la ref du menu est présente dans le DOM
             menuRef.current &&
-            // le click n'a pas eu lieu dans le menu lui même
             !menuRef.current.contains(event.target as Node) &&
-            // le click n'a pas eu lieu sur le bouton burger
             !burgerRef.current?.contains(event.target as Node)
         ) {
-            // Si oui, change l'état du menu pour le fermer
             setIsOpen(false);
         }
-    };
-    // Ajoute un écouteur d'événement pour le clic sur le document
-    document.addEventListener("mousedown", handleClickOutside);
-    // Nettoie l'écouteur d'événement lorsque le composant est démonté ou que l'état du menu change
-    // (pour éviter les fuites de mémoire)
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-    // On le fait dans le useEffect pour que ça ne soit pas fait à chaque render
-  }, [isOpen]);
+        };
+    
+        document.addEventListener("mousedown", handleClickOutside);
+        return () => document.removeEventListener("mousedown", handleClickOutside);
+
+    }, [isOpen]);
 
     return (
         <nav className={styles.navbar}>
@@ -78,17 +72,17 @@ const Navbar: React.FC = () => {
 
             {/* Bouton burger (mobile) */}
             <button
-                ref={burgerRef} // Ajoute la ref au bouton burger
+                ref={burgerRef}
                 className={styles.burger}
-                onClick={() => setIsOpen((prev) => !prev)} // Change l'état du menu au clic
-                aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"} // Accessibilité : indique si le menu est ouvert ou fermé
+                onClick={() => setIsOpen((prev) => !prev)}
+                aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
             >
                 {isOpen ? "✖" : "☰"}
             </button>
 
             {/* Menu mobile ou desktop */}
             <ul 
-                ref={menuRef} // Ajoute la ref au menu
+                ref={menuRef}
                 className={`${styles.navbar__list} ${isOpen ? styles.open : ""}`}>
                     {navLinks.map(({ id, label, to }) => (
                         <li key={id} className={styles.navbar__list__item}>
@@ -99,14 +93,13 @@ const Navbar: React.FC = () => {
                                     isActive ? styles.active : ""
                                     }`
                                 }
-                                onClick={() => setIsOpen(false)} // ferme le menu après clic
+                                onClick={() => setIsOpen(false)}
                             >
                                 {label}
                             </NavLink>
                         </li>
                     ))}
 
-                    {/* TODO: Changer le <li></li> par le compnent Button + Ajouter le onclik pour le responsive */}
                     <li className={styles.navbar__list__item}>
                         <Button text="Contact" onClick={() => open(<ContactForm />)} />
                     </li>
