@@ -1,9 +1,10 @@
 import React from 'react';
-import styles from './CardPrestation.module.scss';
 import { Link } from 'react-router-dom';
-import { PrestationType } from '../../../types/prestation.types';
 import TitleCard from '../../typographies/TitleCard/TitleCard';
 import Button from '../../Button/Button';
+import styles from './CardPrestation.module.scss';
+import { PrestationType } from '../../../types/prestation.types';
+
 
 // Typage from PrestationType
 type CardPrestationProps = {

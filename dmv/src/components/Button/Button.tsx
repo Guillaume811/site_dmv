@@ -1,6 +1,7 @@
 import React from 'react';
-import styles from "./Button.module.scss";
 import { Link } from 'react-router-dom';
+import styles from "./Button.module.scss";
+
 
 // Typage
 type ButtonProps = {

@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './CardProject.module.scss';
 import { Link } from 'react-router-dom';
 import TitleCard from '../../typographies/TitleCard/TitleCard';
+import styles from './CardProject.module.scss';
 import { ProjectType } from '../../../types/project.types';
 
 //Typage from ProjectType
