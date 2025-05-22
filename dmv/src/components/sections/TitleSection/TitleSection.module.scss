@@ -6,6 +6,25 @@
     border: 1px solid black;
 }
 
+.sectionEffectPresentation{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    box-sizing: border-box;
+    background-color: transparent; //nvx
+    color: $tertiary;
+    text-align: center;
+
+    &__title{
+        font-family: $font-title, sans-serif;
+        font-size: 2rem;
+    }
+}
+
 .sectionPresentation{
     width: 100%;
     display: flex;

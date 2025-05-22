@@ -1,0 +1,10 @@
+.parallaxContainer {
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    width: 100%;
+    min-height: 200vh;
+    display: flex;
+    flex-direction: column;
+}

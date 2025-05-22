@@ -1,0 +1,20 @@
+import React from 'react';
+import styles from './ParallaxFixSection.module.scss';
+
+type SectionParallaxFixProps = {
+    backgroundImage: string;
+    children: React.ReactNode;
+};
+
+const SectionParallaxFix: React.FC<SectionParallaxFixProps> = ({ backgroundImage, children }) => {
+    return (
+        <div
+            className={styles.parallaxContainer}
+            style={{ backgroundImage: `url(${backgroundImage})` }}
+        >
+            {children}
+        </div>
+    );
+};
+
+export default SectionParallaxFix;

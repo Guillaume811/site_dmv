@@ -7,13 +7,8 @@
 }
 
 .sectionIntro {
-    position: relative;
     width: 100%;
-    min-height: 100vh;
-    background-image: url("../../../assets/pictures/background/intro.jpg");
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+    height: 100vh;
     display: flex;
     align-items: flex-end;
     justify-content: center;

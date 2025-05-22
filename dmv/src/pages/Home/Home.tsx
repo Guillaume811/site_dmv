@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import BasicSection from '../../components/sections/BasicSection/BasicSection';
 import Button from '../../components/Button/Button';
 import TitleSection from '../../components/sections/TitleSection/TitleSection';
@@ -10,6 +10,7 @@ import RowDiv from '../../components/div/RowDiv/RowDiv';
 import PrestationGrid from '../../components/grid/PrestationGrid/PrestationGrid';
 import stylesBasicSection from "../../components/sections/BasicSection/BasicSection.module.scss";
 import stylesTitlesSection from "../../components/sections/TitleSection/TitleSection.module.scss";
+import backgroundImage from "../../assets/pictures/background/intro.jpg";
 import Fleche from '../../assets/pictures/fleche-vers-le-bas-jaune.png';
 import Montage from '../../assets/pictures/background/parallax-accueil.jpg';
 import Drone from '../../assets/pictures/prez-drone.jpg';
@@ -18,6 +19,7 @@ import { ProjectType } from '../../types/project.types';
 import { ProjectService } from '../../services/ProjectService';
 import { PrestationType } from '../../types/prestation.types';
 import { PrestationService } from '../../services/PrestationService';
+import ParallaxFixSection from '../../components/sections/ParallaxFixSection/ParallaxFixSection';
 
 /* Component Page Home
 * Render logic :
@@ -57,6 +59,66 @@ const Home: React.FC = () => {
     const prestationLink = getNavigationLink("prestation");
     const projetLink = getNavigationLink("projet");
 
+    // Effect first section
+    // TitleSection
+    const sectionRef = useRef<HTMLDivElement>(null);
+    const [opacity, setOpacity] = useState(0);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!sectionRef.current) return;
+
+            const rect = sectionRef.current.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+            const sectionCenter = rect.top + rect.height / 2;
+            const screenCenter = windowHeight / 2;
+
+            const distance = Math.abs(sectionCenter - screenCenter);
+            const maxDistance = windowHeight / 2;
+            const ratio = Math.max(0, 1 - distance / maxDistance);
+
+            setOpacity(ratio);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
+    //SCrollArrow
+    const arrowRef = useRef<HTMLDivElement>(null);
+    const [arrowOpacity, setArrowOpacity] = useState(1);
+
+    useEffect(() => {
+        const handleScroll = () => {
+            if (!arrowRef.current) return;
+
+            const rect = arrowRef.current.getBoundingClientRect();
+            const windowHeight = window.innerHeight;
+
+            // Distance du bas de la fenêtre à la flèche
+            const distanceFromBottom = windowHeight - rect.top;
+
+            // On commence à la faire disparaître quand elle approche du milieu
+            const fadeStart = windowHeight * 0.5;
+            const fadeEnd = windowHeight * 0.1;
+
+            let opacity = 1;
+
+            if (distanceFromBottom < fadeStart) {
+                opacity = (distanceFromBottom - fadeEnd) / (fadeStart - fadeEnd);
+                opacity = Math.max(0, Math.min(1, opacity));
+            }
+
+            setArrowOpacity(opacity);
+            console.log('distanceFromBottom:', distanceFromBottom, '→ opacity:', opacity);
+        };
+
+        window.addEventListener('scroll', handleScroll);
+        handleScroll();
+        return () => window.removeEventListener('scroll', handleScroll);
+    }, []);
+
     // État local pour stocker les projets à afficher
     const [projects, setProjects] = useState<ProjectType[]>([]);
     // Au montage du composant, on récupère les projets à afficher
@@ -77,26 +139,34 @@ const Home: React.FC = () => {
 
     return (
         <div>
-            {/*Section d'introduction*/}
-            <BasicSection className={stylesBasicSection.sectionIntro}>
-                <ScrollArrow 
-                    text='Scroll' 
-                    imageSrc={Fleche} 
-                    altText='Fleche vers le bas' />
-            </BasicSection>
+            <ParallaxFixSection backgroundImage={backgroundImage}>
+                {/*Section d'introduction*/}
+                <BasicSection className={stylesBasicSection.sectionIntro}>
+                    <ScrollArrow 
+                        text='Scroll' 
+                        imageSrc={Fleche} 
+                        altText='Fleche vers le bas'
+                        opacity={arrowOpacity}
+                        innerRef={arrowRef}
+                    />
+                </BasicSection>
 
-            {/*Section d'introduction 2*/}
-            <TitleSection 
-                title='DMV - Production' 
-                classNameSection={stylesTitlesSection.sectionPresentation}
-                classNameTitle={stylesTitlesSection.sectionPresentation__title}
-            >
-                <p>
-                    Cum haec taliaque sollicitas eius aures everberarent expositas semper eius modi rumoribus et patentes,
-                    varia animo tum miscente consilia, tandem id ut optimum factu elegit.
-                </p>
-                <Button text='Nos prestations' to={prestationLink?.to} />
-            </TitleSection>
+                {/*Section d'introduction 2*/}
+                <TitleSection 
+                    title='DMV - Production' 
+                    classNameSection={stylesTitlesSection.sectionEffectPresentation}
+                    classNameTitle={stylesTitlesSection.sectionEffectPresentation__title}
+                    innerRef={sectionRef}
+                    opacity={opacity}
+                >
+                    <p>
+                        Cum haec taliaque sollicitas eius aures everberarent expositas semper eius modi rumoribus et patentes,
+                        varia animo tum miscente consilia, tandem id ut optimum factu elegit.
+                    </p>
+                    <Button text='Nos prestations' to={prestationLink?.to} />
+                </TitleSection>
+            </ParallaxFixSection>
+            
 
             {/*Section Nos projets*/}
             <TitleSection title='Nos projets' 

@@ -8,6 +8,8 @@ type ScrollArrowProps = {
     text: string;
     imageSrc: string;
     altText: string;
+    opacity: number;
+    innerRef: React.Ref<HTMLDivElement>;
 }
 
 /* Component ScrollArrow
@@ -19,10 +21,15 @@ type ScrollArrowProps = {
   -> Displays a <motion.span> that shows "text" with an animation that fades in and out in a loop.
   -> Displays a <motion.img> using "imageSrc" and "altText" with a vertical bouncing animation that loops forever. 
 */
-const ScrollArrow: React.FC<ScrollArrowProps> = ({text, imageSrc, altText}) => {
+const ScrollArrow: React.FC<ScrollArrowProps> = ({text, imageSrc, altText, opacity, innerRef}) => {
+    console.log('ScrollArrow opacity:', opacity);
     return (
-        <div className={styles.content}>
-            <motion.span 
+        <motion.div
+            ref={innerRef}
+            className={styles.content}
+            style={{ opacity }}
+        >
+            <motion.span
                 className={styles.content__span}
                 animate={{ opacity: [1, 0, 1] }}
                 transition={{
@@ -48,7 +55,7 @@ const ScrollArrow: React.FC<ScrollArrowProps> = ({text, imageSrc, altText}) => {
                     ease: "easeInOut",
                 }}
             />
-        </div>
+        </motion.div>
     );
 };
 
