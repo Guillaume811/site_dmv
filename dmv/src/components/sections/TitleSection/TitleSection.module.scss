@@ -36,6 +36,7 @@
     background-color: $secondary;
     color: $tertiary;
     text-align: center;
+    overflow-x: hidden;
 
     &__title{
         font-family: $font-title, sans-serif;

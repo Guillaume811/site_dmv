@@ -10,46 +10,74 @@ type TitleSectionProps = {
     children: React.ReactNode;
     opacity?: number;
     innerRef?: React.Ref<HTMLDivElement>;
+    opacityOnTitleOnly?: boolean; //
 };
 
 /* Component TitleSection
-* Receives "classNameSection", "classNameTitle", "title", "children", "opacity", and "innerRef" as props from "TitleSectionProps".
-
-* Render logic :
-* Builds a "content" fragment that includes a <h2> with "title" and the "children" content.
+* Receives "classNameSection", "classNameTitle", "title", "children", "opacity", "innerRef", and "opacityOnTitleOnly" from "TitleSectionProps".
 
 * View TSX :
-* If "opacity" is a number:
-    -> Returns a <motion.section> with the given class name, animated opacity, and ref set to "innerRef".
-    -> Uses a short transition duration of 0.2 seconds.
-* If "opacity" is not a number:
-    -> Returns a regular <section> element with the given class name and ref, containing the same content.
-*/
-const TitleSection: React.FC<TitleSectionProps> = ({ classNameSection, classNameTitle, title, children, opacity = 1, innerRef}) => {
-    const content = (
-        <>
-            <h2 className={classNameTitle ?? ''}>{title}</h2>
-            {children}
-        </>
-    );
+* If "opacityOnTitleOnly" is true:
+    -> Returns a <section> with the given class name.
+    -> Wraps the <h2> title in a <motion.h2> with animated opacity and a short transition.
+    -> Only the title fades in/out based on the scroll position.
 
-    if (typeof opacity === 'number') {
+* If "opacity" is a number and "opacityOnTitleOnly" is false:
+    -> Returns a <motion.section> with animated opacity applied to the entire section.
+    -> Includes the title and children inside.
+
+* If no animation is needed:
+    -> Returns a regular <section> with the title and children, and attaches the ref if provided.
+*/
+const TitleSection: React.FC<TitleSectionProps> = ({
+    classNameSection,
+    classNameTitle,
+    title,
+    children,
+    opacity = 1,
+    innerRef,
+    opacityOnTitleOnly = false
+}) => {
+    // Si l'animation ne doit être appliquée qu'au titre
+    if (opacityOnTitleOnly) {
         return (
-            <motion.section
-                ref={innerRef}
-                className={classNameSection ?? ''}
-                style={{ opacity }}
-                transition={{ duration: 0.2 }}
-            >
-                {content}
-            </motion.section>
+        <section className={classNameSection ?? ''}>
+            <div ref={innerRef}>
+                <motion.h2
+                    
+                    className={classNameTitle ?? ''}
+                    style={{ opacity }}
+                    transition={{ duration: 0.2 }}
+                >
+                    {title}
+                </motion.h2>
+            </div>
+            
+            {children}
+        </section>
         );
     }
 
-    // Sinon section HTML classique
+    // Si l'opacité s'applique à toute la section
+    if (typeof opacity === 'number') {
+        return (
+        <motion.section
+            ref={innerRef}
+            className={classNameSection ?? ''}
+            style={{ opacity }}
+            transition={{ duration: 0.2 }}
+        >
+            <h2 className={classNameTitle ?? ''}>{title}</h2>
+            {children}
+        </motion.section>
+        );
+    }
+
+    // Section HTML classique
     return (
         <section ref={innerRef} className={classNameSection ?? ''}>
-            {content}
+        <h2 className={classNameTitle ?? ''}>{title}</h2>
+        {children}
         </section>
     );
 };
