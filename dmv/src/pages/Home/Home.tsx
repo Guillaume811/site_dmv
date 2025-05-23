@@ -20,19 +20,20 @@ import { ProjectService } from '../../services/ProjectService';
 import { PrestationType } from '../../types/prestation.types';
 import { PrestationService } from '../../services/PrestationService';
 import ParallaxFixSection from '../../components/sections/ParallaxFixSection/ParallaxFixSection';
+import { useSectionOpacity } from '../../hooks/useSectionOpacity';
 
 /* Component Page Home
 * Render logic :
 * Uses "getNavigationLink" :
     -> to get the navigation links for the "prestation" and "projet" pages
     -> saves them as "prestationLink" and "projetLink".
-* Uses "useRef" :
-    -> To create "sectionRef" for the intro title section
-    -> And "arrowRef" for the scroll arrow.
-* Uses "useState" and "useEffect" to control "opacity" for the title section:
-    -> Calculates the distance between the section center and screen center on scroll to update its opacity.
-* Uses "useState" and "useEffect" to control "arrowOpacity" for the scroll arrow:
-    -> Fades the arrow out when it's near the bottom of the screen while scrolling.
+* Manages scroll-based opacity for the intro title section:
+    -> Uses "useRef" to track the section DOM element.
+    -> Uses "useState" for "opacity" and updates it with a scroll listener that compares the section's center to the screen center.
+* Manages scroll-based opacity for the scroll arrow:
+    -> Uses "useRef" to track the arrow DOM element.
+    -> Uses "useState" for "arrowOpacity", updated by a scroll listener based on the arrow's distance from the bottom of the screen.
+* Uses "useRef" and a custom hook "useSectionOpacity" to compute dynamic opacity for the project section title.
 * Uses "useState" to create "projects", a list of project items :
     -> Uses "useEffect" to load 6 project items from "ProjectService.getFirst(6)" when the component shows.
     -> If it works, saves them in "projects"; if it fails, shows an error in the console.
@@ -107,16 +108,15 @@ const Home: React.FC = () => {
 
             const distanceFromBottom = windowHeight - rect.top;
 
-            // Zone d'affichage maximale (au bas de l'écran)
-            const fadeStart = 200;  // commence à baisser à 50px du bas
-            const fadeEnd = 400;   // totalement invisible à 150px du bas
+            const fadeStart = 200;
+            const fadeEnd = 400;
 
             let opacity = 1;
 
             if (distanceFromBottom <= fadeStart) {
-                opacity = 1; // encore totalement visible
+                opacity = 1;
             } else if (distanceFromBottom >= fadeEnd) {
-                opacity = 0; // totalement invisible
+                opacity = 0;
             } else {
                 const range = fadeEnd - fadeStart;
                 opacity = 1 - (distanceFromBottom - fadeStart) / range;
@@ -130,6 +130,10 @@ const Home: React.FC = () => {
         handleScroll(); // appel initial
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
+
+    // Effect section project, avec hook perso
+    const titleRef = useRef<HTMLDivElement>(null);
+    const titleOpacity = useSectionOpacity(titleRef);
 
     // État local pour stocker les projets à afficher
     const [projects, setProjects] = useState<ProjectType[]>([]);
@@ -184,6 +188,9 @@ const Home: React.FC = () => {
             <TitleSection title='Nos projets' 
                 classNameSection={stylesTitlesSection.sectionPresentation}
                 classNameTitle={stylesTitlesSection.sectionPresentation__title}
+                innerRef={titleRef}
+                opacity={titleOpacity}
+                opacityOnTitleOnly={true}
             >
                 <ProjectGrid projects={projects} />
 
