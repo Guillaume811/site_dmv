@@ -210,6 +210,11 @@ const Home: React.FC = () => {
 
             </TitleSection>
 
+            {/*Section découvrir nos prestations*/}    
+            <ParallaxSection backgroundImage={Montage}>
+                <Button text='Découvir nos Prestations' to={prestationLink?.to}/>
+            </ParallaxSection>
+
             {/*Section Contact*/}
             <TitleSection title='Contact' 
                 classNameSection={stylesTitlesSection.sectionPresentation}
