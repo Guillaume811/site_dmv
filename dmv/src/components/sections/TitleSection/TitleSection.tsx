@@ -13,13 +13,17 @@ type TitleSectionProps = {
 };
 
 /* Component TitleSection
-* Receives "classNameSection", "classNameTitle", "title", and "children" as props from "TitleSectionProps".
+* Receives "classNameSection", "classNameTitle", "title", "children", "opacity", and "innerRef" as props from "TitleSectionProps".
+
+* Render logic :
+* Builds a "content" fragment that includes a <h2> with "title" and the "children" content.
 
 * View TSX :
-* Returns a <section> element with "classNameSection" if provided, or an empty string.
-* Inside the section:
-  -> Displays a <h2> element with "classNameTitle" if provided, or an empty string, showing the "title".
-  -> Renders the "children" content below the title.
+* If "opacity" is a number:
+    -> Returns a <motion.section> with the given class name, animated opacity, and ref set to "innerRef".
+    -> Uses a short transition duration of 0.2 seconds.
+* If "opacity" is not a number:
+    -> Returns a regular <section> element with the given class name and ref, containing the same content.
 */
 const TitleSection: React.FC<TitleSectionProps> = ({ classNameSection, classNameTitle, title, children, opacity = 1, innerRef}) => {
     const content = (
