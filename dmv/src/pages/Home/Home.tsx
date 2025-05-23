@@ -24,33 +24,42 @@ import ParallaxFixSection from '../../components/sections/ParallaxFixSection/Par
 /* Component Page Home
 * Render logic :
 * Uses "getNavigationLink" :
-* -> to get the navigation links for the "prestation" and "projet" pages
-* -> saves them as "prestationLink" and "projetLink".
+    -> to get the navigation links for the "prestation" and "projet" pages
+    -> saves them as "prestationLink" and "projetLink".
+* Uses "useRef" :
+    -> To create "sectionRef" for the intro title section
+    -> And "arrowRef" for the scroll arrow.
+* Uses "useState" and "useEffect" to control "opacity" for the title section:
+    -> Calculates the distance between the section center and screen center on scroll to update its opacity.
+* Uses "useState" and "useEffect" to control "arrowOpacity" for the scroll arrow:
+    -> Fades the arrow out when it's near the bottom of the screen while scrolling.
 * Uses "useState" to create "projects", a list of project items :
-* -> Uses "useEffect" to load 6 project items from "ProjectService.getFirst(6)" when the component shows.
-* -> If it works, saves them in "projects"; if it fails, shows an error in the console.
+    -> Uses "useEffect" to load 6 project items from "ProjectService.getFirst(6)" when the component shows.
+    -> If it works, saves them in "projects"; if it fails, shows an error in the console.
 * Uses "useState" to create "prestations", a list of prestation items :
-* -> Uses another "useEffect" to load all prestations from "PrestationService.getAll()" when the component shows.
-* -> If it works, saves them in "prestations"; if it fails, shows an error in the console.
+    -> Uses another "useEffect" to load all prestations from "PrestationService.getAll()" when the component shows.
+    -> If it works, saves them in "prestations"; if it fails, shows an error in the console.
 
 * View TSX :
 * "Section intro" :
-* -> Shows a "BasicSection" with a "ScrollArrow" containing a text and an image.
-* -> Displays a first "TitleSection" with the title "DMV - Production", 
-* -> A paragraph of intro text,
-* -> A "Button" that links to the prestations page.
+    -> Uses "ParallaxFixSection" with a background image.
+    -> Inside it, "BasicSection" contains a "ScrollArrow" with animated opacity and a reference.
+    -> A "TitleSection" with a title, paragraph, and button uses scroll-based opacity and a ref.
+    -> Displays a first "TitleSection" with the title "DMV - Production", 
+    -> A paragraph of intro text,
+    -> A "Button" that links to the prestations page.
 * "Section Nos projets" :
-* -> Displays a second "TitleSection" titled "Nos projets"
-* -> With a "ProjectGrid" using the data from "projects".
+    -> Displays a second "TitleSection" titled "Nos projets"
+    -> With a "ProjectGrid" using the data from "projects".
 * "Section Parallax" :
-* -> Shows a "ParallaxSection" with a background image from "Montage"
-* -> A "Button" linking to the projets page.
+    -> Shows a "ParallaxSection" with a background image from "Montage"
+    -> A "Button" linking to the projets page.
 * "Section Prestation" :
-* -> Displays a third "TitleSection" titled "Nos Prestations"
-* -> With a "PrestationGrid" using the data from "prestations".
+    -> Displays a third "TitleSection" titled "Nos Prestations"
+    -> With a "PrestationGrid" using the data from "prestations".
 * "Section Contact" :
-* -> Displays a last "TitleSection" titled "Contact" 
-* -> With a "RowDiv" that shows a "ContactForm" on the left and a drone image on the right.
+    -> Displays a last "TitleSection" titled "Contact" 
+    -> With a "RowDiv" that shows a "ContactForm" on the left and a drone image on the right.
 
 * 
 */
@@ -96,26 +105,29 @@ const Home: React.FC = () => {
             const rect = arrowRef.current.getBoundingClientRect();
             const windowHeight = window.innerHeight;
 
-            // Distance du bas de la fenêtre à la flèche
             const distanceFromBottom = windowHeight - rect.top;
 
-            // On commence à la faire disparaître quand elle approche du milieu
-            const fadeStart = windowHeight * 0.5;
-            const fadeEnd = windowHeight * 0.1;
+            // Zone d'affichage maximale (au bas de l'écran)
+            const fadeStart = 200;  // commence à baisser à 50px du bas
+            const fadeEnd = 400;   // totalement invisible à 150px du bas
 
             let opacity = 1;
 
-            if (distanceFromBottom < fadeStart) {
-                opacity = (distanceFromBottom - fadeEnd) / (fadeStart - fadeEnd);
-                opacity = Math.max(0, Math.min(1, opacity));
+            if (distanceFromBottom <= fadeStart) {
+                opacity = 1; // encore totalement visible
+            } else if (distanceFromBottom >= fadeEnd) {
+                opacity = 0; // totalement invisible
+            } else {
+                const range = fadeEnd - fadeStart;
+                opacity = 1 - (distanceFromBottom - fadeStart) / range;
             }
 
+            opacity = Math.max(0, Math.min(1, opacity));
             setArrowOpacity(opacity);
-            console.log('distanceFromBottom:', distanceFromBottom, '→ opacity:', opacity);
         };
 
         window.addEventListener('scroll', handleScroll);
-        handleScroll();
+        handleScroll(); // appel initial
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
