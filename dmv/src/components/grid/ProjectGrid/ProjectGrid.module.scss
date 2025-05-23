@@ -2,7 +2,8 @@
     width: 100%;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: 4rem;
+    column-gap: 4rem;
+    row-gap: 10rem;
     padding: 4rem;
     box-sizing: border-box;
   
