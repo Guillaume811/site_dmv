@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import styles from "./Button.module.scss";
 
@@ -29,39 +29,51 @@ type ButtonProps = {
 
 */
 const Button: React.FC<ButtonProps> = ({ text, to, onClick, type, externalClassName }) => {
+    const [hasHovered, setHasHovered] = useState(false);
+    const [isHovering, setIsHovering] = useState(false);
+
     const maskSprite = '/pictures/hover-button/urban-sprite.png';
 
-  // Masque appliqué uniquement à l'élément visuel (pas sur le bouton/Link lui-même)
     const maskStyle = {
         WebkitMaskImage: `url(${maskSprite})`,
         maskImage: `url(${maskSprite})`,
         WebkitMaskSize: '3000% 100%',
         maskSize: '3000% 100%',
-        WebkitMaskPosition: '100% 0',
-        maskPosition: '100% 0',
     } as React.CSSProperties;
+
+    const animationClass =  isHovering
+        ? styles.animateIn
+        : hasHovered
+        ? styles.animateOut
+        : styles.noAnim;
 
     const content = (
         <>
-        <span className={styles.maskedGreen} style={maskStyle} />
+        <span
+            className={`${styles.maskedGreen} ${animationClass}`}
+            style={maskStyle}
+        />
         <span className={styles.content}>{text}</span>
         </>
     );
 
-    if (to) {
-        return (
-        <Link to={to} className={`${styles.button} ${externalClassName}`}>
-            {content}
-        </Link>
-        );
-    }
+    const commonProps = {
+        onMouseEnter: () => {
+        setHasHovered(true);
+        setIsHovering(true);
+        },
+        onMouseLeave: () => {
+        setIsHovering(false);
+        },
+        className: `${styles.button} ${externalClassName}`,
+    };
 
-    return (
-        <button
-        type={type}
-        onClick={onClick}
-        className={`${styles.button} ${externalClassName}`}
-        >
+    return to ? (
+        <Link to={to} {...commonProps}>
+        {content}
+        </Link>
+    ) : (
+        <button type={type} onClick={onClick} {...commonProps}>
         {content}
         </button>
     );

@@ -6,43 +6,45 @@
     overflow: hidden;
     padding: 1rem 2rem;
     border: none;
-    background-color: #20bb36 ; // Jaune de base
+    text-decoration: none;
+    background-color: #ffef0c;
     font-family: $font-subtitile, sans-serif;
     font-size: 1rem;
     font-weight: 600;
-    text-decoration: none;
     cursor: pointer;
     text-align: center;
     color: #000;
-
-    // Animation par défaut (révélation inversée au chargement)
-    &:hover .maskedGreen {
-        -webkit-animation: ani 0.7s steps(29) forwards;
-        animation: ani 0.7s steps(29) forwards;
-    }
-
-    // 👇 Quand la souris n’est PAS dessus → retour à l’état initial
-    &:not(:hover) .maskedGreen {
-        -webkit-animation: ani2 0.7s steps(29) forwards;
-        animation: ani2 0.7s steps(29) forwards;
-    }
 }
 
 .maskedGreen {
     position: absolute;
     inset: 0;
-    background-color:#ffef0c; // Vert révélé
+    background-color: #20bb36;
     z-index: 0;
-
-    //-webkit-animation: ani2 0.7s steps(29) forwards;
-    //animation: ani2 0.7s steps(29) forwards;
-
     pointer-events: none;
+
+    // ✅ Position fixée au repos (pas d’animation)
+    -webkit-mask-position: 100% 0;
+    mask-position: 100% 0;
+}
+
+.animateIn {
+    animation: ani2 0.7s steps(29) forwards;
+    -webkit-animation: ani2 0.7s steps(29) forwards;
+}
+
+.animateOut {
+    animation: ani 0.7s steps(29) forwards;
+    -webkit-animation: ani 0.7s steps(29) forwards;
 }
 
 .content {
     position: relative;
     z-index: 1;
+}
+
+.noAnim {
+  /* aucune animation ni mask-position : on laisse ce que TSX applique */
 }
 
 @keyframes ani {
