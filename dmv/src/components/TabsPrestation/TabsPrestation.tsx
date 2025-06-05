@@ -43,7 +43,7 @@ const TabsPrestation: React.FC = () => {
                     <Button 
                         type="button"
                         text={prestation.title}
-                        className={`${activeTab === prestation.id ? styles.active : ""}`}
+                        externalClassName={`${activeTab === prestation.id ? styles.active : ""}`}
                         onClick={() => setActiveTab(prestation.id)}
                     />
                 ))}
