@@ -2,19 +2,67 @@
 @import '../../styles/fonts.scss'; 
 
 .button {
-    background-color: $primary;
-    color: $secondary;           
-    font-family: $font-subtitile, sans-serif;
+    position: relative;
+    overflow: hidden;
     padding: 1rem 2rem;
     border: none;
-    border-radius: 0;
+    background-color: #20bb36 ; // Jaune de base
+    font-family: $font-subtitile, sans-serif;
     font-size: 1rem;
     font-weight: 600;
     text-decoration: none;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    text-align: center;
+    color: #000;
 
-    &:hover {
-        background-color: darken($primary, 10%);
+    // Animation par défaut (révélation inversée au chargement)
+    &:hover .maskedGreen {
+        -webkit-animation: ani 0.7s steps(29) forwards;
+        animation: ani 0.7s steps(29) forwards;
+    }
+
+    // 👇 Quand la souris n’est PAS dessus → retour à l’état initial
+    &:not(:hover) .maskedGreen {
+        -webkit-animation: ani2 0.7s steps(29) forwards;
+        animation: ani2 0.7s steps(29) forwards;
+    }
+}
+
+.maskedGreen {
+    position: absolute;
+    inset: 0;
+    background-color:#ffef0c; // Vert révélé
+    z-index: 0;
+
+    //-webkit-animation: ani2 0.7s steps(29) forwards;
+    //animation: ani2 0.7s steps(29) forwards;
+
+    pointer-events: none;
+}
+
+.content {
+    position: relative;
+    z-index: 1;
+}
+
+@keyframes ani {
+    from {
+        -webkit-mask-position: 0 0;
+        mask-position: 0 0;
+    }
+    to {
+        -webkit-mask-position: 100% 0;
+        mask-position: 100% 0;
+    }
+}
+
+@keyframes ani2 {
+    from {
+        -webkit-mask-position: 100% 0;
+        mask-position: 100% 0;
+    }
+    to {
+        -webkit-mask-position: 0 0;
+        mask-position: 0 0;
     }
 }

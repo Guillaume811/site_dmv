@@ -9,7 +9,7 @@ type ButtonProps = {
     to?: string;
     onClick?: () => void;
     type?: 'button' | 'submit';
-    className?: string;
+    externalClassName?: string;
 };
 
 /* Component Button
@@ -28,21 +28,43 @@ type ButtonProps = {
 * 
 
 */
-const Button: React.FC<ButtonProps> = ({ text, to, onClick, type, className }) => {
+const Button: React.FC<ButtonProps> = ({ text, to, onClick, type, externalClassName }) => {
+    const maskSprite = '/pictures/hover-button/urban-sprite.png';
+
+  // Masque appliqué uniquement à l'élément visuel (pas sur le bouton/Link lui-même)
+    const maskStyle = {
+        WebkitMaskImage: `url(${maskSprite})`,
+        maskImage: `url(${maskSprite})`,
+        WebkitMaskSize: '3000% 100%',
+        maskSize: '3000% 100%',
+        WebkitMaskPosition: '100% 0',
+        maskPosition: '100% 0',
+    } as React.CSSProperties;
+
+    const content = (
+        <>
+        <span className={styles.maskedGreen} style={maskStyle} />
+        <span className={styles.content}>{text}</span>
+        </>
+    );
 
     if (to) {
         return (
-            <Link to={to} className={styles.button}>
-                {text}
-            </Link>
+        <Link to={to} className={`${styles.button} ${externalClassName}`}>
+            {content}
+        </Link>
         );
     }
 
     return (
-        <button type={type} onClick={onClick} className={`${styles.button} ${className}`}>
-            {text}
+        <button
+        type={type}
+        onClick={onClick}
+        className={`${styles.button} ${externalClassName}`}
+        >
+        {content}
         </button>
-    ) 
+    );
 };
 
 export default Button;
