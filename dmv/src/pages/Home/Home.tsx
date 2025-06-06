@@ -10,6 +10,7 @@ import RowDiv from '../../components/div/RowDiv/RowDiv';
 import PrestationGrid from '../../components/grid/PrestationGrid/PrestationGrid';
 import stylesBasicSection from "../../components/sections/BasicSection/BasicSection.module.scss";
 import stylesTitlesSection from "../../components/sections/TitleSection/TitleSection.module.scss";
+import stylesRowDiv from "../../components/div/RowDiv/RowDiv.module.scss";
 import backgroundImage from "../../assets/pictures/background/intro.jpg";
 import Fleche from '../../assets/pictures/fleche-vers-le-bas-jaune.png';
 import Montage from '../../assets/pictures/background/parallax-accueil.jpg';
@@ -179,7 +180,11 @@ const Home: React.FC = () => {
                         Cum haec taliaque sollicitas eius aures everberarent expositas semper eius modi rumoribus et patentes,
                         varia animo tum miscente consilia, tandem id ut optimum factu elegit.
                     </p>
-                    <Button text='Nos prestations' to={prestationLink?.to} />
+                    <RowDiv 
+                        leftContent={<Button text='Nos prestations' to={prestationLink?.to} />}
+                        rightContent={<Button text='Nos projets' to={projetLink?.to} />}
+                        classNameRowDiv={stylesRowDiv.rowDivButtons}
+                    />
                 </TitleSection>
             </ParallaxFixSection>
             
@@ -224,6 +229,9 @@ const Home: React.FC = () => {
                 <RowDiv
                     leftContent={<ContactForm />}
                     rightContent={<img src={Drone} alt="Drone" />}
+                    classNameRowDiv={stylesRowDiv.rowDivForm}
+                    classNameRowDivLeft={stylesRowDiv.rowDivForm__left}
+                    classNameRowDivRight={stylesRowDiv.rowDivForm__right}
                 />
                 
             </TitleSection>
