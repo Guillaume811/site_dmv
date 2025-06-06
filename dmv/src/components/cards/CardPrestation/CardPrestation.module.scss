@@ -11,12 +11,12 @@
     padding: 1rem;
     background-color: $secondary;
     text-decoration: none;
-    border: 0.1rem solid rgba(255, 255, 255, 0.5);
+    border: 0.3rem solid rgba(255, 255, 255);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 
     &:hover {
         transform: scale(1.03);
-        box-shadow: 0 0 20px rgba(255, 239, 12, 0.4); // ombre jaune
+        box-shadow: 0 0 80px rgba(255, 239, 12, 0.4); // ombre jaune
     }
 
     @media screen and (max-width: 1024px) {
