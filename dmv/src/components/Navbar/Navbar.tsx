@@ -61,50 +61,56 @@ const Navbar: React.FC = () => {
     }, [isOpen]);
 
     return (
-        <nav className={styles.navbar}>
-            <Link to={homeLink?.to || "/"} className={styles.navbar__logo}>
-                <img 
-                    src={logo} 
-                    alt="Logo DMV - Production"    
-                    className={styles.navbar__logo__img}
-                />
-            </Link>
+        <>
+            {isOpen && <div className={styles.overlay} onClick={() => setIsOpen(false)} />}
 
-            {/* Bouton burger (mobile) */}
-            <button
-                ref={burgerRef}
-                className={styles.burger}
-                onClick={() => setIsOpen((prev) => !prev)}
-                aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
-            >
-                {isOpen ? "✖" : "☰"}
-            </button>
+            <nav className={styles.navbar}>
+                <Link to={homeLink?.to || "/"} className={styles.navbar__logo}>
+                    <img 
+                        src={logo} 
+                        alt="Logo DMV - Production"    
+                        className={styles.navbar__logo__img}
+                    />
+                </Link>
 
-            {/* Menu mobile ou desktop */}
-            <ul 
-                ref={menuRef}
-                className={`${styles.navbar__list} ${isOpen ? styles.open : ""}`}>
-                    {navLinks.map(({ id, label, to }) => (
-                        <li key={id} className={styles.navbar__list__item}>
-                            <NavLink
-                                to={to}
-                                className={({ isActive }) =>
-                                    `${styles.navbar__list__item__link} ${
-                                    isActive ? styles.active : ""
-                                    }`
-                                }
-                                onClick={() => setIsOpen(false)}
-                            >
-                                {label}
-                            </NavLink>
+                {/* Bouton burger (mobile) */}
+                <button
+                    ref={burgerRef}
+                    className={styles.burger}
+                    onClick={() => setIsOpen((prev) => !prev)}
+                    aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
+                >
+                    {isOpen ? "✖" : "☰"}
+                </button>
+
+                {/* Menu mobile ou desktop */}
+                
+                <ul 
+                    ref={menuRef}
+                    className={`${styles.navbar__list} ${isOpen ? styles.open : ""}`}>
+                        {navLinks.map(({ id, label, to }) => (
+                            <li key={id} className={styles.navbar__list__item}>
+                                <NavLink
+                                    to={to}
+                                    className={({ isActive }) =>
+                                        `${styles.navbar__list__item__link} ${
+                                        isActive ? styles.active : ""
+                                        }`
+                                    }
+                                    onClick={() => setIsOpen(false)}
+                                >
+                                    {label}
+                                </NavLink>
+                            </li>
+                        ))}
+
+                        <li className={styles.navbar__list__item}>
+                            <Button text="Contact" onClick={() => open(<ContactForm />)} />
                         </li>
-                    ))}
-
-                    <li className={styles.navbar__list__item}>
-                        <Button text="Contact" onClick={() => open(<ContactForm />)} />
-                    </li>
-            </ul>
-        </nav>
+                </ul>
+            </nav>
+        </>
+        
     );
 };
 
