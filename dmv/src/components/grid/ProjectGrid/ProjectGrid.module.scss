@@ -9,5 +9,7 @@
   
     @media (max-width: 768px) {
       grid-template-columns: 1fr; // stack sur mobile
+      row-gap: 5rem;
+      padding: 1rem;
     }
   }
