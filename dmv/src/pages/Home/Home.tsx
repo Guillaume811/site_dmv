@@ -187,7 +187,6 @@ const Home: React.FC = () => {
                     />
                 </TitleSection>
             </ParallaxFixSection>
-            
 
             {/*Section Nos projets*/}
             <TitleSection title='Nos projets' 
