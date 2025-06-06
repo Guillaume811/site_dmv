@@ -1,0 +1,35 @@
+@import '../../styles/variables.scss';
+
+.container {
+  background-color: $secondary; // fond noir
+  color: $tertiary; // texte blanc
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 2rem;
+
+  &__title {
+    font-size: 4rem;
+    font-family: $font-title, sans-serif;
+    margin-bottom: 1rem;
+
+    @media (max-width: 768px) {
+      font-size: 2.5rem;
+    }
+
+    span {
+      font-size: 6rem;
+      display: block;
+    }
+  }
+
+  &__text {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    line-height: 1.6;
+  }
+}
