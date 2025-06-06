@@ -10,7 +10,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 0.5rem;
+    padding: 1rem 0;
     background: rgba(255, 255, 255, 0.6); /* Fond semi-transparent */
     backdrop-filter: blur(10px); /* Flou arrière */
     -webkit-backdrop-filter: blur(10px); /* Safari support */
@@ -33,7 +33,7 @@
     &__list{
         display: flex;
         list-style: none;
-        padding: 0;
+        padding: 0 1rem 0 0;
         margin: 0;
         gap: 1rem;
 
