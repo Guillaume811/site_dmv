@@ -6,6 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter } from 'react-router-dom';
 import { ModalProvider } from './components/Modal/ModalContext';
 import './types/global.d';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 const container = document.getElementById('root');
 
@@ -19,6 +20,7 @@ const root = ReactDOM.createRoot(container);
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+    <ScrollToTop />
       <ModalProvider>
         <App />
       </ModalProvider>
