@@ -100,9 +100,6 @@ const Footer: React.FC = () => {
                     </div>
                 </div>
                 <div className={styles.footer__right__bottom}>
-                    {/*<h4 className={styles.footer__right__bottom__title}>
-                        Suivez-nous :
-                    </h4>*/}
                     <div className={styles.footer__right__bottom__social}>
                         <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
                             <img src={instagramIcon} alt="Instagram" className={styles.footer__right__bottom__social__icon} />
