@@ -1,5 +1,7 @@
+@import '../../styles/variables.scss';
+
 .dropdown {
-    border-bottom: 1px solid #e0e0e0;
+    border-bottom: 1px solid $tertiary;
     padding: 0.5rem 0;
 
     &__header {
@@ -15,8 +17,10 @@
         align-items: center;
         cursor: pointer;
 
-        &:hover {
-        background-color: #f9f9f9;
+        &__title {
+            font-family: $font-title, sans-serif;
+            font-size: 1.25rem;
+            color: $primary;
         }
 
         &__icon{

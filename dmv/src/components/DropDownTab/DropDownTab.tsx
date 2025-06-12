@@ -30,7 +30,9 @@ const DropDownTab: React.FC<DropDownTabProps> = ({ prestation, isOpen, onToggle 
     return (
     <div className={styles.dropdown}>
         <button className={styles.dropdown__header} onClick={onToggle}>
-            <span>{prestation.title}</span>
+            <span className={styles.dropdown__header__title}>
+                {prestation.title}
+            </span>
             <img
                 src={isOpen ? ArrowTop : ArrowBot}
                 alt=""
