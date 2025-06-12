@@ -6,6 +6,8 @@ import ContactForm from "../ContactForm/ContatcForm";
 import styles from "./Navbar.module.scss";
 import logo from "../../assets/pictures/logo.png";
 import { getNavigationLink, getNavigationLinksExcluding } from "../../data/navigationLinks";
+import linkedinIcon from "../../assets/pictures/icons/linkedin-black.png";
+import instagramIcon from "../../assets/pictures/icons/instagram-black.png";
 
 /* Component Navbar
 * Render logic :
@@ -36,33 +38,30 @@ import { getNavigationLink, getNavigationLinksExcluding } from "../../data/navig
 const Navbar: React.FC = () => {
     const homeLink = getNavigationLink("home");
     const navLinks = getNavigationLinksExcluding(["home"]);
-    
+
     const [isOpen, setIsOpen] = useState(false);
-    const menuRef = useRef<HTMLUListElement>(null);
+    const menuRef = useRef<HTMLDivElement>(null);
     const burgerRef = useRef<HTMLButtonElement>(null);
     const { open } = useModal();
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
-
-        if (
-            isOpen &&
-            menuRef.current &&
-            !menuRef.current.contains(event.target as Node) &&
-            !burgerRef.current?.contains(event.target as Node)
-        ) {
-            setIsOpen(false);
-        }
+            if (
+                isOpen &&
+                menuRef.current &&
+                !menuRef.current.contains(event.target as Node) &&
+                !burgerRef.current?.contains(event.target as Node)
+            ) {
+                setIsOpen(false);
+            }
         };
-    
+
         document.addEventListener("mousedown", handleClickOutside);
         return () => document.removeEventListener("mousedown", handleClickOutside);
-
     }, [isOpen]);
 
     return (
         <>
-            {isOpen && <div className={styles.overlay} onClick={() => setIsOpen(false)} />}
 
             <nav className={styles.navbar}>
                 <Link to={homeLink?.to || "/"} className={styles.navbar__logo}>
@@ -73,28 +72,49 @@ const Navbar: React.FC = () => {
                     />
                 </Link>
 
-                {/* Bouton burger (mobile) */}
                 <button
                     ref={burgerRef}
-                    className={styles.burger}
+                    className={styles.navbar__burger}
                     onClick={() => setIsOpen((prev) => !prev)}
                     aria-label={isOpen ? "Fermer le menu" : "Ouvrir le menu"}
                 >
                     {isOpen ? "✖" : "☰"}
                 </button>
 
-                {/* Menu mobile ou desktop */}
-                
-                <ul 
+                {/* Menu desktop/tablette */}
+                <ul className={styles.navbar__listDesktop}>
+                    {navLinks.map(({ id, label, to }) => (
+                        <li key={id} className={styles.navbar__listDesktop__item}>
+                            <NavLink
+                                to={to}
+                                className={({ isActive }) =>
+                                    `${styles.navbar__listDesktop__item__link} ${
+                                        isActive ? styles.active : ""
+                                    }`
+                                }
+                            >
+                                {label}
+                            </NavLink>
+                        </li>
+                    ))}
+                    <li className={styles.navbar__listDesktop__item}>
+                        <Button text="Contact" onClick={() => open(<ContactForm />)} />
+                    </li>
+                </ul>
+
+                {/* Menu mobile uniquement */}
+                <div
                     ref={menuRef}
-                    className={`${styles.navbar__list} ${isOpen ? styles.open : ""}`}>
+                    className={`${styles.navbar__mobileMenu} ${isOpen ? styles.open : ""}`}
+                >
+                    <ul className={styles.navbar__mobileMenu__list}>
                         {navLinks.map(({ id, label, to }) => (
-                            <li key={id} className={styles.navbar__list__item}>
+                            <li key={id} className={styles.navbar__mobileMenu__list__item}>
                                 <NavLink
                                     to={to}
                                     className={({ isActive }) =>
-                                        `${styles.navbar__list__item__link} ${
-                                        isActive ? styles.active : ""
+                                        `${styles.navbar__mobileMenu__list__item__link} ${
+                                            isActive ? styles.active : ""
                                         }`
                                     }
                                     onClick={() => setIsOpen(false)}
@@ -103,15 +123,23 @@ const Navbar: React.FC = () => {
                                 </NavLink>
                             </li>
                         ))}
-
-                        <li className={styles.navbar__list__item}>
+                        <li className={styles.navbar__mobileMenu__list__item}>
                             <Button text="Contact" onClick={() => open(<ContactForm />)} />
                         </li>
-                </ul>
+                    </ul>
+
+                    <div className={styles.navbar__mobileMenu__socials}>
+                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                            <img src={instagramIcon} alt="Instagram" />
+                        </a>
+                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                            <img src={linkedinIcon} alt="LinkedIn" />
+                        </a>
+                    </div>
+                </div>
             </nav>
         </>
-        
     );
 };
 
-export default Navbar;
+export default Navbar; 
