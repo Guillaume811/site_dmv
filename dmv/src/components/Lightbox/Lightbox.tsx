@@ -1,6 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { GalleryType } from '../../types/gallery.types';
 import styles from './Lightbox.module.scss';
+import ArrowLeft from "../../assets/pictures/arrow-left.png";
+import ArrowRight from "../../assets/pictures/arrow-right.png";
 
 // Type
 type LightboxProps = {
@@ -35,7 +37,14 @@ type LightboxProps = {
 * Responsive : 
 */
 const Lightbox: React.FC<LightboxProps> = ({pictures, index, onClose, onNext, onPrev }) => {
+
     const picture = pictures[index];
+    const [touchStartX, setTouchStartX] = useState<number | null>(null);
+    const [touchDeltaX, setTouchDeltaX] = useState(0);
+    const imageRef = useRef<HTMLImageElement>(null);
+
+    const nextPicture = pictures[index + 1];
+    const prevPicture = pictures[index - 1];
 
     useEffect(()=> {
         const handleKey = (e: KeyboardEvent) => {
@@ -44,10 +53,55 @@ const Lightbox: React.FC<LightboxProps> = ({pictures, index, onClose, onNext, on
             if (e.key === 'ArrowLeft') onPrev();
         };
 
-        window.addEventListener('keydown', handleKey);
+        const handleTouchStart = (e: TouchEvent) => {
+            setTouchStartX(e.touches[0].clientX);
+        };
+
+        const handleTouchMove = (e: TouchEvent) => {
+            if (touchStartX === null) return;
+            const currentX = e.touches[0].clientX;
+            setTouchDeltaX(currentX - touchStartX);
+        };
+
+        const handleTouchEnd = (e: TouchEvent) => {
+            if (Math.abs(touchDeltaX) > 50) {
+                touchDeltaX > 0 ? onPrev() : onNext();
+            }
+
+            // Reset after transition
+            setTouchDeltaX(0);
+            setTouchStartX(null);
+        };
+
+        const content = document.getElementById('lightbox-content');
+            content?.addEventListener('touchstart', handleTouchStart);
+            content?.addEventListener('touchmove', handleTouchMove);
+            content?.addEventListener('touchend', handleTouchEnd);
+            window.addEventListener('keydown', handleKey);
         
-        return () => window.removeEventListener('keydown', handleKey);
-        }, [onClose, onNext, onPrev]);
+        return () => {
+            content?.removeEventListener('touchstart', handleTouchStart);
+            content?.removeEventListener('touchmove', handleTouchMove);
+            content?.removeEventListener('touchend', handleTouchEnd);
+            window.removeEventListener('keydown', handleKey);
+        };
+    }, [touchStartX, touchDeltaX, onNext, onPrev, onClose]);
+
+    const getVisibleDots = (total: number, current: number) => {
+        if (total <= 5) {
+            return Array.from({ length: total }, (_, i) => i);
+        }
+
+        if (current <= 2) {
+            return [0, 1, 2, 3, 4];
+        } else if (current >= total - 3) {
+            return [total - 5, total - 4, total - 3, total - 2, total - 1];
+        } else {
+            return [current - 2, current - 1, current, current + 1, current + 2];
+        }
+    };
+
+    const visibleDots = getVisibleDots(pictures.length, index);
 
     return (
         <div 
@@ -55,6 +109,7 @@ const Lightbox: React.FC<LightboxProps> = ({pictures, index, onClose, onNext, on
             onClick={onClose}
         >
             <div 
+                id="lightbox-content"
                 className={styles.overlay__content} 
                 onClick={(e) => e.stopPropagation()}
             >
@@ -66,9 +121,14 @@ const Lightbox: React.FC<LightboxProps> = ({pictures, index, onClose, onNext, on
                 </button>
 
                 <img 
+                    ref={imageRef}
                     className={styles.overlay__content__picture} 
                     src={picture.pictureUrl} 
                     alt={picture.pictureAlt}
+                    style={{
+                        transform: `translateX(${touchDeltaX}px)`,
+                        transition: touchDeltaX === 0 ? 'transform 0.3s ease' : 'none',
+                    }}
                 />
 
                 <div 
@@ -78,15 +138,32 @@ const Lightbox: React.FC<LightboxProps> = ({pictures, index, onClose, onNext, on
                         className={styles.overlay__content__controls__arrow} 
                         onClick={onPrev}
                     >
-                        ‹
+                        <img 
+                            src={ArrowLeft}
+                            alt="Flèche gauche"
+                            className={styles.overlay__content__controls__arrow__img}
+                        />
                     </button>
 
                     <button 
                         className={styles.overlay__content__controls__arrow}
                         onClick={onNext}
                     >
-                        ›
+                        <img 
+                            src={ArrowRight}
+                            alt="Flèche droite"
+                            className={styles.overlay__content__controls__arrow__img}
+                        />
                     </button>
+                </div>
+
+                <div className={styles.overlay__content__dots}>
+                    {visibleDots.map((i) => (
+                        <span
+                            key={i}
+                            className={`${styles.overlay__content__dots__dot} ${i === index ? styles.active : ''}`}
+                        />
+                    ))}
                 </div>
             </div>
         </div>
