@@ -1,86 +1,88 @@
-@import '../../styles/variables';
-
 .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0, 0, 0, 0.85);
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  animation: fadeIn 0.3s ease;
+
+  &__content {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    max-width: 100vw;
+    padding: 1rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 9999;
+  }
 
-    &__content {
-        position: relative;
-        max-width: 90%;
-        max-height: 90%;
-        text-align: center;
+  &__content__close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    font-size: 2rem;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10;
+  }
 
-        &__close {
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            background: #fff;
-            border: none;
-            font-size: 2rem;
-            line-height: 1;
-            cursor: pointer;
-            padding: 0.2rem 0.6rem;
-            border-radius: 50%;
-        }
+  &__content__picture {
+    max-width: 90vw;
+    max-height: 90vh;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+  }
+}
 
-        &__picture {
-            max-width: 100%;
-            max-height: 80vh;
-        }
+// ✅ Swiper classes (globales)
 
-        &__controls {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            transform: translateY(-50%);
-            display: flex;
-            justify-content: space-between;
-            padding: 0 1rem;
-            pointer-events: none;
+:global(.swiper-wrapper){
+    align-items: center;
+}
 
-            &__arrow {
-                pointer-events: all;
-                background: rgba(0, 0, 0, 0.6); // ← fond réactivé
-                border: none;
-                cursor: pointer;
-                width: 40px;
-                height: 40px;
-                padding: 0;
-                display: flex;
-                justify-content: center;
-                align-items: center;
+:global(.swiper-slide) {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+}
 
-                &__img {
-                    width: 60%;
-                    height: 60%;
-                    object-fit: contain;
-                }
-            }
-        }
+:global(.swiper-button-prev),
+:global(.swiper-button-next) {
+  color: white;
+  font-size: 2rem;
+  &:hover {
+    color: #ccc;
+  }
+}
 
-        &__dots {
-            display: flex;
-            justify-content: center;
-            margin-top: 1rem;
-            gap: 0.5rem;
+:global(.swiper-pagination-bullet) {
+  background: rgba(255, 255, 255, 0.6);
+}
 
-            &__dot {
-                width: 10px;
-                height: 10px;
-                background-color: #ccc;
-                border-radius: 50%;
-                transition: background-color 0.3s;
+:global(.swiper-pagination-bullet-active) {
+  background: white;
+}
 
-                &.active {
-                    background-color: $primary;
-                }
-            }   
-        }
-    }
+@media (max-width: 768px) {
+  :global(.swiper-button-prev),
+  :global(.swiper-button-next) {
+    display: none;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
 }
