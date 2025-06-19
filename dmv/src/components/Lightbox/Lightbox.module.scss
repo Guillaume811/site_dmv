@@ -1,3 +1,5 @@
+@import '../../styles/variables';
+
 .overlay {
   position: fixed;
   inset: 0;
@@ -24,7 +26,7 @@
     top: 1rem;
     right: 1rem;
     font-size: 2rem;
-    color: white;
+    color: $tertiary;
     background: none;
     border: none;
     cursor: pointer;
@@ -56,7 +58,7 @@
 
 :global(.swiper-button-prev),
 :global(.swiper-button-next) {
-  color: white;
+  color: $tertiary;
   font-size: 2rem;
   &:hover {
     color: #ccc;
@@ -68,7 +70,7 @@
 }
 
 :global(.swiper-pagination-bullet-active) {
-  background: white;
+  background: $primary;
 }
 
 @media (max-width: 768px) {
