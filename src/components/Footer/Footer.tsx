@@ -92,7 +92,7 @@ const Footer: React.FC = () => {
                                 onClick={() => open(<ContactForm />)}
                                 role="button"
                             />
-                            <a href="">
+                            <a href="tel:0781950275">
                                 <img src={phoneIcon} alt="Appeler DMV - Production" className={styles.footer__right__top__contact__button__icon} />
                             </a>
                         </div>
@@ -101,10 +101,10 @@ const Footer: React.FC = () => {
                 </div>
                 <div className={styles.footer__right__bottom}>
                     <div className={styles.footer__right__bottom__social}>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/dmvproduction_/" target="_blank" rel="noopener noreferrer">
                             <img src={instagramIcon} alt="Instagram" className={styles.footer__right__bottom__social__icon} />
                         </a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/jean-baptiste-abran-927607176/" target="_blank" rel="noopener noreferrer">
                             <img src={linkedinIcon} alt="LinkedIn" className={styles.footer__right__bottom__social__icon} />
                         </a>
                     </div> 

@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./TitleSection.module.scss";
 import { motion } from "framer-motion";
 
 // Typage
