@@ -191,13 +191,20 @@ const Home: React.FC = () => {
             </ParallaxFixSection>
 
             {/*Section Nos projets*/}
-            <TitleSection title='Nos projets' 
+            <TitleSection title='Chaque projet est unique, et chaque mission raconte une histoire.' 
                 classNameSection={stylesTitlesSection.sectionPresentation}
                 classNameTitle={stylesTitlesSection.sectionPresentation__title}
                 innerRef={titleRef}
                 opacity={titleOpacity}
                 opacityOnTitleOnly={true}
             >
+                <p className={stylesTitlesSection.sectionPresentation__text}
+                    
+                >
+                    Chaque projet est unique. J’imagine et réalise, à vos côtés, des contenus visuels qui vous ressemblent : valorisation immobilière, suivi de chantier, communication viticole ou modélisation 3D de précision.<br/>
+                    Avec une approche collaborative et exigeante, je m’assure que chaque image serve pleinement vos objectifs, qu’ils soient esthétiques, techniques ou commerciaux.<br/>
+                    Découvrez ici mes dernières missions reflètant savoir-faire et passion du drone.<br/>
+                </p>
                 <ProjectGrid projects={projects} />
 
             </TitleSection>
