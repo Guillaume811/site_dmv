@@ -37,6 +37,10 @@
     background-color: $secondary;
     color: $tertiary;
     padding: 4rem 6rem;
+
+    p {
+        padding-left: 4rem;
+    }
     
 
     @media (max-width: 768px) {
@@ -49,5 +53,9 @@
 
     a {
         color: $primary;
+    }
+
+    p {
+        padding-left: 2rem;
     }
 }
