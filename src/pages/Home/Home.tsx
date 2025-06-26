@@ -177,8 +177,10 @@ const Home: React.FC = () => {
                     opacity={opacity}
                 >
                     <p>
-                        Cum haec taliaque sollicitas eius aures everberarent expositas semper eius modi rumoribus et patentes,
-                        varia animo tum miscente consilia, tandem id ut optimum factu elegit.
+                        Bienvenue sur mon portfolio professionnel.<br/><br/>
+                        Je suis télépilote de drone certifié par la DGAC (Direction Générale de l’Aviation Civile), passionné par l’image, la technologie et les perspectives inédites qu’offre la prise de vue aérienne.<br/><br/>
+                        À travers ce site, je vous propose de découvrir mes prestations spécialisées dans la <strong>captation par drone</strong>, destinées à des secteurs variés comme l’<strong>immobilier</strong>, le <strong>BTP</strong>, les <strong>domaines viticoles</strong>, l’<strong>urbanisme</strong> ou encore les <strong>événements</strong>. Mon objectif est simple : <span>valoriser vos projets</span> sous un angle nouveau, avec des <span>visuels professionnels</span>, esthétiques et pertinents.<br/><br/>
+                        Ce portfolio est à la fois une vitrine de mon savoir-faire et un espace pour vous présenter les services que je propose. Toutes les prestations sont <span>pensées sur-mesure</span>, dans le respect des normes de sécurité aérienne et des attentes de mes clients.<br/><br/>
                     </p>
                     <RowDiv 
                         leftContent={<Button text='Nos prestations' to={prestationLink?.to} />}
