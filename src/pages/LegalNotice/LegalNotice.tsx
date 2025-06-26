@@ -54,18 +54,20 @@ const LegalNotice: React.FC = () => {
                     L’utilisateur du site reconnaît disposer des compétences nécessaires pour accéder et utiliser ce site et avoir vérifié que la configuration informatique utilisée ne contient aucun virus et qu’elle est en parfait état de fonctionnement.
                 </p>
 
-                <h2>6. Gestion des cookies</h2>
-                <p>
-                    Le site utilise des cookies à des fins de mesure d’audience via Google Analytics.<br/><br/>
-                    <strong>Types de cookies utilisés :</strong><br/><br/>
-                    <strong>Cookies de mesure d’audience :</strong><br/>
-                    permettent de collecter des informations anonymes sur la navigation afin d’améliorer le contenu et l’expérience utilisateur.<br/><br/>
-                    <strong>Gestion des cookies :</strong><br/>
-                    Lors de votre première visite, un bandeau vous informe de la présence de ces cookies et vous permet d’accepter ou de refuser leur utilisation.<br/><br/>
-                    Vous pouvez à tout moment modifier vos préférences de cookies en cliquant sur le bouton de gestion des cookies présent en bas de page (ou selon l’emplacement défini sur le site).<br/><br/>
-                    Pour en savoir plus sur la gestion des cookies par Google Analytics, consultez la page : <a href="https://policies.google.com/technologies/cookies?hl=fr">policies.google.com</a>
-                </p>
-
+                <div id="confidential">
+                    <h2>6. Gestion des cookies</h2>
+                    <p>
+                        Le site utilise des cookies à des fins de mesure d’audience via Google Analytics.<br/><br/>
+                        <strong>Types de cookies utilisés :</strong><br/><br/>
+                        <strong>Cookies de mesure d’audience :</strong><br/>
+                        permettent de collecter des informations anonymes sur la navigation afin d’améliorer le contenu et l’expérience utilisateur.<br/><br/>
+                        <strong>Gestion des cookies :</strong><br/>
+                        Lors de votre première visite, un bandeau vous informe de la présence de ces cookies et vous permet d’accepter ou de refuser leur utilisation.<br/><br/>
+                        Vous pouvez à tout moment modifier vos préférences de cookies en cliquant sur le bouton de gestion des cookies présent en bas de page (ou selon l’emplacement défini sur le site).<br/><br/>
+                        Pour en savoir plus sur la gestion des cookies par Google Analytics, consultez la page : <a href="https://policies.google.com/technologies/cookies?hl=fr">policies.google.com</a>
+                    </p>
+                </div>
+                
                 <h2>7. Politique de confidentialité</h2>
                 <p>
                     <strong>Données collectées via le formulaire de contact :</strong><br/><br/>
