@@ -27,7 +27,7 @@ const LegalNotice: React.FC = () => {
                     <ul>
                         <li><strong>Le site est hébergé par :</strong> Netlify, Inc.</li>
                         <li><strong>Adresse :</strong> 512 2nd Street, Fl 2, San Francisco, CA 94107</li>
-                        <li><strong>Site web :</strong> <a href="https://www.netlify.com/">netlify.com</a></li>
+                        <li><strong>Site web :</strong> <a target='blank' href="https://www.netlify.com/">netlify.com</a></li>
                     </ul>
                 </p>
 
@@ -64,7 +64,7 @@ const LegalNotice: React.FC = () => {
                         <strong>Gestion des cookies :</strong><br/>
                         Lors de votre première visite, un bandeau vous informe de la présence de ces cookies et vous permet d’accepter ou de refuser leur utilisation.<br/><br/>
                         Vous pouvez à tout moment modifier vos préférences de cookies en cliquant sur le bouton de gestion des cookies présent en bas de page (ou selon l’emplacement défini sur le site).<br/><br/>
-                        Pour en savoir plus sur la gestion des cookies par Google Analytics, consultez la page : <a href="https://policies.google.com/technologies/cookies?hl=fr">policies.google.com</a>
+                        Pour en savoir plus sur la gestion des cookies par Google Analytics, consultez la page : <a target='blank' href="https://policies.google.com/technologies/cookies?hl=fr">policies.google.com</a>
                     </p>
                 </div>
                 
@@ -94,7 +94,7 @@ const LegalNotice: React.FC = () => {
                     Pour exercer vos droits, vous pouvez contacter : Drone My View Production<br/>
                     Email : <a href="mailto:dmv.production@outlook.fr">dmv.production@outlook.fr</a><br/>
                     Adresse : 10 rue de la gare 13860 Peyrolles-en-Provence France<br/><br/>
-                    En cas de non-réponse satisfaisante, vous avez la possibilité de déposer une réclamation auprès de la CNIL : <a href="https://www.cnil.fr">cnil.fr</a>
+                    En cas de non-réponse satisfaisante, vous avez la possibilité de déposer une réclamation auprès de la CNIL : <a target='blank' href="https://www.cnil.fr">cnil.fr</a>
                 </p>
 
                 <h2>8. Loi applicable</h2>
