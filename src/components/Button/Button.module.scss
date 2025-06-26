@@ -7,19 +7,23 @@
     padding: 1rem 2rem;
     border: none;
     text-decoration: none;
-    background-color: #ffef0c;
+    background-color: $primary;
     font-family: $font-subtitile, sans-serif;
     font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     text-align: center;
-    color: #000;
+    color: $secondary;
+}
+
+.button:hover .content {
+    color: $primary;
 }
 
 .maskedGreen {
     position: absolute;
     inset: 0;
-    background-color: #000;
+    background-color: $secondary;
     border: solid 2px $primary; 
     z-index: 0;
     pointer-events: none;
