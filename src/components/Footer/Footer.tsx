@@ -1,5 +1,6 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { NavLink, useLocation } from 'react-router-dom';
+import { HashLink } from 'react-router-hash-link';
 import { navLinks } from '../../data/navigationLinks';
 import { useModal } from "../Modal/ModalContext";
 import ContactForm from '../ContactForm/ContatcForm';
@@ -42,6 +43,18 @@ const Footer: React.FC = () => {
     const currentYear = new Date().getFullYear();
     const { open } = useModal();
 
+    const { hash } = useLocation();
+
+    useEffect(() => {
+        if (hash) {
+        const id = hash.replace('#', '');
+        const element = document.getElementById(id);
+        if (element) {
+            element.scrollIntoView({ behavior: 'smooth' });
+        }
+        }
+    }, [hash]);
+
     return (
         <footer className={styles.footer}>
             <div className={styles.footer__left}>
@@ -74,9 +87,9 @@ const Footer: React.FC = () => {
                             </NavLink>
                         </li>
                         <li className={styles.footer__right__top__nav__list__items}>
-                            <NavLink to='/legal' className={styles.footer__right__top__nav__list__items__link}>
+                            <HashLink smooth to='/legal#confidential' className={styles.footer__right__top__nav__list__items__link}>
                                 Confidentialité
-                            </NavLink>
+                            </HashLink>
                         </li>
                     </ul>
                     </div>
