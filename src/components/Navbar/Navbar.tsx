@@ -129,10 +129,10 @@ const Navbar: React.FC = () => {
                     </ul>
 
                     <div className={styles.navbar__mobileMenu__socials}>
-                        <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.instagram.com/dmvproduction_/" target="_blank" rel="noopener noreferrer">
                             <img src={instagramIcon} alt="Instagram" />
                         </a>
-                        <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer">
+                        <a href="https://www.linkedin.com/in/jean-baptiste-abran-927607176/" target="_blank" rel="noopener noreferrer">
                             <img src={linkedinIcon} alt="LinkedIn" />
                         </a>
                     </div>
