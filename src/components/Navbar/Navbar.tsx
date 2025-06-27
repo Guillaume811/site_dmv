@@ -4,7 +4,7 @@ import { useModal } from "../Modal/ModalContext";
 import Button from "../Button/Button";
 import ContactForm from "../ContactForm/ContatcForm";
 import styles from "./Navbar.module.scss";
-import logo from "../../assets/pictures/logo.png";
+import logo from "../../assets/pictures/logo-white.png";
 import { getNavigationLink, getNavigationLinksExcluding } from "../../data/navigationLinks";
 import linkedinIcon from "../../assets/pictures/icons/linkedin-black.png";
 import instagramIcon from "../../assets/pictures/icons/instagram-black.png";
