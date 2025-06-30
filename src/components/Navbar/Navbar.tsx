@@ -6,8 +6,10 @@ import ContactForm from "../ContactForm/ContatcForm";
 import styles from "./Navbar.module.scss";
 import logo from "../../assets/pictures/logo-white.png";
 import { getNavigationLink, getNavigationLinksExcluding } from "../../data/navigationLinks";
-import linkedinIcon from "../../assets/pictures/icons/linkedin-black.png";
-import instagramIcon from "../../assets/pictures/icons/instagram-black.png";
+import linkedinIcon from "../../assets/pictures/icons/linkedin-white.webp";
+import instagramIcon from "../../assets/pictures/icons/instagram-white.webp";
+import phoneIcon from "../../assets/pictures/icons/telephone-white.webp";
+import mailIcon from "../../assets/pictures/icons/mail-white.webp";
 
 /* Component Navbar
 * Render logic :
@@ -129,6 +131,12 @@ const Navbar: React.FC = () => {
                     </ul>
 
                     <div className={styles.navbar__mobileMenu__socials}>
+                        <a href="mailto:dmv.production@outlook.fr">
+                            <img src={mailIcon} alt="Envoyer un e-mail" />
+                        </a>
+                        <a href="tel:0781950275">
+                            <img src={phoneIcon} alt="Appel" />
+                        </a>
                         <a href="https://www.instagram.com/dmvproduction_/" target="_blank" rel="noopener noreferrer">
                             <img src={instagramIcon} alt="Instagram" />
                         </a>

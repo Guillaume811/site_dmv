@@ -36,13 +36,14 @@
         border: none;
         cursor: pointer;
         z-index: 15;
+        color: $tertiary;
 
         @media (max-width: 768px) {
             display: block;
         }
 
         &.open {
-            color: $secondary;
+            color: $tertiary;
         } 
     }
 
@@ -107,7 +108,7 @@
             padding: 0 1.5rem;
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
-            background: rgba(255, 255, 255);
+            background: $secondary;
             z-index: 10;
             transition: left 0.3s ease;
 
@@ -132,12 +133,12 @@
                 &__link {
                     position: relative;
                     text-decoration: none;
-                    color: $secondary;
+                    color: $tertiary;
                     font-size: 1.2rem;
                     font-weight: bold;
 
                     &:visited {
-                    color: $secondary;
+                    color: $tertiary;
                     }
 
                     &::after {
@@ -147,7 +148,7 @@
                     bottom: 0;
                     width: 0;
                     height: 2px;
-                    background-color: $secondary;
+                    background-color: $tertiary;
                     transition: all 0.3s ease;
                     transform: translateX(-50%);
                     }
@@ -168,7 +169,7 @@
                 justify-content: center;
                 gap: 2rem;
                 padding: 1rem 0 2rem 0;
-                border-top: 1px solid $secondary;
+                border-top: 1px solid $tertiary;
 
                 a {
                 display: flex;
