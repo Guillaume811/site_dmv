@@ -34,11 +34,6 @@ const CardPrestation: React.FC<CardPrestationProps> = ({ prestation }) => {
                     alt={prestation.pictoAlt}
                     className={styles.card__top__picto}
                 />
-                <img 
-                    src={prestation.number} 
-                    alt={prestation.numberAlt}
-                    className={styles.card__top__number}
-                />
             </div>
             <div className={styles.card__bottom}>
                 <TitleCard
@@ -46,11 +41,11 @@ const CardPrestation: React.FC<CardPrestationProps> = ({ prestation }) => {
                 title={prestation.title}
                 subtitle={prestation.shortDescription}
             />
+            </div>
             <Button 
                 to={prestation.slug}
                 text='Découvrir'
             />
-            </div>
         </Link>
     );
 };
