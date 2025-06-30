@@ -2,10 +2,8 @@
     {
         "id": 1,
         "slug": "/",
-        "picto": "/pictures/presta/presta-1/picto-drone.webp",
-        "pictoAlt": "Drone",
-        "number": "/pictures/presta/presta-1/number-1.webp",
-        "numberAlt": "01",
+        "picto": "/pictures/presta/presta-1/picto-clap.webp",
+        "pictoAlt": "Clap de cinéma",
         "title": "Projet de A à Z – Sublimez votre perspective",
         "shortDescription": "De l’écriture du script à la magie de la post-production, je prends en charge chaque étape de votre projet pour créer un contenu percutant, à votre image.",
         "description": "Je suis la description qui ira dans la présentation de la prestation."
@@ -14,9 +12,7 @@
         "id": 2,
         "slug": "/",
         "picto": "/pictures/presta/presta-2/picto-photogrammetrie.webp",
-        "pictoAlt": "Drone Photogrammétrie",
-        "number": "/pictures/presta/presta-2/number-2.webp",
-        "numberAlt": "02",
+        "pictoAlt": "Photogrammétrie",
         "title": "Photogrammétrie – Des clichés aériens précis pour vos relevés",
         "shortDescription": "De la hauteur naissent vos projets : je capture le relief et les détails, pour vous livrer des clichés sur mesure et de qualitées.",
         "description": "Je suis la description qui ira dans la présentation de la prestation."
@@ -26,8 +22,6 @@
         "slug": "/",
         "picto": "/pictures/presta/presta-3/picto-chantier.webp",
         "pictoAlt": "Chantier",
-        "number": "/pictures/presta/presta-3/number-3.webp",
-        "numberAlt": "03",
         "title": "Suivi de chantier – Visualisez, contrôlez, archivez",
         "shortDescription": "Assurez le suivi visuel de vos chantiers avec des captations aériennes régulières, pour garder le contrôle à chaque étape.",
         "description": "Je suis la description qui ira dans la présentation de la prestation."
@@ -37,8 +31,6 @@
         "slug": "/",
         "picto": "/pictures/presta/presta-4/picto-valorisation.webp",
         "pictoAlt": "Valorisation",
-        "number": "/pictures/presta/presta-4/number-4.webp",
-        "numberAlt": "04",
         "title": "Valorisation immobilière & domaines viticoles",
         "shortDescription": "Offrez à votre communication un point de vue unique, puissant et mémorable grâce aux prises de vue aériennes.",
         "description": "Je suis la description qui ira dans la présentation de la prestation."
