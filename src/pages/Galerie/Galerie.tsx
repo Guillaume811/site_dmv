@@ -6,6 +6,7 @@ import stylesBasicSection from "../../components/sections/BasicSection/BasicSect
 import BackgroundHeading from '../../assets/pictures/background/heading.jpg';
 import { GalleryType } from '../../types/gallery.types';
 import { GalleryService } from '../../services/GalleryService';
+import ContactSection from '../../components/sections/ContactSection/ContactSection';
 
 /* Component Page Galerie
 * Render logic :
@@ -47,6 +48,8 @@ const Galerie: React.FC = () => {
                 )}
 
             </BasicSection>
+
+            <ContactSection />
         </div>
     );
 };

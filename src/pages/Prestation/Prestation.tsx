@@ -6,6 +6,7 @@ import AccordionTab from "../../components/AccordionTab/AccordionTab";
 import useIsMobile from "../../hooks/useIsMobile";
 import stylesBasicSection from "../../components/sections/BasicSection/BasicSection.module.scss";
 import BackgroundHeading from '../../assets/pictures/background/heading.jpg';
+import ContactSection from '../../components/sections/ContactSection/ContactSection';
 
 /* Component Page Prestation
 * Render logic :
@@ -28,6 +29,8 @@ const Prestation: React.FC = () => {
             <BasicSection className={stylesBasicSection.sectionPage}>
                 {isMobile ? <AccordionTab /> : <TabsPrestation />}
             </BasicSection>
+
+            <ContactSection />
             
         </div>
     );

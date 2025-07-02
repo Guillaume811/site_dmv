@@ -6,6 +6,7 @@ import stylesBasicSection from "../../components/sections/BasicSection/BasicSect
 import BackgroundHeading from '../../assets/pictures/background/heading.jpg';
 import { ProjectType } from '../../types/project.types';
 import { ProjectService } from '../../services/ProjectService';
+import ContactSection from '../../components/sections/ContactSection/ContactSection';
 
 /* Component Page Projets
 * Render logic :
@@ -46,7 +47,7 @@ const Projet: React.FC = () => {
                 
             </BasicSection>
 
-                
+            <ContactSection /> 
         </div>
     );
 };

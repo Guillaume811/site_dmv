@@ -6,6 +6,7 @@ import GalleryGrid from '../../components/grid/GalleryGrid/GalleryGrid';
 import stylesTitlesSection from "../../components/sections/TitleSection/TitleSection.module.scss";
 import { ProjectType } from '../../types/project.types';
 import { ProjectService } from '../../services/ProjectService';
+import ContactSection from '../../components/sections/ContactSection/ContactSection';
 
 /* Component Page SingleProject
 * This is a dynamic page.
@@ -64,6 +65,8 @@ const SingleProject: React.FC = () => {
                 
 
             </TitleSection>
+
+            <ContactSection />
         </div>
         
 
