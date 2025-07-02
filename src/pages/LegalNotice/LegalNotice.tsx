@@ -3,6 +3,7 @@ import HeadingSection from '../../components/sections/HeadingSection/HeadingSect
 import BasicSection from '../../components/sections/BasicSection/BasicSection';
 import stylesBasicSection from "../../components/sections/BasicSection/BasicSection.module.scss";
 import BackgroundHeading from '../../assets/pictures/background/heading.jpg';
+import CookieSettings from '../../components/CookieSetting/CookieSetting';
 
 const LegalNotice: React.FC = () => {
     return (
@@ -66,6 +67,8 @@ const LegalNotice: React.FC = () => {
                         Vous pouvez à tout moment modifier vos préférences de cookies en cliquant sur le bouton de gestion des cookies présent en bas de page (ou selon l’emplacement défini sur le site).<br/><br/>
                         Pour en savoir plus sur la gestion des cookies par Google Analytics, consultez la page : <a target='blank' href="https://policies.google.com/technologies/cookies?hl=fr">policies.google.com</a>
                     </p>
+
+                    <CookieSettings />
                 </div>
                 
                 <h2>7. Politique de confidentialité</h2>
