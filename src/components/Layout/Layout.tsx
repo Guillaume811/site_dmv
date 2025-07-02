@@ -1,6 +1,7 @@
 import { Outlet } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Footer from "../Footer/Footer";
+import CookieBanner from "../CookieBanner/CookieBanner";
 
 /* Component Layout
 * Returns a fragment that includes the full page layout.
@@ -18,6 +19,7 @@ const Layout = () => {
                 <Outlet />
             </main>
             <Footer />
+            <CookieBanner />
         </>
     );
 };
