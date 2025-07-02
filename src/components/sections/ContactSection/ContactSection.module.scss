@@ -1,0 +1,8 @@
+@import '../../../styles/variables.scss';
+
+.container {
+    background-color: $secondary;
+    padding: 4rem 0;
+    display: flex;
+    justify-content: center;
+}
